@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active" @change="handleTabChange">
+    <van-tabs v-model:active="active">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, toRefs, computed, nextTick, onMounted } from 'vue'
+import {  reactive, toRefs, computed,  onMounted } from 'vue'
 
 import chapterOneSectionOne from '@/components/chapterOne/chapterOneSectionOne.vue'
 import chapterOneSectionTwo from '@/components/chapterOne/chapterOneSectionTwo.vue'
@@ -25,6 +25,7 @@ const state = reactive({
 const { active, tabs } = toRefs(state)
 
 const handleActiveUpdate = (key) => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   switch (key) {
     case '祖屋奇遇2繁':
       state.active = 1
