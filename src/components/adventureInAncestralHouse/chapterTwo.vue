@@ -226,7 +226,7 @@
     :draggable="true"
     :resizable="false"
   >
-    <img class="translate" src="@/assets/images/繁简.png" @click="handleTranslateClick" />
+    <img class="translate" src="@/assets/images/translate.png" @click="handleTranslateClick" />
   </Vue3DraggableResizable>
 </template>
 
@@ -256,14 +256,14 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', '祖屋奇遇3')
+      emit('update:active', 2)
       break
     case '常日昳':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', '祖屋奇遇3')
+      emit('update:active', 2)
       break
     default:
       state.answer = ''

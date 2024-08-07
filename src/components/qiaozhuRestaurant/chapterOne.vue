@@ -1,12 +1,4 @@
 <template>
-  <div class="paragraph">
-    <p class="normal">
-      这段犹如入侵一般的记忆再次先于你的视觉出现。但是经过了之前的经历，你已经学会了怎么顺其自然的接受它了。
-      就在参与到这个幻境期间，你发现这些入侵的记忆的细节都非常的丰满。你甚至能闻到旁边黄皮树的味道....
-      你不由 得有个想法... 就在你想法还没成型之前，环境消失了。取而代之的就是你原本想看到的内容...
-    </p>
-  </div>
-
   <h2 style="text-align: center; color: #1a0d00">橋珠酒家欢迎你</h2>
 
   <div class="paragraph">
@@ -64,7 +56,7 @@
 import { defineEmits } from 'vue'
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {
-  emit('update:active', '仁信1938')
+  emit('update:active', 7)
 }
 </script>
 

@@ -33,7 +33,7 @@
 import { defineEmits } from 'vue'
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {
-  emit('update:active', '祖屋奇遇4')
+  emit('update:active', 3)
 }
 </script>
 

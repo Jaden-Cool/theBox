@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active" v-show="false">
+    <van-tabs v-model:active="active">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -15,102 +15,82 @@
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
-import chapterOneSectionOne from '@/components/chapterOne/chapterOneSectionOne.vue'
-import chapterOneSectionTwo from '@/components/chapterOne/chapterOneSectionTwo.vue'
-import chapterOneSectionThree from '@/components/chapterOne/chapterOneSectionThree.vue'
-import chapterOneSectionFour from '@/components/chapterOne/chapterOneSectionFour.vue'
-import chapterTwoSectionOne from '@/components/chapterTwo/chapterTwoSectionOne.vue'
-import chapterTwoSectionTwo from '@/components/chapterTwo/chapterTwoSectionTwo.vue'
-import chapterThreeSectionOne from '@/components/chapterThree/chapterThreeSectionOne.vue'
-import chapterFourSectionOne from '@/components/chapterFour/chapterFourSectionOne.vue'
-import chapterFourSectionTwo from '@/components/chapterFour/chapterFourSectionTwo.vue'
-import chapterFourSectionThree from '@/components/chapterFour/chapterFourSectionThree.vue'
+// 祖屋奇遇
+import adventureInAncestralHouseChapterOne from '@/components/adventureInAncestralHouse/chapterOne.vue'
+import adventureInAncestralHouseChapterTwo from '@/components/adventureInAncestralHouse/chapterTwo.vue'
+import adventureInAncestralHouseChapterThree from '@/components/adventureInAncestralHouse/chapterThree.vue'
+import adventureInAncestralHouseChapterFour from '@/components/adventureInAncestralHouse/chapterFour.vue'
+// 常日昳
+import juvenileChapterOne from '@/components/juvenile/chapterOne.vue'
+import juvenileChapterTwo from '@/components/juvenile/chapterTwo.vue'
+// 常家后人
+import changDescendantsChapterOne from '@/components/changDescendants/chapterOne.vue'
+// 青云文社pv
+import qingyunLiteratureSociety from '@/components/qingyunLiteratureSociety/chapterOne.vue'
+// 橋珠酒家pv
+// import qiaozhuRestaurantChapterOne from '@/components/qiaozhuRestaurant/chapterOne.vue'
+import qiaozhuRestaurantChapterTwo from '@/components/qiaozhuRestaurant/chapterTwo.vue'
+import qiaozhuRestaurantChapterThree from '@/components/qiaozhuRestaurant/chapterThree.vue'
 
 const state = reactive({
   tabs: [
-    { id: 0, active: '1-1', title: '祖屋奇遇', name: '祖屋奇遇' },
-    { id: 1, active: '1-2', title: '祖屋奇遇2', name: '祖屋奇遇2' },
-    { id: 2, active: '1-3', title: '祖屋奇遇3', name: '祖屋奇遇3' },
-    { id: 3, active: '1-4', title: '祖屋奇遇4', name: '祖屋奇遇4' },
-    { id: 4, active: '2-1', title: '常日昳1', name: '常日昳1' },
-    { id: 5, active: '2-2', title: '常日昳2', name: '常日昳2' },
-    { id: 6, active: '3-1', title: '常家后人', name: '常家后人' },
-    { id: 7, active: '4-1', title: '橋珠酒家', name: '橋珠酒家' },
-    { id: 8, active: '4-2', title: '仁信1938', name: '仁信1938' },
-    { id: 9, active: '4-3', title: '开天眼', name: '开天眼' },
+    { id: 0, title: '祖屋奇遇1' },
+    { id: 1, title: '祖屋奇遇2' },
+    { id: 2, title: '祖屋奇遇3' },
+    { id: 3, title: '祖屋奇遇4' },
+    { id: 4, title: '常日昳1' },
+    { id: 5, title: '常日昳2' },
+    { id: 6, title: '常家后人' },
+    { id: 7, title: '青云文社pv' },
+    { id: 8, title: '橋珠酒家pv' },
+    { id: 9, title: '红荔pv' },
+    { id: 10, title: '前往曲水湾' },
+    // { id: 7, title: '橋珠酒家' },
+    // { id: 8, title: '仁信1938' },
+    // { id: 9, title: '开天眼' }
   ],
-  active: '1-1',
+  active: '0',
   isAtBottom: false
 })
 const { active, tabs, isAtBottom } = toRefs(state)
 
-const handleActiveUpdate = (key) => {
+const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  switch (key) {
-    case '祖屋奇遇2':
-      state.active = 1
-      break
-    case '祖屋奇遇3':
-      state.active = 2
-      break
-    case '祖屋奇遇4':
-      state.active = 3
-      break
-    case '常日昳1':
-      state.active = 4
-      break
-    case '常日昳2':
-      state.active = 5
-      break
-    case '常家后人':
-      state.active = 6
-      break
-    case '橋珠酒家':
-      state.active = 7
-      break
-    case '仁信1938':
-      state.active = 8
-      break
-    case '开天眼':
-      state.active = 9
-      break
-    default:
-      break
-  }
+  state.active = active
 }
 
 const currentComponent = computed(() => {
   if (+state.active === 0) {
-    return chapterOneSectionOne
+    return adventureInAncestralHouseChapterOne
   }
   if (+state.active === 1) {
-    return chapterOneSectionTwo
+    return adventureInAncestralHouseChapterTwo
   }
   if (+state.active === 2) {
-    return chapterOneSectionThree
+    return adventureInAncestralHouseChapterThree
   }
   if (+state.active === 3) {
     handleScroll()
-    return chapterOneSectionFour
+    return adventureInAncestralHouseChapterFour
   }
   if (+state.active === 4) {
     handleScroll()
-    return chapterTwoSectionOne
+    return juvenileChapterOne
   }
   if (+state.active === 5) {
-    return chapterTwoSectionTwo
+    return juvenileChapterTwo
   }
   if (+state.active === 6) {
-    return chapterThreeSectionOne
+    return changDescendantsChapterOne
   }
   if (+state.active === 7) {
-    return chapterFourSectionOne
+    return qingyunLiteratureSociety
   }
   if (+state.active === 8) {
-    return chapterFourSectionTwo
+    return qiaozhuRestaurantChapterTwo
   }
   if (+state.active === 9) {
-    return chapterFourSectionThree
+    return qiaozhuRestaurantChapterThree
   }
   return null
 })

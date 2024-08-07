@@ -21,7 +21,7 @@
       产业。
     </p>
 
-    <img src="@/assets/images/甘蔗女.jpeg" />
+    <img src="@/assets/images/female.jpeg" />
 
     <p class="normal">“成日跌，你爹几时回来啊？除了我都好久没见过常叔叔了。”</p>
 
@@ -65,15 +65,13 @@
       女都能上学的家庭。坚韧的常惜端和勤劳的瀘紹年深知教育的重要性。为了转型生存，也为了谋求更好的机会，常惜端后经人介绍
       去了广州开厂，谁曾想到……
     </p>
-    <img src="@/assets/images/三世书.png" />
-    <p class="center" >【阅读三世书，按照常惜端信中的农历日期得出三字】</p>
-    <p class="center" >
+    <img src="@/assets/images/book.png" />
+    <p class="center">【阅读三世书，按照常惜端信中的农历日期得出三字】</p>
+    <p class="center">
       可以使用以下网站作为辅助：
       <a href="https://wannianrili.bmcx.com" target="_blank">https://wannianrili.bmcx.com</a>
     </p>
-    <p class="center" >
-      请把这个万年历网站用手机浏览器打开并保留，后面还会用到。
-    </p>
+    <p class="center">请把这个万年历网站用手机浏览器打开并保留，后面还会用到。</p>
 
     <p style="display: flex; align-items: center; justify-content: center" class="center">
       <van-cell-group inset>
@@ -105,7 +103,7 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', '常日昳2')
+      emit('update:active', 5)
       break
     default:
       state.answer = ''

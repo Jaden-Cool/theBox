@@ -99,7 +99,7 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', '祖屋奇遇2')
+      emit('update:active', 1)
       break
     default:
       showToast({

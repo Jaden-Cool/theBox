@@ -45,7 +45,7 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', '常家后人')
+      emit('update:active', 6)
       break
     default:
       state.answer = ''

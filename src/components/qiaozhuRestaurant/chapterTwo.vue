@@ -94,7 +94,7 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', '开天眼')
+      emit('update:active', 9)
       break
     default:
       state.answer = ''
