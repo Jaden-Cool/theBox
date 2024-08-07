@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import 'vant/es/toast/style'
+import 'vant/es/dialog/style'
 </script>
 
 <template>

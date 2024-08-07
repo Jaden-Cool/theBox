@@ -92,18 +92,18 @@
       <van-cell-group inset>
         <van-field v-model="answer" />
       </van-cell-group>
-      <van-button plain hairline class="floating-btn" @click="handleConfirmClick">确认</van-button>
+      <van-button plain hairline @click="handleConfirmClick">确认</van-button>
     </p>
   </div>
 
-  <van-back-top class="floating-btn" offset="1000">提示</van-back-top>
+  <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
-import { showToast } from 'vant'
-import { reactive, toRefs, defineEmits } from 'vue'
+import { showToast, showDialog } from 'vant'
+import { reactive, toRefs, defineEmits, defineProps } from 'vue'
 const emit = defineEmits(['update:active'])
-
+const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
 })
@@ -120,6 +120,13 @@ const handleConfirmClick = () => {
       })
       emit('update:active', '祖屋奇遇3')
       break
+    case '常日昳':
+      showToast({
+        message: '恭喜，回答正确',
+        icon: 'success'
+      })
+      emit('update:active', '祖屋奇遇3')
+      break
     default:
       showToast({
         message: '不正确，请再试一次，或者考虑一下看提示哦~',
@@ -127,6 +134,11 @@ const handleConfirmClick = () => {
       })
       break
   }
+}
+const handleFloatingBtnClick = () => {
+  showDialog({
+    message: '从瀘紹年的信件里面推算出孩子出生的时辰时间，可以细看日晷的外围有时间'
+  }).then(() => {})
 }
 </script>
 

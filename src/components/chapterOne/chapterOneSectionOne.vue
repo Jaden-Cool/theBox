@@ -73,18 +73,18 @@
       <van-cell-group inset>
         <van-field maxlength="3" show-word-limit v-model="answer" />
       </van-cell-group>
-      <van-button plain hairline class="floating-btn" @click="handleConfirmClick">确认</van-button>
+      <van-button plain hairline @click="handleConfirmClick">确认</van-button>
     </p>
   </div>
 
-  <van-back-top class="floating-btn" offset="1000">提示</van-back-top>
+  <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
-import { showToast } from 'vant'
-import { reactive, toRefs, defineEmits } from 'vue'
+import { showToast, showDialog } from 'vant'
+import { reactive, toRefs, defineEmits, defineProps } from 'vue'
 const emit = defineEmits(['update:active'])
-
+const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
 })
@@ -108,6 +108,9 @@ const handleConfirmClick = () => {
       })
       break
   }
+}
+const handleFloatingBtnClick = () => {
+  showDialog({ message: '看盒子右下角' }).then(() => {})
 }
 </script>
 
