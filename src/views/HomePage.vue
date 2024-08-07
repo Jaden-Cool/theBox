@@ -28,9 +28,9 @@ import changDescendantsChapterOne from '@/components/changDescendants/chapterOne
 // 青云文社pv
 import qingyunLiteratureSociety from '@/components/qingyunLiteratureSociety/chapterOne.vue'
 // 橋珠酒家pv
-// import qiaozhuRestaurantChapterOne from '@/components/qiaozhuRestaurant/chapterOne.vue'
-import qiaozhuRestaurantChapterTwo from '@/components/qiaozhuRestaurant/chapterTwo.vue'
-import qiaozhuRestaurantChapterThree from '@/components/qiaozhuRestaurant/chapterThree.vue'
+import qiaozhuRestaurant from '@/components/qiaozhuRestaurant/chapterOne.vue'
+// 红荔pv
+import HONGLI from '@/components/HONGLI/chapterOne.vue'
 
 const state = reactive({
   tabs: [
@@ -44,10 +44,6 @@ const state = reactive({
     { id: 7, title: '青云文社pv' },
     { id: 8, title: '橋珠酒家pv' },
     { id: 9, title: '红荔pv' },
-    { id: 10, title: '前往曲水湾' },
-    // { id: 7, title: '橋珠酒家' },
-    // { id: 8, title: '仁信1938' },
-    // { id: 9, title: '开天眼' }
   ],
   active: '0',
   isAtBottom: false
@@ -87,10 +83,10 @@ const currentComponent = computed(() => {
     return qingyunLiteratureSociety
   }
   if (+state.active === 8) {
-    return qiaozhuRestaurantChapterTwo
+    return qiaozhuRestaurant
   }
   if (+state.active === 9) {
-    return qiaozhuRestaurantChapterThree
+    return HONGLI
   }
   return null
 })
