@@ -23,6 +23,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
+    "less": "^4.2.0",
     "postcss": "^8.4.41",
     "postcss-loader": "^8.1.1",
     "postcss-px-to-viewport": "^1.1.1",
