@@ -14,28 +14,30 @@
 
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { debounce } from '@/utils'
-// 食神之鼎
-import home from '@/components/ritualVessel/homePage.vue'
-// 食神之鼎青云
-import branchOne from '@/components/ritualVessel/branchOne.vue'
-// 口味甜
-import sweetTaste from '@/components/ritualVessel/sweetTaste.vue'
-// 云
-import theStoryOfCloud from '@/components/ritualVessel/theStoryOfCloud.vue'
-// 三字经
-// import threeWordPrimer from '@/components/ritualVessel/threeWordPrimer.vue'
+// 渡西江
+import crossTheWestRiver from '@/components/westRiver/crossTheWestRiver.vue'
+// 西江阳
+import theWestRiverYang from '@/components/westRiver/theWestRiverYang.vue'
+// 回到现实
+import backToReality from '@/components/westRiver/backToReality.vue'
+// 西江阴
+import backToRealityYin from '@/components/westRiver/backToRealityYin.vue'
+// 暗号
+import codeName from '@/components/westRiver/codeName.vue'
+
+const route = useRoute()
+
 const state = reactive({
   tabs: [
-    { id: 0, title: '食神之鼎' },
-    { id: 1, title: '食神之鼎青云' },
-    { id: 2, title: '口味甜' },
-    { id: 3, title: '云' }
-    // { id: 4, title: '三字经' },
-    // { id: 1, title: '食神之鼎酒家' },
-    // { id: 2, title: '食神之鼎红荔' },
+    { id: 0, title: '渡西江' },
+    { id: 1, title: '西江阳' },
+    { id: 2, title: '回到现实' },
+    { id: 3, title: '西江阴' },
+    { id: 4, title: '暗号' }
   ],
-  active: '0',
+  active: 0,
   isAtBottom: false
 })
 const { active, tabs, isAtBottom } = toRefs(state)
@@ -47,20 +49,20 @@ const handleActiveUpdate = (active) => {
 
 const currentComponent = computed(() => {
   if (+state.active === 0) {
-    return home
+    return crossTheWestRiver
   }
   if (+state.active === 1) {
-    return branchOne
+    return theWestRiverYang
   }
   if (+state.active === 2) {
-    return sweetTaste
+    return backToReality
   }
   if (+state.active === 3) {
-    return theStoryOfCloud
+    return backToRealityYin
   }
-  // if (+state.active === 4) {
-  //   return threeWordPrimer
-  // }
+  if (+state.active === 4) {
+    return codeName
+  }
   return null
 })
 
@@ -88,6 +90,9 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
+  if (route.query.active) {
+    state.active = +route.query.active
+  }
   window.addEventListener('scroll', debouncedHandleScroll)
 })
 

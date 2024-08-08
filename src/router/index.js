@@ -49,6 +49,36 @@ const router = createRouter({
       name: 'ClairvoyancePage',
       meta: { title: '开天眼' },
       component: () => import('@/views/ClairvoyancePage.vue')
+    },
+    {
+      path: '/TheCalamityOfQiaoZhuRestaurant',
+      name: 'TheCalamityOfQiaoZhuRestaurant',
+      meta: { title: '橋珠酒家的劫难' },
+      component: () => import('@/views/TheCalamityOfQiaoZhuRestaurant.vue')
+    },
+    {
+      path: '/ReconstructionOfQiaoZhuRestaurant',
+      name: 'ReconstructionOfQiaoZhuRestaurant',
+      meta: { title: '橋珠酒家重建' },
+      component: () => import('@/views/ReconstructionOfQiaoZhuRestaurant.vue')
+    },
+    {
+      path: '/TheRoadToSuccess',
+      name: 'TheRoadToSuccess',
+      meta: { title: '青云之路' },
+      component: () => import('@/views/TheRoadToSuccess.vue')
+    },
+    {
+      path: '/TheWestRiver',
+      name: 'TheWestRiver',
+      meta: { title: '西江' },
+      component: () => import('@/views/TheWestRiver.vue')
+    },
+    {
+      path: '/StoneGate',
+      name: 'StoneGate',
+      meta: { title: '石门' },
+      component: () => import('@/views/StoneGate.vue')
     }
   ]
 })

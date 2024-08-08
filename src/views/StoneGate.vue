@@ -15,25 +15,20 @@
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
-// 食神之鼎
-import home from '@/components/ritualVessel/homePage.vue'
-// 食神之鼎青云
-import branchOne from '@/components/ritualVessel/branchOne.vue'
-// 口味甜
-import sweetTaste from '@/components/ritualVessel/sweetTaste.vue'
-// 云
-import theStoryOfCloud from '@/components/ritualVessel/theStoryOfCloud.vue'
-// 三字经
-// import threeWordPrimer from '@/components/ritualVessel/threeWordPrimer.vue'
+// 石门
+import stoneGate from '@/components/stoneGate/homePage.vue'
+// 更迭信物
+import exchangeOfKeepsakes from '@/components/stoneGate/exchangeOfKeepsakes.vue'
+// 徘徊
+import lingerAround from '@/components/stoneGate/lingerAround.vue'
+// 改命
+import changeDestiny from '@/components/stoneGate/changeDestiny.vue'
 const state = reactive({
   tabs: [
-    { id: 0, title: '食神之鼎' },
-    { id: 1, title: '食神之鼎青云' },
-    { id: 2, title: '口味甜' },
-    { id: 3, title: '云' }
-    // { id: 4, title: '三字经' },
-    // { id: 1, title: '食神之鼎酒家' },
-    // { id: 2, title: '食神之鼎红荔' },
+    { id: 0, title: '石门' },
+    { id: 1, title: '更迭信物' },
+    { id: 2, title: '徘徊' },
+    { id: 3, title: '改命' },
   ],
   active: '0',
   isAtBottom: false
@@ -47,20 +42,17 @@ const handleActiveUpdate = (active) => {
 
 const currentComponent = computed(() => {
   if (+state.active === 0) {
-    return home
+    return stoneGate
   }
   if (+state.active === 1) {
-    return branchOne
+    return exchangeOfKeepsakes
   }
   if (+state.active === 2) {
-    return sweetTaste
+    return lingerAround
   }
   if (+state.active === 3) {
-    return theStoryOfCloud
+    return changeDestiny
   }
-  // if (+state.active === 4) {
-  //   return threeWordPrimer
-  // }
   return null
 })
 

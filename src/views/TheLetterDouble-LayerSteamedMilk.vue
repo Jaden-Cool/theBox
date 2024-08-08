@@ -50,7 +50,7 @@
       <van-button plain hairline @click="handleConfirmClick">确认</van-button>
     </p>
   </div>
-  <div v-show="state.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+  <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
@@ -60,9 +60,10 @@ import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 const router = useRouter()
 const state = reactive({
-  answer: ''
+  answer: '',
+  isAtBottom: false
 })
-const { answer } = toRefs(state)
+const { answer, isAtBottom } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return

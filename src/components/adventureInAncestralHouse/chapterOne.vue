@@ -102,6 +102,7 @@ const handleConfirmClick = () => {
       emit('update:active', 1)
       break
     default:
+      state.answer = ''
       showToast({
         message: '不正确，请再试一次，或者考虑一下看提示哦~',
         icon: 'cross'
