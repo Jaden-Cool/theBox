@@ -9,6 +9,5 @@ import 'vant/es/dialog/style'
 </template>
 
 <style lang="less">
-// @import url('@/assets/less/reset.less');
 @import url('@/assets/less/base.less');
 </style>

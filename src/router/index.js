@@ -79,6 +79,18 @@ const router = createRouter({
       name: 'StoneGate',
       meta: { title: '石门' },
       component: () => import('@/views/StoneGate.vue')
+    },
+    {
+      path: '/QingyunCulturalEducation',
+      name: 'QingyunCulturalEducation',
+      meta: { title: '青云文教所' },
+      component: () => import('@/views/QingyunCulturalEducation.vue')
+    },
+    {
+      path: '/EndingPage',
+      name: 'EndingPage',
+      meta: { title: '结局' },
+      component: () => import('@/views/EndingPage.vue')
     }
   ]
 })

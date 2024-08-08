@@ -28,9 +28,9 @@ const state = reactive({
     { id: 0, title: '石门' },
     { id: 1, title: '更迭信物' },
     { id: 2, title: '徘徊' },
-    { id: 3, title: '改命' },
+    { id: 3, title: '改命' }
   ],
-  active: '0',
+  active: 0,
   isAtBottom: false
 })
 const { active, tabs, isAtBottom } = toRefs(state)

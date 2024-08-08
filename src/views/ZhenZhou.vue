@@ -23,9 +23,9 @@ import answer from '@/components/zhenZhou/answerPage.vue'
 const state = reactive({
   tabs: [
     { id: 0, title: '初遇周之贞' },
-    { id: 1, title: '回答周之贞' },
+    { id: 1, title: '回答周之贞' }
   ],
-  active: '0',
+  active: 0,
   isAtBottom: false
 })
 const { active, tabs, isAtBottom } = toRefs(state)
