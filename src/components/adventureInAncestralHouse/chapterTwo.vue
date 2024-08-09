@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-bottom: 48px">
     <div v-if="!translate">
       <div class="paragraph">
         <p class="normal">
@@ -242,8 +242,8 @@ const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',
-  x: 330,
-  y: 50,
+  x: 10,
+  y: 10,
   originalY: 50,
   w: 100,
   h: 100,

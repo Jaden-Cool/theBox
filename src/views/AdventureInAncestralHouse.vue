@@ -9,11 +9,16 @@
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
     />
+
+    <div class="audio-box">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted,nextTick } from 'vue'
 import { debounce } from '@/utils'
 // 祖屋奇遇
 import adventureInAncestralHouseChapterOne from '@/components/adventureInAncestralHouse/chapterOne.vue'
@@ -31,6 +36,8 @@ import qingyunLiteratureSociety from '@/components/qingyunLiteratureSociety/chap
 import qiaozhuRestaurant from '@/components/qiaozhuRestaurant/chapterOne.vue'
 // 红荔pv
 import HONGLI from '@/components/HONGLI/chapterOne.vue'
+// BGM蝉鸣
+import theChirpingOfCicadas from '@/assets/audio/theChirpingOfCicadas.mp3'
 
 const state = reactive({
   tabs: [
@@ -43,12 +50,14 @@ const state = reactive({
     { id: 6, title: '常家后人' },
     { id: 7, title: '青云文社pv' },
     { id: 8, title: '橋珠酒家pv' },
-    { id: 9, title: '红荔pv' },
+    { id: 9, title: '红荔pv' }
   ],
   active: '0',
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: theChirpingOfCicadas
 })
-const { active, tabs, isAtBottom } = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -56,6 +65,7 @@ const handleActiveUpdate = (active) => {
 }
 
 const currentComponent = computed(() => {
+  handleScroll()
   if (+state.active === 0) {
     return adventureInAncestralHouseChapterOne
   }
@@ -66,11 +76,9 @@ const currentComponent = computed(() => {
     return adventureInAncestralHouseChapterThree
   }
   if (+state.active === 3) {
-    handleScroll()
     return adventureInAncestralHouseChapterFour
   }
   if (+state.active === 4) {
-    handleScroll()
     return juvenileChapterOne
   }
   if (+state.active === 5) {
@@ -91,23 +99,30 @@ const currentComponent = computed(() => {
   return null
 })
 
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+
 // 滚动事件处理函数
 const handleScroll = () => {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
-  const clientHeight = document.documentElement.clientHeight
-  const scrollHeight = document.documentElement.scrollHeight
-
-  // 首先检查内容是否足够长以产生滚动条
-  if (scrollHeight <= clientHeight) {
-    // 如果没有滚动条，直接设置 isAtBottom 为 true
-    state.isAtBottom = true
-  } else {
-    // 如果有滚动条，则根据滚动位置判断
-    state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
-  }
-
-  // 判断是否滚动到底部（这里可以根据需要调整阈值）
-  state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
+  nextTick(() => {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
+    const clientHeight = document.documentElement.clientHeight // 元素内部可视区域的高度
+    const scrollHeight = document.documentElement.scrollHeight //元素内部所有内容
+    state.isAtBottom =
+      scrollHeight <= clientHeight || scrollTop + clientHeight >= scrollHeight - 100
+  })
 }
 
 // 防抖函数
