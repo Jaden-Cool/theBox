@@ -15,33 +15,21 @@
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
-// 食神之鼎
-import home from '@/components/ritualVessel/homePage.vue'
-// 食神之鼎青云
-import branchOne from '@/components/ritualVessel/branchOne.vue'
-// 口味甜
-import sweetTaste from '@/components/ritualVessel/sweetTaste.vue'
-// 云
-import theStoryOfCloud from '@/components/ritualVessel/theStoryOfCloud.vue'
-// 食神之鼎酒家
-import branchTwo from '@/components/ritualVessel/branchTwo.vue'
-// 母亲离开
-import myMotherHasLeft from '@/components/ritualVessel/myMotherHasLeft.vue'
-// 三块石头1
-import threeRocks from '@/components/ritualVessel/threeRocks.vue'
+// 拴马桩
+import circularSkyRectangularEarth from '@/components/circularSkyRectangularEarth/homePage.vue'
+// 师妹结婚
+import colleaguesWedding from '@/components/circularSkyRectangularEarth/colleaguesWedding.vue'
+// 凤城食堂
+import fengChengRestaurant from '@/components/circularSkyRectangularEarth/fengChengRestaurant.vue'
+// wg时期
+import theWGEra from '@/components/circularSkyRectangularEarth/theWGEra.vue'
 
 const state = reactive({
   tabs: [
-    { id: 0, title: '食神之鼎' },
-    { id: 1, title: '食神之鼎青云' },
-    { id: 2, title: '口味甜' },
-    { id: 3, title: '云' },
-    { id: 4, title: '食神之鼎酒家' },
-    { id: 5, title: '母亲离开' },
-    { id: 6, title: '三块石头1' }
-    // { id: 4, title: '三字经' },
-    // { id: 1, title: '食神之鼎酒家' },
-    // { id: 2, title: '食神之鼎红荔' },
+    { id: 0, title: '天圆地方' },
+    { id: 1, title: '师妹结婚' },
+    { id: 2, title: '凤城食堂' },
+    { id: 3, title: 'wg时期' },
   ],
   active: 0,
   isAtBottom: false
@@ -55,29 +43,17 @@ const handleActiveUpdate = (active) => {
 
 const currentComponent = computed(() => {
   if (+state.active === 0) {
-    return home
+    return circularSkyRectangularEarth
   }
   if (+state.active === 1) {
-    return branchOne
+    return colleaguesWedding
   }
   if (+state.active === 2) {
-    return sweetTaste
+    return fengChengRestaurant
   }
   if (+state.active === 3) {
-    return theStoryOfCloud
+    return theWGEra
   }
-  if (+state.active === 4) {
-    return branchTwo
-  }
-  if (+state.active === 5) {
-    return myMotherHasLeft
-  }
-  if (+state.active === 6) {
-    return threeRocks
-  }
-  // if (+state.active === 4) {
-  //   return threeWordPrimer
-  // }
   return null
 })
 

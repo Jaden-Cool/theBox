@@ -115,10 +115,14 @@
         </p>
         <p class="normal">想到兩個人也許就永遠沒有相見的機會，也許是兩岸相隔，亦或者是生死相隔……</p>
         <p class="normal">此時，妳想到了與姐姐的離別。別樣的心情在心頭湧現。</p>
-        <div style=" margin: 26px 8px;">
+        <div style="margin: 26px 8px">
           在擁有的時候要珍惜，不要留下遺憾。 因爲說不定哪次分別，就是生死離別。
           但是，這些話你最後還是說了
-          <p style="display: inline-block; padding: 0; margin: 0;color: red;" class="normal" @click="next">
+          <p
+            style="display: inline-block; padding: 0; margin: 0; color: red"
+            class="normal"
+            @click="next"
+          >
             ??
           </p>
           出口
@@ -188,8 +192,8 @@
     </div>
 
     <Vue3DraggableResizable
-      :initW="50"
-      :initH="50"
+      :initW="40"
+      :initH="40"
       v-model:x="x"
       v-model:y="y"
       v-model:w="w"
@@ -208,20 +212,29 @@
 </template>
 
 <script setup>
-import { reactive, toRefs, defineEmits } from 'vue'
-import { showDialog } from 'vant'
+import { reactive, toRefs, defineEmits, onMounted, onUnmounted  } from 'vue'
+import { showDialog, showLoadingToast } from 'vant'
+import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 const emit = defineEmits(['update:active'])
 const state = reactive({
-  x: 5,
+  x: 330,
   y: 50,
+  originalY: 50,
   w: 100,
   h: 100,
   translate: false
 })
 const { x, y, w, h, translate } = toRefs(state)
 const handleTranslateClick = () => {
-  state.translate = !state.translate
+  showLoadingToast({
+    message: state.translate ? `正在切换为简体` : `正在切換為繁體`,
+    forbidClick: true,
+    overlay: true
+  })
+  setTimeout(() => {
+    state.translate = !state.translate
+  }, 300)
 }
 const handleContinueClick = () => {
   showDialog({
@@ -233,6 +246,20 @@ const handleContinueClick = () => {
 const next = () => {
   emit('update:active', 3)
 }
+const handleScroll = () => {
+  const scrollY = window.scrollY
+  state.y = state.originalY + scrollY
+}
+// 防抖函数
+const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
+
+onMounted(() => {
+  window.addEventListener('scroll', debouncedHandleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', debouncedHandleScroll)
+})
 </script>
 
 <style lang="less" scoped>

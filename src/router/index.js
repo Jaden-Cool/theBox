@@ -5,9 +5,15 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'PrefacePage',
+      meta: { title: '前言' },
+      component: () => import('@/views/PrefacePage.vue')
+    },
+    {
+      path: '/AdventureInAncestralHouse',
+      name: 'AdventureInAncestralHouse',
       meta: { title: '祖屋奇遇' },
-      component: () => import('@/views/HomePage.vue')
+      component: () => import('@/views/AdventureInAncestralHouse.vue')
     },
     {
       path: '/QuShuiBay',
@@ -86,6 +92,30 @@ const router = createRouter({
       name: 'QingyunCulturalEducation',
       meta: { title: '青云文教所' },
       component: () => import('@/views/QingyunCulturalEducation.vue')
+    },
+    {
+      path: '/TheStoryOfThreeStonesAndAbench',
+      name: 'TheStoryOfThreeStonesAndAbench',
+      meta: { title: '三块石头板凳故事' },
+      component: () => import('@/views/TheStoryOfThreeStonesAndAbench.vue')
+    },
+    {
+      path: '/HorseTiePost',
+      name: 'HorseTiePost',
+      meta: { title: '拴马桩' },
+      component: () => import('@/views/HorseTiePost.vue')
+    },
+    {
+      path: '/CircularSkyRectangularEarth',
+      name: 'CircularSkyRectangularEarth',
+      meta: { title: '天圆地方' },
+      component: () => import('@/views/CircularSkyRectangularEarth.vue')
+    },
+    {
+      path: '/ShunLiquorWorkShop',
+      name: 'ShunLiquorWorkShop',
+      meta: { title: '顺酒坊' },
+      component: () => import('@/views/ShunLiquorWorkShop.vue')
     },
     {
       path: '/EndingPage',

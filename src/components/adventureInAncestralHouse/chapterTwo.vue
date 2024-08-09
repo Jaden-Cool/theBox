@@ -217,8 +217,8 @@
     <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
     <Vue3DraggableResizable
-      :initW="30"
-      :initH="30"
+      :initW="40"
+      :initH="40"
       v-model:x="x"
       v-model:y="y"
       v-model:w="w"
@@ -233,47 +233,32 @@
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { showToast, showDialog, showLoadingToast } from 'vant'
+import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
+import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',
-  x: 100,
+  x: 330,
   y: 50,
+  originalY: 50,
   w: 100,
   h: 100,
-  translate: false
+  translate: true
 })
 const { answer, x, y, w, h, translate } = toRefs(state)
 const handleConfirmClick = () => {
-  if (!state.answer) {
-    return
-  }
-  switch (state.answer) {
-    case '日昳':
-      showToast({
-        message: '恭喜，回答正确',
-        icon: 'success'
-      })
-      emit('update:active', 2)
-      break
-    case '常日昳':
-      showToast({
-        message: '恭喜，回答正确',
-        icon: 'success'
-      })
-      emit('update:active', 2)
-      break
-    default:
-      state.answer = ''
-      showToast({
-        message: '不正确，请再试一次，或者考虑一下看提示哦~',
-        icon: 'cross'
-      })
-      break
+  if (!state.answer) return
+  const correctAnswers = ['日昳', '常日昳']
+  if (correctAnswers.includes(state.answer)) {
+    showToast({ message: '恭喜，回答正确', icon: 'success' })
+    emit('update:active', 2)
+  } else {
+    state.answer = ''
+    showToast({ message: '不正确，请再试一次，或者考虑一下看提示哦~', icon: 'cross' })
   }
 }
 const handleFloatingBtnClick = () => {
@@ -282,8 +267,27 @@ const handleFloatingBtnClick = () => {
   }).then(() => {})
 }
 const handleTranslateClick = () => {
-  state.translate = !state.translate
+  showLoadingToast({
+    message: state.translate ? `正在切換為繁體` : `正在切换为简体`,
+    forbidClick: true,
+    overlay: true
+  })
+  setTimeout(() => {
+    state.translate = !state.translate
+  }, 300)
 }
+const handleScroll = () => {
+  const scrollY = window.scrollY
+  state.y = state.originalY + scrollY
+}
+// 防抖函数
+const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
+onMounted(() => {
+  window.addEventListener('scroll', debouncedHandleScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', debouncedHandleScroll)
+})
 </script>
 
 <style lang="less" scoped>

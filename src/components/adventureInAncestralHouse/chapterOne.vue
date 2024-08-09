@@ -69,7 +69,6 @@
 
     <p class="center">【输入盒子的三字出处以继续】</p>
     <p style="display: flex; align-items: center; justify-content: center" class="center">
-      <!-- <input id="ans" required /> -->
       <van-cell-group inset>
         <van-field maxlength="3" show-word-limit v-model="answer" />
       </van-cell-group>
