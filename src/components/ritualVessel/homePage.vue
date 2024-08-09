@@ -56,10 +56,9 @@
 </template>
 
 <script setup>
+import { showDialog } from 'vant'
 import { reactive, toRefs, defineEmits } from 'vue'
-
 const emit = defineEmits(['update:active'])
-
 const state = reactive({
   show: false
 })
@@ -70,13 +69,31 @@ const handleCupClick = (key) => {
     state.show = false
     switch (key) {
       case '食神之鼎青云':
-        emit('update:active', 1)
+        showDialog({
+          message: '即将探索【食神之鼎青云】故事线',
+          confirmButtonText: '继续故事',
+          showCancelButton: true
+        }).then(() => {
+          emit('update:active', 1)
+        })
         break
       case '食神之鼎酒家':
-        emit('update:active', 2)
+        showDialog({
+          message: '即将探索【食神之鼎酒家】故事线',
+          confirmButtonText: '继续故事',
+          showCancelButton: true
+        }).then(() => {
+          emit('update:active', 4)
+        })
         break
       case '食神之鼎红荔':
-        emit('update:active', 3)
+      showDialog({
+          message: '即将探索【食神之鼎红荔】故事线',
+          confirmButtonText: '继续故事',
+          showCancelButton: true
+        }).then(() => {
+          emit('update:active', 7)
+        })
         break
     }
   }, 1000)

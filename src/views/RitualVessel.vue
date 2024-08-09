@@ -29,6 +29,16 @@ import branchTwo from '@/components/ritualVessel/branchTwo.vue'
 import myMotherHasLeft from '@/components/ritualVessel/myMotherHasLeft.vue'
 // 三块石头1
 import threeRocks from '@/components/ritualVessel/threeRocks.vue'
+// 食神之鼎红荔
+import branchThree from '@/components/ritualVessel/branchThree.vue'
+// 搬家
+import moveHouse from '@/components/ritualVessel/moveHouse.vue'
+// 沙头村1
+import shatouVillage from '@/components/ritualVessel/shatouVillage.vue'
+// 姑婆屋
+import auntiesHouse from '@/components/ritualVessel/auntiesHouse.vue'
+// 扒龙船1
+import loongBoatRacing from '@/components/ritualVessel/loongBoatRacing.vue'
 
 const state = reactive({
   tabs: [
@@ -38,7 +48,13 @@ const state = reactive({
     { id: 3, title: '云' },
     { id: 4, title: '食神之鼎酒家' },
     { id: 5, title: '母亲离开' },
-    { id: 6, title: '三块石头1' }
+    { id: 6, title: '三块石头1' },
+    { id: 7, title: '食神之鼎红荔' },
+    { id: 8, title: '搬家' },
+    { id: 9, title: '沙头村1' },
+    { id: 10, title: '姑婆屋' },
+    { id: 11, title: '扒龙船1' },
+    { id: 12, title: '灰雕' },
     // { id: 4, title: '三字经' },
     // { id: 1, title: '食神之鼎酒家' },
     // { id: 2, title: '食神之鼎红荔' },
@@ -74,6 +90,21 @@ const currentComponent = computed(() => {
   }
   if (+state.active === 6) {
     return threeRocks
+  }
+  if (+state.active === 7) {
+    return branchThree
+  }
+  if (+state.active === 8) {
+    return moveHouse
+  }
+  if (+state.active === 9) {
+    return shatouVillage
+  }
+  if (+state.active === 10) {
+    return auntiesHouse
+  }
+  if (+state.active === 11) {
+    return loongBoatRacing
   }
   // if (+state.active === 4) {
   //   return threeWordPrimer
