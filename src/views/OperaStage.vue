@@ -231,7 +231,7 @@ import shuMingLuo from '@/assets/images/shuMingLuo.jpeg'
 const state = reactive({
   // 拖拽元素
   x: 216,
-  y: 10,
+  y: 320,
   originalY: 10,
   w: 100,
   h: 100,
