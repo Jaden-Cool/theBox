@@ -43,7 +43,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
 import { showImagePreview, showDialog } from 'vant'
 import cooking from '@/assets/images/cooking.jpeg'
 const emit = defineEmits(['update:active'])

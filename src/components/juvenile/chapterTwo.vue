@@ -28,7 +28,7 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
@@ -57,7 +57,9 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '以前的人会用天干地支来对应年月日，例如这里甲辰年就是第一行，第五列' }).then(() => {})
+  showDialog({
+    message: '以前的人会用天干地支来对应年月日，例如这里甲辰年就是第一行，第五列'
+  }).then(() => {})
 }
 </script>
 
@@ -65,7 +67,7 @@ const handleFloatingBtnClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

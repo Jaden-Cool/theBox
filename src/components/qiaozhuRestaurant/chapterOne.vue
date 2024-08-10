@@ -40,8 +40,8 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
-const emit = defineEmits(['update:active'])
+import { reactive, toRefs } from 'vue'
+// const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -53,13 +53,16 @@ const handleConfirmClick = () => {
   }
   switch (state.answer) {
     case '曲水湾鹊桥底':
-      showToast({
-        message: '恭喜，回答正确',
-        icon: 'success'
-      })
-      emit('update:active', 10)
+      // showToast({
+      //   message: '恭喜，回答正确',
+      //   icon: 'success'
+      // })
+      showDialog({
+        message: '鹊桥底下还有一道桥，那边有一个隐藏的二维码可以进入下一段剧情'
+      }).then(() => {})
       break
     default:
+      state.answer = ''
       showToast({
         message: '不正确，请再试一次，或者考虑一下看提示哦~',
         icon: 'cross'

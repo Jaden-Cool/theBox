@@ -47,7 +47,7 @@
 
 <script setup>
 import { showDialog, showImagePreview } from 'vant'
-import { defineEmits } from 'vue'
+
 import tianchahua from '@/assets/images/tianchahua.jpg'
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {

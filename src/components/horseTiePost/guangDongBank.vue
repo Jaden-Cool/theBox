@@ -86,7 +86,7 @@ const handleFloatingBtnClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

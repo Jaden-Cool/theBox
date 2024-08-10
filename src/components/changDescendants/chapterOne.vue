@@ -33,8 +33,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
-
 const emit = defineEmits(['update:active'])
 
 const handleCupClick = (key) => {
@@ -56,7 +54,7 @@ const handleCupClick = (key) => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

@@ -20,7 +20,7 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({

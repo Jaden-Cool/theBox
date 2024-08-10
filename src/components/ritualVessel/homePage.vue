@@ -57,7 +57,7 @@
 
 <script setup>
 import { showDialog } from 'vant'
-import { reactive, toRefs, defineEmits } from 'vue'
+import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active'])
 const state = reactive({
   show: false

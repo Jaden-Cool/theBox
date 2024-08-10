@@ -26,7 +26,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
 import { showImagePreview } from 'vant'
 import sweetMemories from '@/assets/images/sweetMemories.png'
 const emit = defineEmits(['update:active'])

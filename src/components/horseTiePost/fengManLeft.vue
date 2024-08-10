@@ -52,7 +52,7 @@
 
 <script setup>
 import { showToast, showDialog, showImagePreview } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 import yellowTalismanPaper from '@/assets/images/yellowTalismanPaper.png'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
@@ -98,7 +98,7 @@ const handleFloatingBtnClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

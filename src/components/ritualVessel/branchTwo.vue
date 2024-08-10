@@ -51,7 +51,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {
   emit('update:active', 5)

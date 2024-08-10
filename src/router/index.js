@@ -118,6 +118,30 @@ const router = createRouter({
       component: () => import('@/views/ShunLiquorWorkShop.vue')
     },
     {
+      path: '/MuyingStream',
+      name: 'MuyingStream',
+      meta: { title: '沐英涧' },
+      component: () => import('@/views/MuyingStream.vue')
+    },
+    {
+      path: '/MotherPage',
+      name: 'MotherPage',
+      meta: { title: '母亲回归' },
+      component: () => import('@/views/MotherPage.vue')
+    },
+    {
+      path: '/OperaStage',
+      name: 'OperaStage',
+      meta: { title: '戏台' },
+      component: () => import('@/views/OperaStage.vue')
+    },
+    {
+      path: '/PreferredTenThousandYears',
+      name: 'PreferredTenThousandYears',
+      meta: { title: '喜万年年' },
+      component: () => import('@/views/PreferredTenThousandYears.vue')
+    },
+    {
       path: '/EndingPage',
       name: 'EndingPage',
       meta: { title: '结局' },

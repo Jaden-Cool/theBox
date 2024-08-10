@@ -46,7 +46,7 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
@@ -89,11 +89,11 @@ const handleFloatingBtnClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }
-/deep/.van-popup {
+:deep(.van-popup) {
   height: 70%;
 }
 img {

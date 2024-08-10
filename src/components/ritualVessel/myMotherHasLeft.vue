@@ -35,7 +35,7 @@
 
 <script setup>
 import { showDialog } from 'vant'
-import { defineEmits } from 'vue'
+
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {
   showDialog({

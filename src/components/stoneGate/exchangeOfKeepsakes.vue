@@ -33,7 +33,7 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
@@ -62,7 +62,10 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '拿出未打开好的访客地图，按照诗词的内容操作，会到达一个比较高的建筑物。在那里拿出曾经用过的某样信物' }).then(() => {})
+  showDialog({
+    message:
+      '拿出未打开好的访客地图，按照诗词的内容操作，会到达一个比较高的建筑物。在那里拿出曾经用过的某样信物'
+  }).then(() => {})
 }
 </script>
 
@@ -70,7 +73,7 @@ const handleFloatingBtnClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

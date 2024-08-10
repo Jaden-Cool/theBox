@@ -47,7 +47,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {
   emit('update:active', 4)
@@ -70,4 +69,3 @@ const handleContinueClick = () => {
   animation: subtleFade 1s infinite;
 }
 </style>
-

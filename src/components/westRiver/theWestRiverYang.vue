@@ -212,7 +212,7 @@
 </template>
 
 <script setup>
-import { reactive, toRefs, defineEmits, onMounted, onUnmounted  } from 'vue'
+import { reactive, toRefs, onMounted, onUnmounted  } from 'vue'
 import { showDialog, showLoadingToast } from 'vant'
 import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'

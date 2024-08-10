@@ -39,6 +39,10 @@ import shatouVillage from '@/components/ritualVessel/shatouVillage.vue'
 import auntiesHouse from '@/components/ritualVessel/auntiesHouse.vue'
 // 扒龙船1
 import loongBoatRacing from '@/components/ritualVessel/loongBoatRacing.vue'
+// 灰雕
+import greyCarving from '@/components/ritualVessel/greyCarving.vue'
+// 红荔1
+import hongLiBrand from '@/components/ritualVessel/hongLiBrand.vue'
 
 const state = reactive({
   tabs: [
@@ -55,6 +59,7 @@ const state = reactive({
     { id: 10, title: '姑婆屋' },
     { id: 11, title: '扒龙船1' },
     { id: 12, title: '灰雕' },
+    { id: 13, title: '红荔1' },
     // { id: 4, title: '三字经' },
     // { id: 1, title: '食神之鼎酒家' },
     // { id: 2, title: '食神之鼎红荔' },
@@ -105,6 +110,12 @@ const currentComponent = computed(() => {
   }
   if (+state.active === 11) {
     return loongBoatRacing
+  }
+  if (+state.active === 12) {
+    return greyCarving
+  }
+  if (+state.active === 13) {
+    return hongLiBrand
   }
   // if (+state.active === 4) {
   //   return threeWordPrimer

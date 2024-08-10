@@ -109,7 +109,7 @@
     </div>
 
     <div v-else>
-      <div class="paragraph" ontouchstart="aplay()">
+      <div class="paragraph">
         <p class="normal">
           你摇晃到了水井边，恍惚之间，你在深邃的井中看到了一个二十多岁的女人，画面逐渐清晰，她抱着一个襁褓中的婴儿。
           旁边站着的模模糊糊看着像是一个带着眼镜和黑色圆帽的先生。你听说过，以前好像确实有很多这种师傅，帮人代笔写书。
@@ -294,7 +294,7 @@ onUnmounted(() => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

@@ -48,8 +48,8 @@
 <script setup>
 // import { showToast, showDialog, showImagePreview } from 'vant'
 import { showToast, showImagePreview } from 'vant'
-// import { reactive, toRefs, defineEmits, defineProps } from 'vue'
-import { reactive, toRefs, defineEmits } from 'vue'
+// import { reactive, toRefs } from 'vue'
+import { reactive, toRefs } from 'vue'
 import oldTime from '@/assets/images/oldTime.jpeg'
 const emit = defineEmits(['update:active'])
 // const props = defineProps({ isAtBottom: Boolean })
@@ -87,7 +87,7 @@ const handleConfirmClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

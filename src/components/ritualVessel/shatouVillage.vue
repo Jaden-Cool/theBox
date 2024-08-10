@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import { reactive, toRefs, defineEmits } from 'vue'
+import { reactive, toRefs } from 'vue'
 // import { useRouter } from 'vue-router'
 import { showImagePreview, showToast, showDialog } from 'vant'
 import portrait from '@/assets/images/portrait.jpeg'
@@ -123,10 +123,10 @@ const handleFloatingBtnClick = () => {
 </script>
 
 <style lang="less" scoped>
-/deep/.van-dialog__header {
+:deep(.van-dialog__header) {
   padding: 16px;
 }
-/deep/.van-dialog__content {
+:deep(.van-dialog__content) {
   margin-bottom: 16px;
 }
 @keyframes subtleFade {

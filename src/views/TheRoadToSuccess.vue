@@ -65,7 +65,7 @@
         战争的残酷他早已听闻过，只是没想到这场战争会直接来到他的面前。
         想到不确定的未来，常日昳给瀘紹年留下了一封口信。
       </p>
-      <p>
+      <p class="center">
         <van-image
           fit="contain"
           :src="letter"

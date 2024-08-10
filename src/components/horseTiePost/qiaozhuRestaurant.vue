@@ -63,7 +63,7 @@
 
 <script setup>
 import { showToast } from 'vant'
-import { reactive, toRefs, defineEmits, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 import map from '@/assets/images/map.svg'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
@@ -109,11 +109,11 @@ const handleFloatingBtnClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }
-/deep/.van-dialog__content {
+:deep(.van-dialog__content) {
   margin: 26px 0 26px 0;
 }
 </style>

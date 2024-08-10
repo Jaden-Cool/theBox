@@ -76,34 +76,44 @@
 
     <div class="paragraph" v-show="currentComponent">
       <p class="normal" v-show="currentComponent === '解答 A'">
-        {{currentComponent}}．你的味觉和嗅觉的底子都没有问题。在这个偷师才是正道的时代，你的主动会让你走得更快，走的更远。你的动机在这个时代过于淳朴，虽然有成为一代名师的潜质，但是听起来不像是真话。区财对你有一些保留，但是仍然愿意给你一个机会。
+        {{
+          currentComponent
+        }}．你的味觉和嗅觉的底子都没有问题。在这个偷师才是正道的时代，你的主动会让你走得更快，走的更远。你的动机在这个时代过于淳朴，虽然有成为一代名师的潜质，但是听起来不像是真话。区财对你有一些保留，但是仍然愿意给你一个机会。
       </p>
       <p class="normal" v-show="currentComponent === '解答 B'">
-        {{currentComponent}}．你的味觉和嗅觉的底子都没问题。在这个偷师才是正道的时代，你的主动会让你走得更快，走的更远。你的动机和这个时代的大部分后来的名师都是一样的，这种朴实的答案反而更让区财赏识。
+        {{
+          currentComponent
+        }}．你的味觉和嗅觉的底子都没问题。在这个偷师才是正道的时代，你的主动会让你走得更快，走的更远。你的动机和这个时代的大部分后来的名师都是一样的，这种朴实的答案反而更让区财赏识。
       </p>
       <p class="normal" v-show="currentComponent === '解答 C'">
-        {{currentComponent}}．你的味觉和嗅觉的底子都没问题。在这个师傅甚少主动传艺的时代，不会偷师也不够主动只会让你碌碌无为。你是可造之材吗，你通过了第一轮考验。
+        {{
+          currentComponent
+        }}．你的味觉和嗅觉的底子都没问题。在这个师傅甚少主动传艺的时代，不会偷师也不够主动只会让你碌碌无为。你是可造之材吗，你通过了第一轮考验。
       </p>
       <p class="normal" v-show="currentComponent === '解答 D'">
-        {{currentComponent}}．你嗅觉弱，味觉被后天的习惯剥夺了一半，只能练刀工，能成才的概率不高。不收
+        {{
+          currentComponent
+        }}．你嗅觉弱，味觉被后天的习惯剥夺了一半，只能练刀工，能成才的概率不高。不收
       </p>
       <p class="normal" v-show="currentComponent === '解答 E'">
-        {{currentComponent}}．你的先天嗅觉弱，味觉被后天的习惯糟蹋完毕了，不适合做厨。不收
+        {{ currentComponent }}．你的先天嗅觉弱，味觉被后天的习惯糟蹋完毕了，不适合做厨。不收
       </p>
     </div>
 
-    <div v-show="currentComponent" class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
+    <div
+      v-show="currentComponent"
+      class="center subtleFade"
+      style="margin-bottom: 26px"
+      @click="handleContinueClick"
+    >
       在附近寻找一个人少的地方继续
     </div>
   </div>
 </template>
 
 <script setup>
-// import { showToast, showDialog } from 'vant'
-// import { reactive, toRefs, defineEmits } from 'vue'
-import { reactive, toRefs, computed, defineEmits } from 'vue'
+import { reactive, toRefs, computed } from 'vue'
 const emit = defineEmits(['update:active'])
-// const emit = defineEmits(['update:active'])
 
 const state = reactive({
   isSmoking: '',
@@ -210,7 +220,7 @@ const handleContinueClick = () => {
 .van-cell {
   padding: 8.1px;
 }
-/deep/.van-cell__value {
+:deep(.van-cell__value) {
   display: flex;
   align-items: center;
 }

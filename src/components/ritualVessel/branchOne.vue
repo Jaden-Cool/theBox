@@ -73,7 +73,7 @@
 
 <script setup>
 import { showToast, showImagePreview } from 'vant'
-import { reactive, toRefs, defineEmits } from 'vue'
+import { reactive, toRefs } from 'vue'
 import woodenSign from '@/assets/images/woodenSign.jpeg'
 const emit = defineEmits(['update:active'])
 const state = reactive({

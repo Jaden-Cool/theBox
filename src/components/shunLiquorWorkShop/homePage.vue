@@ -67,7 +67,7 @@
 
 <script setup>
 import { showDialog, showImagePreview } from 'vant'
-import { defineEmits } from 'vue'
+
 import president from '@/assets/images/president.jpeg'
 const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {

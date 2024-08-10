@@ -35,7 +35,6 @@
 </template>
 
 <script setup>
-import { defineEmits } from 'vue'
 import { showImagePreview } from 'vant'
 import aFan from '@/assets/images/aFan.png'
 const emit = defineEmits(['update:active'])

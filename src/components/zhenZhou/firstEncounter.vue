@@ -25,7 +25,7 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineProps, defineEmits } from 'vue'
+import { reactive, toRefs } from 'vue'
 // import morseCode from '@/assets/images/morseCode.png'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
@@ -65,7 +65,7 @@ const handleFloatingBtnClick = () => {
   margin-top: 26px;
   width: 90%;
 }
-/deep/.van-field__label {
+:deep(.van-field__label) {
   text-align: right !important;
 }
 </style>
