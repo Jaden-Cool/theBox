@@ -3,16 +3,14 @@
     <div v-if="!translate">
       <div class="paragraph">
         <p class="normal">
-          你摇晃到了水井边，恍惚之间，你在深邃的井中看到了一个二十多岁的女人，画面逐渐清晰，她抱着一个襁褓中的婴儿。
-          旁边站着的模模糊糊看着像是一个带着眼镜和黑色圆帽的先生。你听说过，以前好像确实有很多这种师傅，帮人代笔写书。
-          不知道为什么你觉得这一幕有点熟悉的感觉。
+          好像略微有些中暑，你恍恍惚惚地到了水井邊，探头向下，有那么一瞬间，在深邃的水波中似乎能看到個二十多歲的女人。眨眼之间，畫面逐漸清晰，她正抱著個尚在襁褓的嬰兒。那女人身旁似乎还有人，模模糊糊，看著像是個..戴眼鏡，着黑色圓帽的先生。又是转瞬间，那女人，婴儿，他身后的男人，都消去了，只余下不波的古井。你莫名地想起以前那种为人代写书信的先生，和一些模糊的画面..许是暑热让脑子有些空幻了吧。
         </p>
       </div>
 
       <div class="paragraph">
         <div class="letterPaper">
           <p class="letter">
-            致常惜端：
+            愛夫常惜端：
             <br />
             <br />
           </p>
@@ -36,7 +34,7 @@
           </p>
 
           <p class="normal letter">
-            蝦仔出世那天，正值祭竈（zào）。天格外的冷，卻是少見的藍天。<strong>大概两点钟</strong>，我剛送走了去大良的那批金蠶（cán）絲。
+            蝦仔出世那天，正值祭竈（zào）。天格外的冷，卻是少見的藍天。<strong>大概一点钟</strong>，我剛送走了去大良的那批金蠶（cán）絲。
             <br />
             <br />
           </p>
@@ -81,12 +79,11 @@
       </div>
 
       <div class="paragraph">
-        <p class="normal">慢慢地，你从影像中缓过神来。</p>
+        <p class="normal">慢慢地，妳從影像当中緩過神來。</p>
 
         <p class="normal">
           <strong>
-            你看着繁体字觉得略有些头痛，有些字句甚至不知道是什么意思。想去查阅一些资料，突然仿佛融会贯通一般，
-            繁体书信便自动变成了简体。
+            繁體字看着略有些頭痛，有些字句甚至不知道是什麽意思。正要去查閱些資料，纸面却如同那修仙的传说般，浮现出一枚阴阳太极般的古奥符文，繁體書信竟在这符文一转间，化为簡體。
           </strong>
         </p>
 
@@ -97,7 +94,7 @@
           </strong>
         </p>
 
-        <p class="center">【请推算信中的孩子叫什么名字】</p>
+        <p class="center">【借助盒子內的<strong>日晷</strong>推算出瀘紹年信中孩子的名字】</p>
 
         <p style="display: flex; align-items: center; justify-content: center" class="center">
           <van-cell-group inset>
@@ -111,16 +108,14 @@
     <div v-else>
       <div class="paragraph">
         <p class="normal">
-          你摇晃到了水井边，恍惚之间，你在深邃的井中看到了一个二十多岁的女人，画面逐渐清晰，她抱着一个襁褓中的婴儿。
-          旁边站着的模模糊糊看着像是一个带着眼镜和黑色圆帽的先生。你听说过，以前好像确实有很多这种师傅，帮人代笔写书。
-          不知道为什么你觉得这一幕有点熟悉的感觉。
+          你摇晃到了水井边，恍惚之间，你在深邃的井中看到了一个二十多岁的女人，画面逐渐清晰，她抱著一个襁褓中的婴儿。旁边站著的模模糊糊看著像是一个带著眼镜和黑色圆帽的先生。你听说过，以前好像确实有很多这种师傅，帮人代笔写书。不知道为什么你觉得这一幕有点熟悉的感觉。
         </p>
       </div>
 
       <div class="paragraph">
         <div class="letterPaper">
           <p class="letter">
-            致常惜端：<br />
+            爱夫常惜端：<br />
             <br />
           </p>
 
@@ -137,7 +132,7 @@
           </p>
 
           <p class="normal letter">
-            数月不见，甚是挂念。
+            数月不见，甚是掛念。
             <br />
             <br />
           </p>
@@ -149,7 +144,7 @@
           </p>
 
           <p class="normal letter">
-            蚕园这边要做的功夫虽然很多，但是招娣很乖，主动替我去喂蚕，说让我得闲来可以吃个午饭。
+            蚕园这边要做的功夫虽然很多，但是招娣很乖，主动替我去喂蚕，说让我得閒来可以吃个午饭。
             <br />
             <br />
           </p>
@@ -161,29 +156,25 @@
           </p>
 
           <p class="normal letter">
-            我边敲边叫，回想翻来，真是观世音菩萨保佑，招娣刚跑出门寻人，就和几位邻居撞了个满怀。原定
-            <strong>下午才过来</strong>炸煎堆的隔离邻舍竟都到了门口。
+            我边敲边叫，回想翻来，真是观世音菩萨保佑，招娣刚跑出门寻人，就和几位邻居撞了个满怀。原定下午才过来炸煎堆的隔离邻舍竟都到了门口。
             <br />
             <br />
           </p>
 
           <p class="normal letter">
-            她们急手急脚地把我抬到了房间。没想到，孩子是个急性子，产婆都还没来到，就迫不及待出来了。
-            大家都开玩笑说一定是闻到了油角和煎堆，那么喜欢吃糯米，说不定就是灶神转世。听得我笑到见牙不见眼。
+            她们急手急脚地把我抬到了房间。没想到，孩子是个急性子，產婆都还没来到，就迫不及待出来了。大家都开玩笑说一定是闻到了油角和煎堆，那么喜欢吃糯米，说不定就是灶神转世。听得我笑到见牙不见眼。
             <br />
             <br />
           </p>
 
           <p class="normal letter">
-            <strong>常哥</strong
-            >你远在佛山打拼，我唯有自把自为<strong>根据时辰给孩子取了个名字</strong>先填到出生纸上。
-            等你下次翻来我们一起找个先生问个好名。祝你顺顺利利，家中之事勿用担忧。
+            常哥你远在佛山打拼，我唯有自把自為<strong>根据时辰</strong>给孩子取了个名字先填到出生纸上。等你下次翻来我们一起找个先生问个好名。祝你顺顺利利，家中之事勿用担忧。
             <br />
             <br />
           </p>
 
           <p class="letter" align="right">癸亥年 腊月二十四</p>
-          <p class="letter" align="right"><strong>泸绍年亲笔</strong></p>
+          <p class="letter" align="right"><strong>爱妻瀘紹年</strong></p>
         </div>
       </div>
 
@@ -191,10 +182,8 @@
         <p class="normal">慢慢地，你从影像中缓过神来。</p>
 
         <p class="normal">
-          <strong>
             你看着繁体字觉得略有些头痛，有些字句甚至不知道是什么意思。想去查阅一些资料，突然仿佛融会贯通一般，
-            繁体书信便自动变成了简体。
-          </strong>
+            繁体书信便自动变成了<strong>简体</strong>。
         </p>
 
         <p class="center">
@@ -204,7 +193,7 @@
           </strong>
         </p>
 
-        <p class="center">【请推算信中的孩子叫什么名字】</p>
+        <p class="center">【借助盒子內的<strong>日晷</strong>推算出瀘紹年信中孩子的名字】</p>
 
         <p style="display: flex; align-items: center; justify-content: center" class="center">
           <van-cell-group inset>
@@ -258,12 +247,12 @@ const handleConfirmClick = () => {
     emit('update:active', 2)
   } else {
     state.answer = ''
-    showToast({ message: '不正确，请再试一次，或者考虑一下看提示哦~', icon: 'cross' })
+    showToast({ message: '可再详看日晷', icon: 'cross' })
   }
 }
 const handleFloatingBtnClick = () => {
   showDialog({
-    message: '从瀘紹年的信件里面推算出孩子出生的时辰时间，可以细看日晷的外围有时间'
+    message: '从瀘紹年的信件里推算孩子出生的时辰时间，细看日晷的外围'
   }).then(() => {})
 }
 const handleTranslateClick = () => {
