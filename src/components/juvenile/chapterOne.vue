@@ -2,32 +2,43 @@
   <div style="padding-bottom: 48px">
     <div class="paragraph">
       <p class="normal">
-        你眼前出现了一个少年，他刚刚赢下了和朋友们的执竹游戏，随着一阵嘘声，大家都转头跑去玩别的了，
-        执竹游戏里的竹，其实不是竹子，而是烧完的香所剩的尾部，大家称之为香鸡，向上丢起一块石头或者小像皮球，
-        趁机扭转手腕，在地面拾取对应数量的“竹”， 然后接住石头。
+        眼前出现的是个少年。他刚刚又输了一场执竹，随着一阵嘘声，他笑眯眯的被几个小孩挤开了。执竹，里面的“竹”是指香鸡，香烧完后剩下的小棍子。玩法很简单，所以很受村子里的小孩子欢迎。置“竹”于桌面，向上丢起一块石头或者小橡皮球一类的物件，须在那物件落地前趁机在桌面迅速拾取对应数量的“竹”，最后还要接住物件，失误则换人尝试。
+      </p>
+
+      <p>
+        <van-image
+          fit="contain"
+          :src="kidsGames"
+          @click="showImagePreview({ images: [kidsGames], showIndex: false })"
+        />
       </p>
 
       <p class="normal">
-        如果失误了，就换下一个人尝试，日昳每次都能一个人独占鳌头，所以别的孩子没什么参与感和惊喜，所以大家反而
-        去玩一些别的游戏，有的需要跑，有的需要跳，总之有些需要身体碰撞，日昳不挑食，可是身体还是不那么强壮，而
-        且按现在的说法，他有些肢体不协调，玩别的项目，甚至跳格子*跳街砖*这些较为简单的，都会经常摔倒，而且本名
-        又叫“常日昳”，免不了被大家取了花名，叫成日跌（粤语中与常日昳较为接近）。
+        日昳其实手极巧，一旦认真玩一定能尽扫桌面的“竹”。他对香鸡有一种莫名其妙的熟悉感。但是为了保证其他孩子能都有一些参与感，他经常故意输掉。
+      </p>
+
+      <p class="normal">
+        抓竹是他唯一喜欢的游戏。虽然从不挑食，但日昳的身板还是瘦得跟竹竿一样，走起来摇摇晃晃的。特别是吃了糯米以后，甚至会口齿不清个好几天。只要涉及到体能他就完全不行了。因为他体质孱弱，又经常摔倒，被村子里的孩子们取了花名，叫成日跌（粤语中与常日昳发音接近）。
       </p>
     </div>
 
     <div class="paragraph">
       <p class="normal">
-        时代的车轮滚滚向前，机械缫丝业难以为继之际，主政广东的陈济棠为振兴经济兴建了一批现代化糖厂，顺德糖厂便是
-        其中的代表。自此的很长一段时间，机械制糖便是顺德的支柱产业之一，种蔗、砍蔗、榨糖也就成为了女性们所投身的
-        产业。
+        时代车轮滚滚向前，机械缫丝业难以为继之际，主政广东的陈济棠为振兴经济，兴建了一批现代化糖厂——顺德糖厂便是其中的代表。自此相当长一段时间，机械制糖代替了缫丝，成为了顺德的支柱产业之一，种蔗、砍蔗、榨糖也就成为了顺德人尤其是顺德女性所投身的产业。
       </p>
 
-      <img src="@/assets/images/female.jpeg" />
+      <p>
+        <van-image
+          fit="contain"
+          :src="female"
+          @click="showImagePreview({ images: [female], showIndex: false })"
+        />
+      </p>
 
-      <p class="normal">“成日跌，你爹几时回来啊？除了我都好久没见过常叔叔了。”</p>
+      <p class="normal">“成日跌，你爹几时回来啊？我都好久没见过常叔叔了。”</p>
 
       <p class="normal">
-        “我啊爹说，你家什么什么中落，让我不要和你走那么近，我也不是很懂。”日昳的死党说道。
+        “我啊爹说，你家道中落，让我不要和你走那么近。我也不是很懂，你读得书多，什么叫家道中落啊？”日昳的死党兼邻居<strong>王一平</strong>说道。
       </p>
 
       <p class="normal">
@@ -35,45 +46,37 @@
       </p>
 
       <p class="normal">
-        “上一年可不就没回来吗？ 而且你们是把蚕园都卖掉了，我妈都回去种地了。”死党撑着头问他。
+        “啧啧啧，我跟你说啊，真的是没见过大蛇屙屎（没见过世面）我阿妈每天做鱼腐给我们吃。天天都在厨房剁鱼肉，里面又放鸡蛋，油炸过以后热辣辣香喷喷。我阿妈今年都给我加长了两次裤子了！你看，我才七岁，都已经比你们俩都高了！”说完日昳挺直了腰板，和两人比了比高度。
+      </p>
+
+      <p class="normal">“可我看你阿妈瘦了好多啊，你该不是把她那份也吃掉了吧？”王一平小声的说道。</p>
+
+      <p class="normal">日昳心里顿时咯噔一下。所谓唔见人高，只见裤短......我要回去问问阿妈……</p>
+    </div>
+
+    <div class="paragraph">
+      <p class="normal">
+        常家的桑基鱼塘在没有养蚕以后大规模的荒废了。除了后院一群下蛋的鸡，瀘紹年能负担得起的，只剩下那些鱼塘里热死的鲢鱼。鲢鱼刺多、腥味重，肉质绵烂、口感不佳，为了孩子们吃的健康，瀘紹年细心地把鱼肉刮出，再打成细腻的鱼腐——未曾想到两个孩子都很喜欢。
       </p>
 
       <p class="normal">
-        “啧啧啧，我跟你说啊，我看到娘亲做鱼腐，天天在那剁鱼肉，里面又放了鸡蛋，还经油炸过，不知道多香，我娘今年都给
-        我加长了两次裤子了！你看，我七岁，招娣额，比我大，反正比你们俩都高。”说完日昳挺直了腰板，和两人比了比高度。
+        朴素的日子，倒也过得津津有味——甘蔗的甜蜜多少弥补了难熬日子。在这物价飘忽不定的年代，常家是为数不多供了家中一对男女都去上学的家庭。坚韧的常惜端和勤劳的瀘紹年深知教育的重要性，为了转型生存，也为了谋求更好的机会，常惜端经人介绍去了广州开厂，谁曾想到……
       </p>
 
-      <p class="normal">
-        “哇你可吃得比我好多了，我也想长高！”听着有鸡蛋在里面，其中一人口水都已经流了下来了。
+      <p>
+        <van-image
+          fit="contain"
+          :src="book"
+          @click="showImagePreview({ images: [book], showIndex: false })"
+        />
       </p>
 
-      <p class="normal">
-        “不对啊，可我看你娘亲，今年瘦了好多啊，那个颧骨都突了出来！”死党回过神来。
-      </p>
-
-      <p class="normal">
-        日昳的心里顿时咯噔了一下，他和姐姐都吃饱吃好，确实没留意到这一现象，也许也是每天待在一起变化较慢看不出来的缘故。
-      </p>
-
-      <p class="normal">我要回去问问娘亲……他心里下了决定。</p>
-
-      <p class="normal">
-        殊不知，每顿都吃鱼腐实属是无奈之举。常家的桑基鱼塘和大部分产业早就变卖了，除了后院的一群能下单的鸡，瀘紹年能负担
-        得起卖剩的鲢鱼。鲢鱼刺多、腥味重，肉质绵烂、口感不佳，为了让孩子们吃的健康，瀘紹年细心的把鱼肉起大骨，再打成细腻
-        的鱼腐。未曾想到，反而很受两个孩子欢迎。
-      </p>
-
-      <p class="normal">
-        朴素的日子过得津津有味，甘蔗的甜蜜也多少弥补了这些难熬的日子。在这个物价飘忽不定的年代，常家是为数不多让家中一对男
-        女都能上学的家庭。坚韧的常惜端和勤劳的瀘紹年深知教育的重要性。为了转型生存，也为了谋求更好的机会，常惜端后经人介绍
-        去了广州开厂，谁曾想到……
-      </p>
-      <img src="@/assets/images/book.png" />
       <p class="center">【阅读三世书，按照常惜端信中的农历日期得出三字】</p>
-      <p class="center">
+      <div class="center">
         可以使用以下网站作为辅助：
-        <a href="https://wannianrili.bmcx.com" target="_blank">https://wannianrili.bmcx.com</a>
-      </p>
+        <!-- <a href="https://wannianrili.bmcx.com" target="_blank">点击这里</a> -->
+        <p style="margin: 0; color: blue" @click="handleCopyClick">点击这里</p>
+      </div>
       <p class="center">请把这个万年历网站用手机浏览器打开并保留，后面还会用到。</p>
 
       <p style="display: flex; align-items: center; justify-content: center" class="center">
@@ -89,8 +92,12 @@
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
+import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
+import { copyToClipboard } from '@/utils'
+import kidsGames from '@/assets/images/kidsGames.jpeg'
+import book from '@/assets/images/book.png'
+import female from '@/assets/images/female.jpeg'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
@@ -112,14 +119,24 @@ const handleConfirmClick = () => {
     default:
       state.answer = ''
       showToast({
-        message: '不正确，请再试一次，或者考虑一下看提示哦~',
+        message: '请再试一次，或看提示',
         icon: 'cross'
       })
       break
   }
 }
+const handleCopyClick = async () => {
+  try {
+    copyToClipboard('https://wannianrili.bmcx.com')
+    // const textToCopy = 
+    // await navigator.clipboard.writeText(textToCopy)
+    showToast('已复制跳转所需的URL')
+  } catch (err) {
+    console.error(err);
+  }
+}
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '民国十三年是1924年' }).then(() => {})
+  showDialog({ message: '民国十三年即公历1924年' }).then(() => {})
 }
 </script>
 

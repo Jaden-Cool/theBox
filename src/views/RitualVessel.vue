@@ -14,8 +14,10 @@
 
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 import { debounce } from '@/utils'
-// 食神之鼎
+// 食神之鼎1
 import home from '@/components/ritualVessel/homePage.vue'
 // 食神之鼎青云
 import branchOne from '@/components/ritualVessel/branchOne.vue'
@@ -147,6 +149,10 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (route.query.active) {
+    state.active = +route.query.active
+  }
   window.addEventListener('scroll', debouncedHandleScroll)
 })
 

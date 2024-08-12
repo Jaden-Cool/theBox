@@ -14,6 +14,8 @@
 
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 import { debounce } from '@/utils'
 // 沐英涧
 import muyingStream from '@/components/muyingStream/homePage.vue'
@@ -34,7 +36,7 @@ const state = reactive({
     { id: 2, title: '梳起2' },
     { id: 3, title: '刘恭可红荔1' },
     { id: 4, title: '刘恭可红荔2' },
-    { id: 5, title: '刘恭可红荔3' },
+    { id: 5, title: '刘恭可红荔3' }
   ],
   active: 0,
   isAtBottom: false
@@ -86,6 +88,9 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (route.query.active) {
+    state.active = +route.query.active
+  }
   window.addEventListener('scroll', debouncedHandleScroll)
 })
 

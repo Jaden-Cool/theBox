@@ -7,7 +7,7 @@
         你来到了青云研究院，感受着桌子的厚重感。一股青木的灵气源源不断的涌入你的身体里。这张桌子好像是刷了桐油一般，让你想起了家乡的龙舟......
       </p>
       <p class="normal">
-        1942年末的一天，常日昳像往常一样在厨房水台备料。
+        1942年末的一天，常日昳像往常一样在厨房水台和酒楼各处奔跑。
         经历了橋珠酒家的灾后重建工作，他已然成为一名出色的全能帮厨。
       </p>
       <p class="normal">
@@ -61,6 +61,9 @@
         最快下周，最晚下个月，会有一个人送一样物件上门给你。要是你愿意接受这个任务，那你就收下，他会告诉你整个计划。要是不愿意的话，你就不要收。我只求你不要把这件事情告诉其他人。”
         说完，周之贞就孤身一人的离开了。
       </p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
         战争的残酷他早已听闻过，只是没想到这场战争会直接来到他的面前。
         想到不确定的未来，常日昳给瀘紹年留下了一封口信。
@@ -72,6 +75,9 @@
           @click="showImagePreview({ images: [letter], showIndex: false })"
         />
       </p>
+    </div>
+
+    <div class="paragraph">
       <p class="center">【今天是对常日昳来说一个重要的日子，解开口信的秘密】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -107,28 +113,28 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      router.push({ name: 'WestRiver' })
+      router.push({ name: 'TheWestRiver' })
       break
     case '一生一世':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      router.push({ name: 'WestRiver' })
+      router.push({ name: 'TheWestRiver' })
       break
     case '亦生亦死':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      router.push({ name: 'WestRiver' })
+      router.push({ name: 'TheWestRiver' })
       break
     case '一生一死':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      router.push({ name: 'WestRiver' })
+      router.push({ name: 'TheWestRiver' })
       break
     default:
       showToast({

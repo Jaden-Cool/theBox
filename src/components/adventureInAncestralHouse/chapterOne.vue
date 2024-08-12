@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">祖屋奇遇</h1>
+    <!-- <h1 class="center">祖屋奇遇</h1> -->
 
     <div class="paragraph">
       <p class="center">*乒*</p>
@@ -16,7 +16,7 @@
         不，你能听到某种呢喃：
       </p>
 
-      <p class="normal"> “贵……马……，……缘再……，天官……，……神归……。”</p>
+      <p class="normal">“贵……马……，……缘再……，天官……，……神归……。”</p>
 
       <p class="normal">醒神过来，四处一望，这声音却没有源头。</p>
 
@@ -53,9 +53,9 @@
         乡下地方蚊虫较多，记忆里面全是蚊香和花露水的味道。没有空调，只有蒲扇的夏天，却一点不像现在一般炎热，
         甚至夜晚有些清凉。回忆起来竟然有些不舍。
       </p>
+    </div>
 
-      <p class="center">-------------</p>
-
+    <div class="paragraph">
       <p class="center">“贵人禄马到，因缘再续，天官赐福，食神归位。”</p>
 
       <p class="normal">

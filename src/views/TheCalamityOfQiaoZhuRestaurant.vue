@@ -20,44 +20,123 @@
         在大火烧完后，冯科第一个冲进了废墟中寻找那个保险箱，可惜当他打开了箱子时，里面曾经价值百万的各种纸张证明都已化为灰烬。
       </p>
       <p class="normal">
-        失去了一切的龙拜丹从此一蹶不振，整日郁郁寡欢，精神也逐渐萎靡。眼看橋珠酒家就要在历史的长河中湮没，管账的冯科站了出来。冯科是一个精明干练的人，在酒家里管账多年，对酒家的情况了如指掌。
+        当火被完全扑灭的时候，天已经大亮了。常日昳原本的生活是平淡的，他没有什么远大的志向，也不想参与那些复杂的江湖争斗。他只想着每天在橋珠酒家跑跑腿，算算账，偶尔偷吃些糕点，日子虽不富贵，却也安稳。他原打算就这样舒舒服服地过一生，娶一个普普通通的姑娘，过点简单而温馨的小日子。
       </p>
       <p class="normal">
-        眼看龙拜丹无力自救，他便决定组织工人们合资经营，重建橋珠酒家。他召集了所有赶到的员工，连夜策划着重建的计划。
+        但橋珠酒家的这场大火，彻底撕碎了他心中的那份安宁。亲眼看着火焰吞噬了一切，常日昳意识到，自己再也无法回到过去的那种安逸中去了。他曾幻想的美好生活，在那场火中化为了灰烬。仇恨和愤怒像藤蔓一样缠绕在他的心头。
       </p>
-
-      <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
-        【点击此处自动跳转】
-      </div>
+      <p>
+        瓦砾中满脸黝黑的冯科骂骂咧咧地朝着四顾茫然的其他师傅喊道
+        “天跌落来当被冚（盖），那些@#￥@都还没死绝，我们哀嚎什么？天无绝人之路！”
+      </p>
+      <p class="normal">“顺德一定得！” 日昳带头站在残垣断壁里朝着天空大喊。</p>
+      <p class="normal">“顺德！” 冯科带头也呼喝道</p>
+      <p class="normal">“一定得！” 所有人挥拳回应道。</p>
+      <p class="center"><strong>顺德 一定得</strong></p>
     </div>
+
+    <div class="paragraph">
+      <p class="center">
+        【当年顺德最著名的三大酒楼一夜之间被烧成了平地，堪称顺德餐饮业的忌日。像橋珠酒家那样后来东山再起的屈指可数。现实这并没有把这些顽强的人打败，这就是顺德精神。取出一颗金钉和一张红纸，在此留下你自己对于未来的心愿吧】
+      </p>
+      <p class="center">【顺德眼的出口商店有金笔可以借用 】</p>
+
+      <p class="center" style="margin: 0"><strong>十二月，</strong></p>
+      <p class="center" style="margin: 0"><strong>无人会，</strong></p>
+      <p class="center" style="margin: 0"><strong>失交臂，</strong></p>
+      <p class="center" style="margin: 0 0 26px 0"><strong>视不见，人坐下</strong></p>
+    </div>
+
+    <div class="paragraph">
+      <p class="center">【组成四个字】</p>
+      <p style="display: flex; align-items: center; justify-content: center" class="center">
+        <van-cell-group inset>
+          <van-field v-model="answer" />
+        </van-cell-group>
+        <van-button plain hairline @click="handleConfirmClick">确认</van-button>
+      </p>
+    </div>
+
+    <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <!-- <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
+      【点击此处自动跳转】
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const handleContinueClick = () => {
-  router.push({ name: 'ReconstructionOfQiaoZhuRestaurant' })
+import { showToast, showDialog } from 'vant'
+import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
+import { debounce } from '@/utils'
+const state = reactive({
+  answer: '',
+  isAtBottom: false
+})
+const { answer, isAtBottom } = toRefs(state)
+const handleConfirmClick = () => {
+  if (!state.answer) {
+    return
+  }
+  switch (state.answer) {
+    case '青云文社':
+      showDialog({
+        message: '前往③内的青云研究所',
+      })
+        .then(() => {})
+        .catch(() => {})
+
+      break
+    default:
+      showToast({
+        message: '不正确，请再试一次，或者考虑一下看提示哦~',
+        icon: 'cross'
+      })
+      break
+  }
 }
+const handleFloatingBtnClick = () => {
+  showDialog({ message: '每三个字为一个字谜，最后六个字是一个字的两个部分' }).then(() => {})
+}
+// 滚动事件处理函数
+const handleScroll = () => {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
+  const clientHeight = document.documentElement.clientHeight
+  const scrollHeight = document.documentElement.scrollHeight
+
+  // 首先检查内容是否足够长以产生滚动条
+  if (scrollHeight <= clientHeight) {
+    // 如果没有滚动条，直接设置 isAtBottom 为 true
+    state.isAtBottom = true
+  } else {
+    // 如果有滚动条，则根据滚动位置判断
+    state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
+  }
+
+  // 判断是否滚动到底部（这里可以根据需要调整阈值）
+  state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
+}
+
+// 防抖函数
+const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
+
+// 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.addEventListener('scroll', debouncedHandleScroll)
+})
+
+// 组件卸载前移除滚动事件监听器
+onUnmounted(() => {
+  window.removeEventListener('scroll', debouncedHandleScroll)
 })
 </script>
 
 <style lang="less" scoped>
-@keyframes subtleFade {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+.van-cell {
+  padding: 8.1px;
 }
-.subtleFade {
-  animation: subtleFade 1s infinite;
+:deep(.van-cell__value) {
+  display: flex;
+  align-items: center;
 }
 </style>

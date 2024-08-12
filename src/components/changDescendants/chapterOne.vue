@@ -1,26 +1,36 @@
 <template>
   <div class="paragraph">
     <p class="normal">
-      恐怕这世界上，也只有奶奶能够续上这一段前缘了。你的疑惑和直觉已经让你寻到了这里——因为奶奶也
-      姓常。当你从暑气中回过神来，已经来到了奶奶居住的老人院。
+      你猛然有了线索——奶奶的姓，正是”常“。这世界上恐怕也只有奶奶能续上这段前缘了，你这么想着，从暑气中回过神来，马上驱车前往了啊仁居住的老人院。
     </p>
 
-    <p class="normal">你简单讲述了事情的大概。奶奶取出了一双珍藏多年的的一对月牙形木块。</p>
+    <p class="center">
+      <van-image
+        fit="contain"
+        :src="grandma"
+        @click="showImagePreview({ images: [grandma], showIndex: false })"
+      />
+    </p>
+
+    <p class="normal">耐心听你讲述一阵后，奶奶取出一双珍藏多年的一对月牙形木块。</p>
 
     <p class="normal">
-      “你这样拿着，对，一会儿闭上眼睛，然后诚心的把这圣杯扔出去。记得，要心静。”你看着银色发丝慈祥
-      的奶奶，跟着她示意一样，缓缓闭上了眼睛。
+      “一会儿你双手，对，这样合在掌心——你这样拿着，一会儿闭上眼睛，我会念两句话，你听我不说话以后呢，就诚心地把这筊杯抛出去。”你看着面前慈祥可亲的老人，按她的指点缓缓闭上眼睛。
     </p>
 
     <p class="normal">
-      老人院坐落在城市边缘，环境清幽，四周种满了各种花草树木，此时，你方才感觉到，空气中弥漫着淡淡的花香。
+      老人院坐落在城市边缘，环境清幽，种满植被。你渐渐地感觉到，空气中弥漫着淡淡的花香和淡淡的樟木味，让你的心神无比的凝聚。于是你一步步按照奶奶的指示，把这对称为“筊杯”的问卜之物，合在了掌心。
     </p>
 
-    <p class="normal">
-      于是开始按照奶奶的指示，开始使用手上这对称为“圣杯”的问卜之物，将它们合在一起，并抛出。
+    <p class="center">
+      <strong>
+        “..信女常碧霞，诚信叩拜，欲问旧事，请乞明示（往常正式问挂，需要烧香，念出一系列要请的神仙，以及报出地址，姓名，生辰八字，再请示问题。为不冒犯神明，此处故意留空。）。”</strong
+      >
     </p>
 
-    <div class="cup-box">
+    <p class="center">抛出</p>
+
+    <div class="center cup-box">
       <img src="@/assets/images/agree.png" @click="handleCupClick('青云文社pv')" />
       <img src="@/assets/images/hesitate.png" @click="handleCupClick('橋珠酒家pv')" />
       <img src="@/assets/images/object.png" @click="handleCupClick('红荔pv')" />
@@ -33,6 +43,8 @@
 </template>
 
 <script setup>
+import { showImagePreview } from 'vant'
+import grandma from '@/assets/images/grandma.jpeg'
 const emit = defineEmits(['update:active'])
 
 const handleCupClick = (key) => {

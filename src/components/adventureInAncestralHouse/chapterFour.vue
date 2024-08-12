@@ -1,8 +1,7 @@
 <template>
   <div class="paragraph">
     <p class="normal">
-      你能看到一个人在写这封信。他一会儿欣喜，一会儿脸上露出些许担忧的神色；桌子上已经有了好几张揉成了一团的草稿，
-      看得出十分纠结，以至于慌忙之中墨迹洒在纸上都没发现，便寄了出去。
+      你能看到一个人在写这封信。他的表情不断变换着，时而欣喜，时而又露出担忧和焦灼之色。奋笔疾书后，他终于扫开桌上桌上几张揉成一团的草稿，捧着已然沾染了墨迹的信件，匆匆地离开。
     </p>
 
     <p class="center">【阅读完信件后回答以下问题】</p>
@@ -42,14 +41,14 @@ const handleConfirmClick = () => {
     default:
       state.answer = ''
       showToast({
-        message: '不正确，请再试一次，或者考虑一下看提示哦~',
+        message: '请再试一次，或看提示',
         icon: 'cross'
       })
       break
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '一种糖份很多的黑色植物' }).then(() => {})
+  showDialog({ message: '一种糖份很多，表面黄绿色的植物' }).then(() => {})
 }
 </script>
 

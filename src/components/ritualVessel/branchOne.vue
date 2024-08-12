@@ -43,11 +43,11 @@
       </p>
       <p class="normal">日昳走了半天，早就馋的口水直流，拿到饼想都没想就一口把猪仔饼的头咬掉了。</p>
       <p class="normal">
-        招娣看着隔壁鱼摊鱼有鱼味的招牌，闻到了浓重鱼味的她其实已经萌生了离开的想法，因为有些日子吃鱼吃得太多，真的有点看到鱼字都生厌。
+        招娣看着隔壁鱼摊<strong>鱼有鱼味</strong>的招牌，闻到了浓重鱼味的她其实已经萌生了离开的想法，因为有些日子吃鱼吃得太多，真的有点看到鱼字都生厌。
       </p>
       <p class="normal">
         小贩看她看着鱼档愁眉不展，猜了个大概：“呢位妹妹一看就是不喜欢吃鱼啦~
-        但是那鱼有鱼味旁边，不是还有一句一鱼百味嘛，你想不想试试这完全不腥的鱼啊？”
+        但是那鱼有鱼味旁边，不是还有一句<strong>一鱼百味</strong>嘛，你想不想试试这完全不腥的鱼啊？”
       </p>
       <p class="normal">
         招娣吃惊地瞪大了眼睛，一方面是惊讶于自己的想法被看穿了，一方面是好奇这没鱼味的鱼是什么样子的。
@@ -60,13 +60,17 @@
         看着日昳都吃剩一个猪屁股了，招娣溺爱的锤了日昳一下，便挑选了一个绑着红绳的鱼仔饼。
       </p>
 
-      <p class="center">【您品尝到的鱼形饼是什么味道的？】</p>
+      <div class="paragraph">
+        <p class="center">【您品尝到的鱼形饼是什么味道的？】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
           <van-field v-model="answer" />
         </van-cell-group>
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
+
+      </div>
+    
     </div>
   </div>
 </template>

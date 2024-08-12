@@ -66,8 +66,7 @@
           </p>
 
           <p class="normal letter">
-            <strong>常哥</strong
-            >你远在佛山打拼，我唯有自把自為<strong>根據時辰給孩子取了個名字</strong>先填到出生紙上。
+            <strong>常哥</strong>你远在佛山打拼，我唯有自把自為<strong>根據時辰給孩子取了個名字</strong>先填到出生紙上。
             等你下次翻来我們一起找個先生問個好名。祝你順順利利，家中之事勿用擔憂。
             <br />
             <br />
@@ -236,7 +235,7 @@ const state = reactive({
   originalY: 50,
   w: 100,
   h: 100,
-  translate: true
+  translate: false
 })
 const { answer, x, y, w, h, translate } = toRefs(state)
 const handleConfirmClick = () => {
@@ -257,7 +256,7 @@ const handleFloatingBtnClick = () => {
 }
 const handleTranslateClick = () => {
   showLoadingToast({
-    message: state.translate ? `正在切換為繁體` : `正在切换为简体`,
+    message: '阴阳切换中',
     forbidClick: true,
     overlay: true
   })

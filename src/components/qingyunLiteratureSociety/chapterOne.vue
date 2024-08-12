@@ -1,34 +1,34 @@
 <template>
   <p class="center"><strong>你看到，</strong></p>
   <p class="center"><strong>一群少年在后厨努力练习……</strong></p>
-  <p class="center"><strong>两个青年将一群孩童从船上抱下……</strong></p>
-  <p class="center"><strong>一锅咕嘟咕嘟冒着黑泡的奇怪汤叶……</strong></p>
+  <p class="center"><strong>两名青年将一群孩童从船上抱下……</strong></p>
+  <p class="center"><strong>一锅咕嘟咕嘟冒着黑泡和骨头的汤……</strong></p>
   <p class="center"><strong>一群骨瘦如柴的孩子洋溢着笑容……</strong></p>
 
   <div class="paragraph">
     <p class="normal">
-      你缓缓地睁开了眼睛，这次的记忆不像之前那么清晰，你赶紧趁忘记之前，将一些碎片告诉了奶奶。
+      你缓缓睁开眼睛。这次的记忆不像之前在祖屋看到的那些那么清晰，趁那些图像仍留存在脑海中，你将这些片段转述给奶奶。
     </p>
 
     <p class="normal">
-      奶奶神色略微复杂，仿佛在回忆着什么久远的往事，“我和你几个姑婆不愿意卖掉祖屋的其中一个原因，就是因为阿爹跟我说，若有缘人挖到这个盒子的话，会来找我。”她倒了杯普洱，继续说道：“我多少知道一些当年的事，可你看到的这些，我却从未听他说起过......”
+      老人的神色略微复杂，仿佛在回忆着什么久远的往事，“我和你几个姑婆不愿意卖掉祖屋的一个原因，就是因为阿爹跟我说，若有缘人挖到这个盒子，会来找我。”她倒了杯普洱，娓娓道来：“我知道一点当年的事，可你看到的这些，我却从未听他说起过......”......”
     </p>
 
-    <p class="normal">这真的是太爷藏的盒子吗？你的疑问好像反而变多了。</p>
+    <p class="normal">这真的是太爷藏的盒子吗？你的疑问反而变多了...</p>
 
     <p class="normal">
-      “我认为... 这应该藏的不是什么坏东西。而且，这祖传的圣杯筊杯也让你看到了一些事情，可是……”
-    </p>
-
-    <p class="normal">
-      奶奶顿了顿，缓缓抚摸了你的头发，握了握手，眼睛看着你，眼中有些兴奋，有些忧虑，可随即又柔和了起来。
+      “我觉得... 这藏的应该不是什么坏东西。而且这祖传的筊杯也让你看到了一些事情，可是……”
     </p>
 
     <p class="normal">
-      “不知不觉你都长那么大了，既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧。”
+      奶奶顿了顿，褶皱而骨节分明的手慢慢伸过来，像儿时一样摸了摸你的脑袋，一双浑浊但不改慈祥的眼睛看着你，眼中似乎有些波动，可随即又柔和了起来。
     </p>
 
-    <p class="normal">最后，她终于告诉了你下一步的去向：“你太爷说，秘密在盒底。”</p>
+    <p class="normal">
+      “既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧。”
+    </p>
+
+    <p class="normal"><strong>她终于揭示了这个简单的秘密：“你太爷说，秘密在盒底。”</strong></p>
 
     <!-- <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
       【前往仁信，然后点击此处自动跳转】
@@ -65,7 +65,7 @@ const handleConfirmClick = () => {
       //   icon: 'success'
       // })
       showDialog({
-        message: '鹊桥底下还有一道桥，那边有一个隐藏的二维码可以进入下一段剧情'
+        message: '鹊桥底还有一道桥，寻找隐藏二维码进入下一段剧情'
       }).then(() => {})
       break
     default:
@@ -78,6 +78,6 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '把铁盒翻转过来，底部藏有六字' }).then(() => {})
+  showDialog({ message: '翻转铁盒，底部藏有六字' }).then(() => {})
 }
 </script>

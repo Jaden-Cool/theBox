@@ -3,23 +3,37 @@
 
   <div class="paragraph">
     <p class="normal">
-      刘恭可终于显现出具体的形象，说是具体，但是其实也并不准确——他身上的黝黑的道袍整洁而宽大，整个人较为消瘦，你刚想看清他的样貌，发现他的面容竟在随时变化，一会儿是孩童的脸，一会儿是耄耋老人，一会儿是英俊少年，一会儿是富态龙钟。你认出了刚刚其中一张脸，竟然就是那个卖猪仔饼那饼家。
+      他，终于显现出具体的形象，说是具体，但是其实也并不准确——他身上的黝黑的道袍整洁而宽大，整个人较为消瘦，你刚想看清他的样貌，发现他的面容竟在随时变化，一会儿是孩童的脸，一会儿是耄耋老人，一会儿是英俊少年，一会儿是富态龙钟。你认出了刚刚其中一张脸，竟然就是那个卖猪仔饼那卖饼人。
     </p>
-    <p class="normal">“幻象中的人，可是我太爷？”你隐隐中有些猜测，为了确认，此时忍不住先发问了。</p>
-    <p class="normal">刘恭可深深的朝你鞠了一躬："贵人，猜得没错，此人正是你常家先人。"</p>
     <p class="normal">
-      老道继续说道：“我出身正一，乃修道之人，关于我来这的原因，你继续往后跟着你太爷遗物的指引便知。你此时只需知道一件事情即可，那就是救你太爷一命。”
+      “刘恭可，幻象中的人，可是我太爷？” 你隐隐已经有些猜测，为了确认，此时忍不住先发问了。
+    </p>
+    <p class="normal">
+      刘恭可深深的朝你鞠了一躬："四方贵人，猜得没错，此人正是你常家先人，常日昳是也。"
+    </p>
+    <p class="normal">
+      老道继续说道：“我出身正一，乃修道之人，关于我来这的原因，你继续往后跟着你太爷遗物的指引便知。现今，你只需着手解决面前之事即可，那就是救你太爷一命。”
     </p>
     <p class="normal">你愣了愣：“我？我怎么救，太爷不是死了吗？”</p>
-    <p class="normal">
-      “这便先需要到正确的阴阳交界之地，并找到因果交替的信物，我来做法，你可有什么显现地形的图纸？”
-    </p>
-    <p class="normal">你看了看身上刚好拿了的一份欢乐海岸访客地图，递给了刘恭可。</p>
-    <p class="center"><strong>“先不要打开，等我做法。”</strong></p>
-    <p class="center"><strong>循环往复为赤圆，旁寻镬耳屋之眼。</strong></p>
-    <p class="center"><strong>金针穿过机缘现。寻窗为口入隔间。</strong></p>
-    <p class="center"><strong>信物成于危难前，紫瑞聚顶生机现。</strong></p>
-
+    <p class="normal">“贫道有法可作，但是需要贵人，你的相助。 事不宜迟，你太爷的情况刻不容缓。”</p>
+    <p class="normal">刘恭可双手摆成了一个奇怪的姿势，袋子中的【访客地图】再一次飞了出来。</p>
+    <p class="center">“先不要打开，等我做法。”</p>
+    <div class="center">
+      循环往复为
+      <p style="display: inline-block; margin: 0; color: #bf5950">赤圆</p>
+      ，旁寻
+      <p style="display: inline-block; margin: 0; color: #73a2d5">镬耳屋</p>
+      之眼。
+    </div>
+    <div class="center">
+      <p style="display: inline-block; margin: 0; color: #da9f36">金针</p>
+      穿过
+      <p style="display: inline-block; margin: 0; color: red">柒</p>
+      缘殿，寻窗为口入隔间。
+    </div>
+    <p class="center"><strong>信</strong>物成于危难前，紫瑞聚顶生机现。</p>
+  </div>
+  <div class="paragraph">
     <p class="center">【前往提示之处，取出相应信物，解开天机，输入四个数字以继续】</p>
     <p style="display: flex; align-items: center; justify-content: center" class="center">
       <van-cell-group inset>
@@ -28,6 +42,7 @@
       <van-button plain hairline @click="handleConfirmClick">确认</van-button>
     </p>
   </div>
+
   <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
@@ -50,7 +65,7 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 1)
+      emit('update:active', 2)
       break
     default:
       state.answer = ''

@@ -4,10 +4,7 @@
 
     <div class="paragraph">
       <p class="normal center">
-        <strong>云？青云？青云塔？</strong>
-      </p>
-      <p class="normal center">
-        <strong>难道是指青云文社？</strong>
+        晕？匀？云？青云？青云塔？到底什么意思啊这？
       </p>
       <p class="normal center">
         <strong style="font-size: 26px">当——当——当——</strong>
@@ -29,9 +26,10 @@
 </template>
 
 <script setup>
-import { showToast, showImagePreview, showDialog } from 'vant'
+// import { showToast, showImagePreview, showDialog } from 'vant'
+import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-import morseCode from '@/assets/images/morseCode.png'
+// import morseCode from '@/assets/images/morseCode.png'
 const state = reactive({
   answer: ''
 })
@@ -42,18 +40,19 @@ const handleConfirmClick = () => {
   }
   switch (state.answer) {
     case '三字经':
-      showDialog({ message: '前往地图③字处，寻找金色三字经继续' }).then(() => {})
+      showDialog({ message: '前往地图③字处，寻找【金色三字经】' }).then(() => {})
       break
     default:
       state.answer = ''
       showToast({
-        message: '注意聆听背景音乐的内容，找到对应的东西',
+        message: '注意聆听背景音乐的内容',
         icon: 'cross'
       })
       break
   }
 }
 const handleFloatingBtnClick = () => {
-  showImagePreview({ images: [morseCode], showIndex: false })
+  showDialog({ message: '注意聆听背景音乐的内容' }).then(() => {})
+  // showImagePreview({ images: [morseCode], showIndex: false })
 }
 </script>

@@ -14,6 +14,8 @@
 
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 import { debounce } from '@/utils'
 // 拴马桩
 import horseTiePost from '@/components/horseTiePost/homePage.vue'
@@ -141,6 +143,10 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (route.query.active) {
+    state.active = +route.query.active
+  }
   window.addEventListener('scroll', debouncedHandleScroll)
 })
 

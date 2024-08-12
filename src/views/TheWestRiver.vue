@@ -90,6 +90,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   if (route.query.active) {
     state.active = +route.query.active
   }

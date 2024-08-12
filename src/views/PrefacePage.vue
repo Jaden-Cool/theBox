@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1 class="center">【前言】</h1>
     <div class="paragraph">
+      <h1 class="center">【前言】</h1>
       <p class="normal">
         你好，欢迎来到欢乐海岸PLUS，我是作者北极。首先，<strong>感谢你给了顺德一次表达自己的机会</strong>。无论你来自何方，我也衷心地希望你可以透过这次体验，感受到这座城市古老的脉络。”
       </p>
@@ -17,7 +17,9 @@
       <p class="normal">
         在这次沉浸式的体验里面，你将会扮演一位找到了一盒时间胶囊的人。你将会跟随着时间胶囊里面的线索，剥丝抽茧，解开一个尘封已久的家族秘密。
       </p>
-      <p class="center">——————————</p>
+    </div>
+
+    <div class="paragraph">
       <h1 class="center">【游玩规则】</h1>
       <p class="normal">
         1.人数限制：这个沉浸式的体验是为<strong>三个人设计的</strong>，参与人数多于三人的话，则推荐额外购买一个盒子。
@@ -57,6 +59,7 @@
       <p class="normal">10.最后，请保证你们的手机都连上了互联网，并拥有二维码扫描功能。</p>
       <p class="center">我们的寻味之旅，正式开始。</p>
     </div>
+
     <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
       <p style="margin: 0">【点击此处开始我们的旅程】</p>
       <p style="margin: 0">（跳转【祖屋奇遇】）</p>

@@ -37,9 +37,14 @@ const handleSidebarChange = (index) => {
     console.error('Invalid sidebar index:', index)
   }
 }
-const handleCopyClick = () => {
-  showToast('已复制跳转所需的URL')
-  navigator.clipboard.writeText(`域名/${url.value}`)
+const handleCopyClick = async () => {
+  try {
+    const textToCopy = `域名/${url.value}`
+    await navigator.clipboard.writeText(textToCopy)
+    showToast('已复制跳转所需的URL')
+  } catch (err) {
+    showToast('已复制跳转所需的URL')
+  }
 }
 onMounted(() => {
   const resArr = router.options.routes.map((item, index) => {
