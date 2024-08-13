@@ -25,14 +25,16 @@
       <p class="normal">
         终于，东西都被埋好了。午未无力地瘫坐在地上，又狠狠地灌了一大口酒。他呆呆地望着那重新被填上的土，心中五味杂陈。他不知道未来的日子里，这些宝贝是否还能有重见天日的那一天，也不清楚自己的命运究竟会走向何方。然而在当下，这似乎是他所能想到的唯一办法了。
       </p>
-      <p class="center">——————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
         接下来的每一年，午未都会偷偷地过来确保地契还在。同时，埋下一坛新酒来纪念又平安的渡过了一年。
       </p>
     </div>
     <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
-      <p style="margin: 0">前往【顺酒坊】寻找你太爷留下的宝藏，</p>
-      <p style="margin: 0">一坛酒一坛酒的开来找吧。</p>
+      <p style="margin: 0">前往【顺酒坊】寻找你太爷留下的宝藏</p>
+      <p style="margin: 0">一课一棵树的挖吧。</p>
     </div>
   </div>
 </template>

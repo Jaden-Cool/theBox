@@ -4,54 +4,92 @@
 
     <div class="paragraph">
       <p class="normal">
-        “非常好。”
-        赵百则把子弹退了膛，才从树影中走了出来。“你们迟了足足一个小时你知道吗？有几个人都以为你们遇难了。吓死我了。来，赶紧进村。给你们热点吃的，都饿了吧？来，泡泡脚，天亮了还得走上几天呢。我们以后就是同事了。我叫赵百则，一百则书的百，一百则书的则。”
+        “好。装恶人可太难为我了”
+        这高大的男人长出一口气，然后把刀子入了鞘。“你们迟了足足半个小时你知道吗？我们以后就是同事了。我叫赵百则，一百则书的百，一百则书的则。我都以为你们遇难了哈哈哈，吓死我了。你好，你叫什么？”
       </p>
       <p class="normal">
-        赵百则滔滔不绝的说着，手上一刻不停的招呼着几人进了窦口圩。日昳还是第一次见到说话那么快的人，紧张感顿消。几个孩子也看他有趣，跟着叽叽喳喳的说个不停。
+        赵百则滔滔不绝的说着，手上一刻不停的招呼着两人走向了窦口圩。日昳还是第一次见到说话那么快的人，紧张感顿消。蔡尓洪也看他有趣，跟着叽叽喳喳的说个不停。
       </p>
       <p class="normal">
-        在抵达第一个村庄之后，常日昳、赵百则和孩子们并没有时间长久停留。日军的威胁依旧存在，他们必须继续前行，穿越多个村庄，才能最终到达安全的目的地——远在四会的陸村。
+        天终于大亮，他们重新与已经出发了的一群孩子汇合。他们的目的地是远在四会的陸村。
       </p>
       <p class="normal">
         接下来的几天，他们走村串巷，依靠当地村民的接应和帮助，才得以顺利前行。每到一个村庄，村民们总是热情地招待他们，为孩子们提供食物和温暖的住所。
       </p>
       <p class="normal">
-        在中途四会县城里，接应常日昳他们的是一个年迈的老农，老农热情地为他们准备了一锅带着花生碎的热粥和切片大头菜。孩子们狼吞虎咽地吃着，常日昳却在一旁默默地看着出神。曾几何时他们家也是几天才能勉强吃上一碗能立筷的粥。自从在橋珠酒家工作以后他好像就没有怎么饿过了。
+        今天接应他们的是三个年迈的村代表，三位老农热情地为他们准备了一锅绵软的番薯粥和油角。这粥里面有重新捣碎的油饼（也就是榨油剩下的大豆渣滓）。看着身边这些曾经养尊处优的孩子们狼吞虎咽地吃着，常日昳却在一旁默默地出神了。曾几何时他们家也是几天才能勉强吃上一碗能立筷的粥，他突然很想念阿妈的鱼腐。他已经很久没有这么饿过了，但是多日的强行军让他一点胃口都没有。
       </p>
-      <p class="normal">老农拍了拍他的肩膀，“小伙子，吃吧，别让孩子们看出你在担心。”</p>
       <p class="normal">
-        常日昳感激地点点头，也狼吞虎咽的吃了起来。因为战乱期间的疯狂通货膨胀，米可比钱值钱多了。日昳此刻才体会到周之贞院长身上的重担。接下来的日子还要靠着周之贞的资助，在深山老林里面养活两百多个人，而广西那边还又八百。接下来去到目的地以后的日子可不能像以前给有钱人做饭的时候那么浪费了。
+        老农叹了口气，拍了拍他的肩膀，“小伙子，吃吧，今日年初二，村子里啊，开油锅啦，村子里都在吃煎堆呢。难得有点油水进肚子，以后你们进山里可就更难啦...
+        趁着现在，就算吃不进去也塞一点。”
+      </p>
+      <p class="normal">
+        常日昳有些迟疑地点了点头。拿起一碗粥就吸溜了一口。一股陈旧的油抑味直冲天庭，吃惯了橋珠酒家伙食的日昳差一点把口中的粥重新吐了出来。日昳马上知道了老农在骗他。油饼是榨油剩下的残渣，从这个味道吃起来已经至少有几年了。要是真的有那油去炸煎堆，这油饼不应该是这个味道。如此说......
+        这里可能就是村子里最后的余粮了。
+      </p>
+      <p class="normal">
+        日昳用舌头卷着粥，努力避开着自己的味蕾，强忍着恶心，一口一口把这油饼粥往肚子里吞。战乱期间，法币当道，物价乱涨，，一担子米可以换两条人命。
+      </p>
+      <p class="center">
+        接下来的日子还要在深山老林里面养活两百多个人，日昳此刻才体会到周之贞院长身上的重担。
       </p>
     </div>
 
-    <!-- <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
-        点击此处继续
-      </div> -->
+    <div class="paragraph">
+      <p class="center">【今天是1943年二月十一日，正月初七 今天的三个字是什么？】</p>
+      <p style="display: flex; align-items: center; justify-content: center" class="center">
+        <van-cell-group inset>
+          <van-field maxlength="3" show-word-limit v-model="answer" />
+        </van-cell-group>
+        <van-button plain hairline @click="handleConfirmClick">确认</van-button>
+      </p>
+    </div>
+
+    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
-<!-- <script setup>
-  
-  const emit = defineEmits(['update:active'])
-  const handleContinueClick = () => {
-    emit('update:active', 1)
+<script setup>
+import { showToast, showDialog } from 'vant'
+import { reactive, toRefs } from 'vue'
+const emit = defineEmits(['update:active'])
+const props = defineProps({ isAtBottom: Boolean })
+const state = reactive({
+  answer: ''
+})
+const { answer } = toRefs(state)
+const handleConfirmClick = () => {
+  if (!state.answer) {
+    return
   }
-  </script>
-  
-  <style lang="less" scoped>
-  @keyframes subtleFade {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
+  switch (state.answer) {
+    case '填口满':
+      showToast({
+        message: '恭喜，回答正确',
+        icon: 'success'
+      })
+      emit('update:active', 1)
+      break
+    default:
+      state.answer = ''
+      showToast({
+        message: '不正确，请再试一次，或者考虑一下看提示哦~',
+        icon: 'cross'
+      })
+      break
   }
-  .subtleFade {
-    animation: subtleFade 1s infinite;
-  }
-  </style> -->
+}
+const handleFloatingBtnClick = () => {
+  showDialog({ message: '癸未年 【羊年】 甲寅月 庚子日' }).then(() => {})
+}
+</script>
+
+<style lang="less" scoped>
+.van-cell {
+  padding: 8.1px;
+}
+:deep(.van-cell__value) {
+  display: flex;
+  align-items: center;
+}
+</style>

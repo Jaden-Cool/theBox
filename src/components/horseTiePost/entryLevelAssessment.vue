@@ -59,7 +59,7 @@
         </van-field>
 
         <van-field
-          v-show="+isReading === 1 && isDrinking != 2"
+          v-show="(+isSmoking === 2 && +isDrinking === 2) || +isReading === 2"
           name="radio"
           label="学厨是为了什么？"
         >
@@ -126,6 +126,13 @@ const state = reactive({
 const { isSmoking, isDrinking, sneeze, likesSpicy, isReading, learnCooking } = toRefs(state)
 const currentComponent = computed(() => {
   if (
+    +state.isSmoking === 2 &&
+    +state.isDrinking === 2 &&
+    +state.learnCooking === 1
+  ) {
+    return '解答 A'
+  }
+  if (
     +state.isSmoking === 1 &&
     +state.sneeze === 2 &&
     +state.isReading === 1 &&
@@ -143,6 +150,13 @@ const currentComponent = computed(() => {
     return '解答 A'
   }
   if (
+    +state.isSmoking === 2 &&
+    +state.isDrinking === 2 &&
+    +state.learnCooking === 2
+  ) {
+    return '解答 C'
+  }
+  if (
     +state.isSmoking === 1 &&
     +state.sneeze === 2 &&
     +state.isReading === 1 &&
@@ -158,6 +172,13 @@ const currentComponent = computed(() => {
     +state.learnCooking === 2
   ) {
     return '解答 C'
+  }
+  if (
+    +state.isSmoking === 2 &&
+    +state.isDrinking === 2 &&
+    +state.learnCooking === 3
+  ) {
+    return '解答 B'
   }
   if (
     +state.isSmoking === 1 &&

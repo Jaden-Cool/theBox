@@ -6,9 +6,11 @@
       <p class="normal">
         随着你把数字念出，黄符上一个字一个字的跟着亮了起来。思绪渐渐淡出，回到了当年。
       </p>
-      <p class="center">——————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
-        终于，我们来到了繁华的广州城，来到了广东银行那气派的大门前。广州和我记忆中任何一处都不一样。这里有汽车，有番鬼佬（外国人），大部分人的衣服都没有缝补。
+        终于，我们来到了繁华的广州城，来到了广东银行那气派的大门前。广州和我记忆中任何一处都不一样。这里有汽车，有番鬼佬（外国人），大部分人的衣服都没有缝补的痕迹。
       </p>
       <p class="normal">
         望着来来往往的人群，我深吸一口气，转头看向刘天师，他难得的笑了笑，抬了抬下巴，示意我进去。
@@ -23,14 +25,18 @@
         柜员在高高在上的柜台后面不停的跑动，我的内心也跟着他一起七上八下。此时，我眼角看到刘天师倚在门框上，拿着那张黄符在上面添了几笔。他总是在写这写那的，这种时候最好不要去打扰他。
       </p>
       <p class="normal">未曾等我反应过来，柜员打开了侧门，引领我走向那隐藏着父亲遗物的保险箱。</p>
-      <p class="center">——————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
         回忆在打开保险柜之前的一刻中断了。仿佛这厚重的金属铁柜连来自未来的窥探都能挡住。
       </p>
       <p class="normal">
         这平安符上面，除了中间的那一列隐藏的密码，侧面和下方的那个符号... 好像是后加上去的。
       </p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【根据平安符的指引找到下一个地点】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -78,7 +84,7 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '平安符中诗词所描述的地方就在这里附近' }).then(() => {})
+  showDialog({ message: '平安符中诗词所描述的地方就在这里附近' }).then(() => {}).catch(()=>{})
 }
 </script>
 

@@ -14,15 +14,15 @@
       今天，我第一次看到了你。你就那么两个手掌大，你是我抱过最轻，又最重的东西。我当时就知道了。你一定就是我的有缘人。因为我早已讲过你了小家伙。就在那生死之间。
     </p>
     <p class="normal">
-      虽然我身体已经不太能吃太刺激的东西，但我还是让你妈妈给我偷偷的盛了一小煲猪脚姜。”
+      虽然我身体已经不太能吃太刺激的东西，嘿嘿，原来神仙也会得胃癌啊。但我还是偷偷的让你奶奶给我偷偷地盛了一小煲猪脚姜。”
     </p>
     <p class="normal">
       他的声音温和而坚定，带着对未来的期望和对后代的关爱。你看着他专注的神情，感受着那份沉甸甸的责任和深厚的爱意。
     </p>
     <p class="normal">
-      “我这一生，经历了很多风风雨雨。见过太多不公平的事情，无论是天灾还是人祸，一路上磕磕碰碰。哎呀，这猪脚姜真是……”他眼泪都流了出来。
+      “我这一生，经历了不少很多风风雨雨。见过太多不公平的事情，无论是天灾还是人祸，一路上磕磕碰碰。哎呀，但是吃到这猪脚姜的那一刻，感觉一切都值了。”
     </p>
-    <p class="center">【输入此时您尝到的味道】</p>
+    <p class="center">【输入此时午未尝到的味道】</p>
     <p style="display: flex; align-items: center; justify-content: center" class="center">
       <van-cell-group inset>
         <van-field v-model="answer" />
@@ -47,19 +47,19 @@ const handleConfirmClick = () => {
     return
   }
   switch (state.answer) {
-    case '甜':
+    case '辣':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 5)
+      emit('update:active', 6)
       break
-    case '真味甜':
+    case '辛':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 5)
+      emit('update:active', 6)
       break
     default:
       state.answer = ''

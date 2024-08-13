@@ -8,7 +8,9 @@
     <p class="normal">
       1945年，龙拜丹去世，橋珠酒家再次被员工集资经营，然后被龙四珠接手。在这段变迁的过程中，冯沃决定分出去开一家面馆，把他的经营理念发扬光大，后来改名叫冯不记。期间区财师傅回来过一次，但是最终还是选择了迁往澳门定居。酒家几经易主，地位在顺德人心目中依然高高在上。对经营没有兴趣的两个人有了第二个孩子，女儿常碧霞。
     </p>
-    <p class="center">————————————</p>
+  </div>
+
+  <div class="paragraph">
     <p class="normal">
       直到1959年，人民公社正式创立，橋珠酒家也迎来了命运的转折点。橋珠酒家从此改名叫“凤城第一人民食堂”，不再是昔日那个承载无数美好回忆的宴会场所，而成为了一个提供大锅饭的公共食堂。随着大锅饭的普及，橋珠的辉煌岁月渐渐远去。
     </p>
@@ -19,7 +21,11 @@
       1962年五月，全国的饥荒达到了历史的最高点，饥饿的阴霾笼罩在每一个角落。午未和阿鸾在“凤城第一人民食堂”每天辛苦工作，但即使他身为厨师，也难逃食物短缺的困境。
     </p>
     <p class="center">饿，是每一天的主旋律。</p>
-    <p class="center">【问题待定】</p>
+  </div>
+
+  <div class="paragraph">
+    <p class="center">【金铁伞骨辨方向，伞面阴影系宗祠】</p>
+    <p class="center">【饥火烧肠属难渡，解困三字梨园指】</p>
     <p style="display: flex; align-items: center; justify-content: center" class="center">
       <van-cell-group inset>
         <van-field v-model="answer" />
@@ -32,8 +38,7 @@
 </template>
 
 <script setup>
-// import { showToast, showDialog } from 'vant'
-import { showDialog } from 'vant'
+import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
@@ -42,36 +47,29 @@ const state = reactive({
 })
 const { answer } = toRefs(state)
 const handleConfirmClick = () => {
-  emit('update:active', 3)
-  // if (!state.answer) {
-  //   return
-  // }
-  // switch (state.answer) {
-  //   case '':
-  //     showToast({
-  //       message: '恭喜，回答正确',
-  //       icon: 'success'
-  //     })
-  //     emit('update:active', 1)
-  //     break
-  //   case '蔡老板':
-  //     showToast({
-  //       message: '恭喜，回答正确',
-  //       icon: 'success'
-  //     })
-  //     emit('update:active', 1)
-  //     break
-  //   default:
-  //     state.answer = ''
-  //     showToast({
-  //       message: '不正确，请再试一次，或者考虑一下看提示哦~',
-  //       icon: 'cross'
-  //     })
-  //     break
-  // }
+
+  if (!state.answer) {
+    return
+  }
+  switch (state.answer) {
+    case '顺酒坊':
+      showToast({
+        message: '恭喜，回答正确',
+        icon: 'success'
+      })
+      emit('update:active', 3)
+      break
+    default:
+      state.answer = ''
+      showToast({
+        message: '不正确，请再试一次，或者考虑一下看提示哦~',
+        icon: 'cross'
+      })
+      break
+  }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '提示待定' }).then(() => {})
+  showDialog({ message: '在天圆地方的八卦伞中，找到和【粤剧】相关的那一篇。朝着那个方向走，就会看到一家有三个红字牌匾的店' }).then(() => {}).catch(()=>{})
 }
 </script>
 
