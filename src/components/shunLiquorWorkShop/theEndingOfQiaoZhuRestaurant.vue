@@ -21,7 +21,7 @@
       <p class="center">日晷归为四象齐，昳字减日剩其真。</p>
     </div>
 
-    <div class="center subtleFade" style="margin: 26px 8px" @click="handleContinueClick">
+    <div class="center subtleFade" style="margin: 26px 8px">
       【到达指示场景处，寻找午未二字，将午未放上去】
     </div>
 
@@ -31,11 +31,11 @@
 
 <script setup>
 import { showDialog } from 'vant'
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const handleContinueClick = () => {
-  router.push({ name: 'EndingPage' })
-}
+// import { useRouter } from 'vue-router'
+// const router = useRouter()
+// const handleContinueClick = () => {
+//   router.push({ name: 'EndingPage' })
+// }
 const props = defineProps({ isAtBottom: Boolean })
 
 const handleFloatingBtnClick = () => {

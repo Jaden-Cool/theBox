@@ -48,11 +48,11 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-const router = useRouter()
+// import { useRouter } from 'vue-router'
+// const router = useRouter()
+const emit = defineEmits(['update:active'])
 const handleContinueClick = () => {
-  console.log(123);
-    router.push({ name: 'QingyunCulturalEducation', query: { active: 6 }  })
+  emit('update:active', 1)
 }
 </script>
 

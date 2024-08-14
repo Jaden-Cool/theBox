@@ -19,13 +19,16 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 // 顺酒坊
 import shunLiquorWorkShop from '@/components/shunLiquorWorkShop/homePage.vue'
+// 口味酸
+import sourTastes from '@/components/shunLiquorWorkShop/sourTastes.vue'
 // 橋珠酒家结局
 import theEndingOfQiaoZhuRestaurant from '@/components/shunLiquorWorkShop/theEndingOfQiaoZhuRestaurant.vue'
 
 const state = reactive({
   tabs: [
     { id: 0, title: '顺酒坊' },
-    { id: 1, title: '橋珠酒家结局' }
+    { id: 1, title: '口味酸' },
+    { id: 2, title: '橋珠酒家结局' }
   ],
   active: 0,
   isAtBottom: false
@@ -42,6 +45,9 @@ const currentComponent = computed(() => {
     return shunLiquorWorkShop
   }
   if (+state.active === 1) {
+    return sourTastes
+  }
+  if (+state.active === 2) {
     return theEndingOfQiaoZhuRestaurant
   }
   return null
