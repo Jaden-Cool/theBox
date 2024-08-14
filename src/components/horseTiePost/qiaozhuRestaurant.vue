@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="center">橋珠酒家</h1>
+    <!-- <h1 class="center">橋珠酒家</h1> -->
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         橋珠酒家是全顺德名厨的摇篮。
         区财师傅在这里坐镇，虽然名义上是主厨，但是区财基本上只会有贵客点名做宴的时候才会出现。日昳进来的头几个月，就马上被安排去了“追猫”。
@@ -65,7 +65,7 @@
 import { showToast } from 'vant'
 import { reactive, toRefs } from 'vue'
 import map from '@/assets/images/map.svg'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',
@@ -102,6 +102,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   state.show = true
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">回答周之贞</h1>
+    <!-- <h1 class="center">回答周之贞</h1> -->
 
     <div class="paragraph">
       <p class="normal">

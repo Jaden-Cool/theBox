@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">师妹故事</h1>
+    <!-- <h1 class="center">师妹故事</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 8)
 }

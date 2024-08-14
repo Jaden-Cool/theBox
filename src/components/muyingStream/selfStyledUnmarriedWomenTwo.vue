@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1 class="center">梳起2</h1>
-    <div class="paragraph">
+    <!-- <h1 class="center">梳起2</h1> -->
+
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         石船上躺了一个人，辨不清男女。头上插着几朵不知名的鲜花。只见他/她把手中的一个篮子漂浮水中当做是船。见你靠近，咧嘴一笑，示意你过来看看他篮子内的东西。你靠了过去，只见各种奇珍异草上面，放着一把梳齿特别密的梳子。你记得这个，这个东西好像叫
         梳篦（bì）。你忍不住伸手去摸，就在你碰到这把梳子的一瞬间，被卷进了一场回忆当中。
@@ -13,9 +14,9 @@
           @click="showImagePreview({ images: [aManHoldingAflowerBasket], showIndex: false })"
         />
       </p>
-      </div>
+    </div>
 
-      <div class="paragraph">
+    <div class="paragraph">
       <p class="normal">
         阿妈和李清鹂跟着红船离开的日子已经过去了数月，在替李清鹂做初登台的准备期间，招娣也即将偷渡去香港，而阿妈对招娣的事情并不知情。我这几天都寝食难安，神不守舍，早上练习的时候也险些掉下水。
       </p>
@@ -74,7 +75,7 @@
 <script setup>
 import { showImagePreview, showDialog } from 'vant'
 import aManHoldingAflowerBasket from '@/assets/images/aManHoldingAflowerBasket.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({
     message: '前往地图上的⑥',
@@ -85,6 +86,9 @@ const handleContinueClick = () => {
       emit('update:active', 3)
     })
     .catch(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

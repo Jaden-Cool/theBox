@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">搬家</h1>
+    <!-- <h1 class="center">搬家</h1> -->
     <div class="paragraph">
       <p class="normal">
         收下日晷后，那人还叮嘱了兰姨几句，日昳没听清，只知道兰姨带着他俩匆匆往家赶。
@@ -41,7 +41,7 @@
 <script setup>
 import { showImagePreview } from 'vant'
 import aFan from '@/assets/images/aFan.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 9)
 }

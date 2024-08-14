@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div style="padding-bottom: 48px"  @click="handleMainBoxClick">
     <div v-if="!translate">
       <div class="paragraph">
         <p class="normal">
@@ -226,7 +226,7 @@ import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active','handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',
@@ -263,6 +263,9 @@ const handleTranslateClick = () => {
   setTimeout(() => {
     state.translate = !state.translate
   }, 300)
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 const handleScroll = () => {
   const scrollY = window.scrollY

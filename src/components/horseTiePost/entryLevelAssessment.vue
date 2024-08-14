@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">入门考核</h1>
+    <!-- <h1 class="center">入门考核</h1> -->
 
     <div class="paragraph">
       <p class="center">《区财收徒入门考核》</p>
@@ -118,7 +118,7 @@
 
 <script setup>
 import { reactive, toRefs, computed } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
   isSmoking: '',

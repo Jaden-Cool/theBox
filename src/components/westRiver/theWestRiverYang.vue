@@ -1,6 +1,6 @@
 <template>
   <div :class="{ 'black-bg': !translate, 'white-bg': translate }">
-    <h1 class="center">西江</h1>
+    <!-- <h1 class="center">西江</h1> -->
 
     <div v-if="!translate">
       <div class="paragraph">
@@ -216,7 +216,7 @@ import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
 import { showDialog, showLoadingToast } from 'vant'
 import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
   x: 330,
   y: 50,

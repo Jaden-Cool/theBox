@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="center">读信毕</h1>
+    <!-- <h1 class="center">读信毕</h1> -->
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         常日昳,
         不，现在是常午未了。读完这封家书，看着这家训，泪水盈眶。他想到了等待了多年的母亲，想到了被贱卖的招娣，被付之一炬的橋珠酒楼，被强行拆散的蔡尔洪，和文教所中躲躲藏藏的日子。
@@ -58,7 +58,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -87,6 +87,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '使用万年历网站' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

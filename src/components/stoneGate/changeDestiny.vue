@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">改命</h1>
+    <!-- <h1 class="center">改命</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -18,12 +18,12 @@
       点击此处跳转到相应章节
     </div>
 
-    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
 <script setup>
-import {  showDialog } from 'vant'
+import { showDialog } from 'vant'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const handleContinueClick = () => {

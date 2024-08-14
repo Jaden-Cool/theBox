@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">刘恭可红荔1</h1>
+    <!-- <h1 class="center">刘恭可红荔1</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -17,7 +17,7 @@
         即使在战争时期，端午节扒龙舟这一传统也从未中断。龙舟比赛不仅是力量和技巧的比拼，更是我们村精神的象征，也是我唯一的精神寄托。
       </p>
     </div>
-  
+
     <div class="paragraph">
       <p class="normal">
         1943年夏至，抗日战争已经进入到了第六个年头。广州沦陷，顺德大良也紧随其后。没有战略价值的村子反而成了比较安全的地区。
@@ -61,7 +61,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

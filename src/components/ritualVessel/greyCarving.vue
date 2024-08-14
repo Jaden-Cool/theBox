@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">灰雕</h1>
+    <!-- <h1 class="center">灰雕</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -54,7 +54,7 @@
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import reliefSculpture from '@/assets/images/reliefSculpture.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',

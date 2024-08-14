@@ -1,6 +1,6 @@
 <template>
   <div class="main-box">
-    <h1 class="center">口味苦</h1>
+    <!-- <h1 class="center">口味苦</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -59,7 +59,7 @@
 import { showImagePreview, showDialog } from 'vant'
 import cooking from '@/assets/images/cooking.jpeg'
 import unopenedFish from '@/assets/images/unopenedFish.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({
     message: '苦只是一时的，用汗水浇灌的土地总会有相对称的收成',

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="center">橋珠酒家火劫</h1>
+    <!-- <h1 class="center">橋珠酒家火劫</h1> -->
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         好景不长，民国二十七年，九月初二，霜降当天。温度跌至冰点，早上的白蜡石上都是白色的霜。广州失守，日寇入侵顺德，整个城镇笼罩在战火的阴霾中。橋珠酒家也未能幸免。
       </p>
@@ -81,7 +81,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -110,6 +110,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '戊寅年 【虎年】 壬戌月 己丑日' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

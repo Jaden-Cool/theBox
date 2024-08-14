@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1 class="center">祖屋奇遇</h1>
-    <div class="paragraph">
+    <!-- <h1 class="center">祖屋奇遇</h1> -->
+     
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         阳光透过柚子树叶斑驳地洒下，在身上投射出神秘的斑点。你仍旧坐在水井旁，不曾挪窝。
       </p>
@@ -29,9 +30,12 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 3)
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

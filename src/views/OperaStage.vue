@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">起单脚</h1>
+    <!-- <h1 class="center">起单脚</h1> -->
 
     <div class="paragraph">
       <p class="center">【以下挑战为体能挑战，请量力而为。】</p>
@@ -46,11 +46,11 @@
       </p>
 
       <p class="normal">
-        白驹班约了午未在村头的体育场集合。演出台上搭起的醒狮木桩被简单的系上了红绳，做成了一个擂台模样，周围围满了来看热闹的观众。午未独自站在演出台中央，面对着一众戏班的领班和看热闹的群众。红荔竟然不在人群中......她明明知道今天就是比赛日的...
+        白驹班约了午未在村头的体育场集合。演出台上搭起的醒狮木桩被简单的系上了红绳，做成了一个擂台模样，周围围满了来看热闹的观众。午未独自站在演出台中央，面对着一众戏班的领班和看热闹的群众。红荔不在人群中......看来白驹班没有告诉她这件事情。
       </p>
 
       <p class="normal">
-        靓少凤面带笑意地说道：“常午未，你决定要追红荔，就你今天就要证明你有心有力。起码要我们看得起你，我也不欺负你，今天我们来比‘起单脚’。论资排辈我虽然是班主，但是我是演花旦出身的，单脚不是我强项。别说我们没有留手。”......她明明知道今天就是比赛日的...
+        靓少凤面带笑意地说道：“常午未，你决定要追红荔，就你今天就要证明你有心有力。起码要我们看得起你，我也不欺负你，今天我们来比‘起单脚’。论资排辈我虽然是班主，但是我是演花旦出身的，单脚不是我强项。别说我们没有留手。”
       </p>
 
       <p class="normal">
@@ -103,6 +103,14 @@
     </div>
 
     <div v-show="isStart" class="paragraph">
+      <p class="center">
+        <van-image
+          fit="contain"
+          :src="singleFoot"
+          @click="showImagePreview({ images: [singleFoot], showIndex: false })"
+        />
+      </p>
+
       <p class="normal">
         第二根香燃尽了，时间来到了二十分钟。烈日当空，所有人额头上都挂着汗珠。两根木桩下的红布也被汗水染成了猪肝色。白驹班的人一开始都只是等着看午未的笑话，他们都没有想到这个倔强的小子竟然会坚持那么久。台上两个人的脚都微微颤抖了起来。《罗成写书》这一幕的曲也完全唱完了。两边乐手都识趣地停了手。
       </p>
@@ -176,7 +184,9 @@
 
     <div v-show="isStart" class="paragraph">
       <p class="center" style="margin-bottom: 0">
-        “<strong style="color: red;">咸</strong>盐共尝心甘愿，<strong style="color: #7f6000;">酸</strong>楚同受共春秋。”
+        “<strong style="color: red">咸</strong>盐共尝心甘愿，<strong style="color: #7f6000"
+          >酸</strong
+        >楚同受共春秋。”
       </p>
 
       <p class="center" style="margin: 6px 0 6px 0">解锁味道：【咸】</p>
@@ -217,19 +227,24 @@
         </div>
       </div>
     </Vue3DraggableResizable>
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-// import { showToast, showDialog } from 'vant'
-// import { reactive,  ,computed} from 'vue'
-import { reactive, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { showImagePreview, showDialog } from 'vant'
 import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
 import shuMingLuo from '@/assets/images/shuMingLuo.jpeg'
-// const emit = defineEmits(['update:active'])
+import singleFoot from '@/assets/images/singleFoot.jpg'
+import luochengxieshu from '@/assets/audio/0206luochengxieshu.mp3' // BGM
+
 const state = reactive({
   // 拖拽元素
   x: 216,
@@ -245,23 +260,49 @@ const state = reactive({
   isRunning: false,
   isShowTimer: false,
   isNeedTimer: false,
-  isStart: false
+  isStart: false,
+  iconName: 'music-o',
+  audioSrc: luochengxieshu ? luochengxieshu : '' // BGM的Src
 })
-const { x, y, w, h, isRunning, isNeedTimer, isShowTimer, isStart } = toRefs(state)
+const { x, y, w, h, isRunning, isNeedTimer, isShowTimer, isStart, iconName, audioSrc } =
+  toRefs(state)
 const handleIsStartClick = () => {
   state.isStart = true
   if (state.isNeedTimer) {
     state.isShowTimer = true
     startStopwatch()
   }
+  handleAutoPlay()
 }
 const handleContinueClick = () => {
   showDialog({
-    message: '照片拍好了吗？听到了吗？好像听到有婚礼的声音？出发前往喜万年年寻找二维码进行下一部分吧',
+    message:
+      '照片拍好了吗？听到了吗？好像听到有婚礼的声音？出发前往喜万年年寻找二维码进行下一部分吧'
     // showCancelButton: true
   })
     .then(() => {})
     .catch(() => {})
+}
+
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  audio.value.play()
 }
 // 格式化时间
 const formattedTime = computed(() => {

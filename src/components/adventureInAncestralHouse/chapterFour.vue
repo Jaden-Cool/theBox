@@ -1,5 +1,5 @@
 <template>
-  <div class="paragraph">
+  <div class="paragraph" @click="handleMainBoxClick">
     <p class="normal">
       你能看到一个人在写这封信。他的表情不断变换着，时而欣喜，时而又露出担忧和焦灼之色。奋笔疾书后，他终于扫开桌上桌上几张揉成一团的草稿，捧着已然沾染了墨迹的信件，匆匆地离开。
     </p>
@@ -20,7 +20,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active','handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -46,6 +46,9 @@ const handleConfirmClick = () => {
       })
       break
   }
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '一种糖份很多，表面黄绿色的植物' }).then(() => {})

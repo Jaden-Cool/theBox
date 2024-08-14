@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">母亲回归</h1>
+    <!-- <h1 class="center">母亲回归</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -56,7 +56,7 @@
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 import { copyToClipboard } from '@/utils'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -91,7 +91,7 @@ const handleCopyClick = async () => {
     copyToClipboard('https://wannianrili.bmcx.com')
     showToast('已复制跳转所需的URL')
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 </script>

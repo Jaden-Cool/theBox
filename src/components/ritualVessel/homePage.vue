@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div @click="handleMainBoxClick">
     <div class="paragraph">
       <p class="normal">
         你一面躲避着烈日，一边好不容易才寻到此处。 除了一座大鼎，这里竟还藏着一座博物馆。
       </p>
     </div>
-      
-      <p class="center">【可入馆后再阅读下一段剧情】</p>
+
+    <p class="center">【可入馆后再阅读下一段剧情】</p>
 
     <div class="paragraph">
       <p class="normal">
@@ -63,7 +63,7 @@
 <script setup>
 import { showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
   show: false
 })
@@ -102,6 +102,9 @@ const handleCupClick = (key) => {
         break
     }
   }, 1000)
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

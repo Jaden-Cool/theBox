@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">寻找陈酒</h1>
+    <!-- <h1 class="center">寻找陈酒</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -50,7 +50,7 @@
 <script setup>
 // import { useRouter } from 'vue-router'
 // const router = useRouter()
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 1)
 }

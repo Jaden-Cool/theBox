@@ -45,7 +45,7 @@
 <script setup>
 import { showImagePreview } from 'vant'
 import grandma from '@/assets/images/grandma.jpeg'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const handleCupClick = (key) => {
   switch (key) {

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1 class="center">刘恭可红荔3</h1>
-    <div class="paragraph">
+    <!-- <h1 class="center">刘恭可红荔3</h1> -->
+
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         随着你触碰到牌坊上的渔鼓，身边所有路人都停止了脚步，这天地间仿佛都停了下来。
       </p>
@@ -54,6 +55,10 @@
 <script setup>
 import { showImagePreview } from 'vant'
 import zhangGuoLa from '@/assets/images/zhangGuoLa.jpeg'
+const emit = defineEmits(['handleAutoPlay'])
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
+}
 </script>
 
 <style lang="less" scoped>

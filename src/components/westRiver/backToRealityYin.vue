@@ -1,6 +1,6 @@
 <template>
   <div class="main-box">
-    <h1 class="center">西江阴2</h1>
+    <!-- <h1 class="center">西江阴2</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -109,7 +109,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -142,7 +142,7 @@ const handleFloatingBtnClick = () => {
 </script>
 
 <style lang="less" scoped>
-.main-box{
+.main-box {
   background-color: #e6fff3;
 }
 .van-cell {

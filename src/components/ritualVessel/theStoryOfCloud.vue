@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">云</h1>
+    <!-- <h1 class="center">云</h1> -->
 
     <div class="paragraph">
       <p>

@@ -8,6 +8,7 @@
       :is="currentComponent"
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
+      @handleAutoPlay="handleAutoPlay"
     />
 
     <div class="audio-box" v-if="audioSrc">
@@ -138,6 +139,7 @@ const handleTabsChange = (name, title) => {
       state.audioSrc = caiyunzhuiyue
       break
     case '食神之鼎青云':
+      state.iconName = 'pause-circle-o'
       state.audioSrc = caiyunzhuiyue
       break
     case '食神之鼎酒家':
@@ -167,6 +169,12 @@ const onPlay = () => {
 }
 const onPause = () => {
   state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  audio.value.play()
 }
 
 // 滚动事件处理函数

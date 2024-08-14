@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">寻根问祖</h1>
+    <!-- <h1 class="center">寻根问祖</h1> -->
 
     <div class="paragraph">
       <p class="normal">

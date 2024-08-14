@@ -1,5 +1,5 @@
 <template>
-  <div class="paragraph">
+  <div class="paragraph" @click="handleMainBoxClick">
     <p class="normal">
       放下信件，你能感到自己额上的冷汗，和胸腔内剧烈跳动的心脏。你尽力平静下来，低头看向手里的三世书和常惜端的回信，内心的种种疑惑如潮水般涌来。你并不认识一位叫“常日昳“的长辈，若此人还活着，如今该已超过一百岁了。像是冥冥中自有定数，让你今天挖出这盒子。你尝试把自己今天的时间也代进三世书……
     </p>
@@ -23,7 +23,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active','handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -54,6 +54,9 @@ const handleFloatingBtnClick = () => {
   showDialog({
     message: '前人会以天干地支对应年月日，如此处甲辰年即第一行第五列'
   }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

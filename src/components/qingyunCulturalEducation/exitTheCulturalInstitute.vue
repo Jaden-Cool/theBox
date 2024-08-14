@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1 class="center">离开文教所</h1>
-    <div class="paragraph">
+    <!-- <h1 class="center">离开文教所</h1> -->
+
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         1944某天午饭过后，高年级的孩子们在台上表演赖子英老师写的话剧，旁边围着五六十个十一二岁的学生们正兴高采烈的围坐在一起观看。
       </p>
@@ -34,7 +35,7 @@
 
 <script setup>
 import { showDialog } from 'vant'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({
     message: '在那个艰难的年代，每一条生命都无比脆弱',
@@ -43,6 +44,9 @@ const handleContinueClick = () => {
   }).then(() => {
     emit('update:active', 3)
   })
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

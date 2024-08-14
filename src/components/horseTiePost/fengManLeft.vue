@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">冯满离开</h1>
+    <!-- <h1 class="center">冯满离开</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -63,7 +63,7 @@
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import yellowTalismanPaper from '@/assets/images/yellowTalismanPaper.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

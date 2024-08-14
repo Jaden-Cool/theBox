@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">喜万年年</h1>
+    <!-- <h1 class="center">喜万年年</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -26,9 +26,9 @@
       <p class="normal">
         在昏黄灯光下，他们忙碌着，揉面、上酥、包馅，烘烤，每一步都认真仔细。“金眼风“所有师兄弟也挤在小房间里一起给何林师傅打下手。
       </p>
+    </div>
 
-      <p class="center">——————————</p>
-
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         婚宴当天，橋珠酒家一片喜气洋洋。常午未和李清鹂的爱情故事早已传遍大良，吸引了众多宾客前来观礼。白驹荣的女儿白雪仙也从香港赶来，场面更显热闹。
         靓少凤对这场婚礼本就戒备重重，婚宴的规模和热度更增添了他的压力。
@@ -47,7 +47,9 @@
       </p>
 
       <p class="normal">这场婚礼开始得像一场闹剧，但最终成为了粤剧界的一段佳话。</p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【在广东，结婚的礼数有十三个步骤。送喜饼上新娘家是哪一个步骤？】</p>
 
       <p style="display: flex; align-items: center; justify-content: center" class="center">
@@ -65,7 +67,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -102,6 +104,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '在店内可以找到答案' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

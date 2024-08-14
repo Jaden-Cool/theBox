@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">大罗村</h1>
+    <!-- <h1 class="center">大罗村</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -41,7 +41,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -69,7 +69,9 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '提示1：把符顺时针旋转九十度尝试阅读？提示2：后面的六个数字是以中轴线镜面对折的' }).then(() => {})
+  showDialog({
+    message: '提示1：把符顺时针旋转九十度尝试阅读？提示2：后面的六个数字是以中轴线镜面对折的'
+  }).then(() => {})
 }
 </script>
 

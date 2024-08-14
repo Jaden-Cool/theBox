@@ -28,7 +28,9 @@
       “不知不觉你都长那么大了，既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧。”
     </p>
 
-    <p class="normal"><strong>最后，她终于告诉了你下一步的去向：“你太爷说，秘密在盒底。”</strong></p>
+    <p class="normal">
+      <strong>最后，她终于告诉了你下一步的去向：“你太爷说，秘密在盒底。”</strong>
+    </p>
 
     <p class="center">【根据线索去往该地点】</p>
     <p style="display: flex; align-items: center; justify-content: center" class="center">
@@ -45,7 +47,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-// const emit = defineEmits(['update:active'])
+// const emit = defineEmits(['update:active','handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

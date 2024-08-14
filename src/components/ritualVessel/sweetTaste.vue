@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">口味甜</h1>
+    <!-- <h1 class="center">口味甜</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -54,7 +54,7 @@
 import { showDialog, showImagePreview } from 'vant'
 
 import tianchahua from '@/assets/images/tianchahua.jpg'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({
     message: '人生总是充满了不经意的遗憾',

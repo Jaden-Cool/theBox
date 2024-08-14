@@ -1,5 +1,5 @@
 <template>
-  <h1 class="center">天圆地方</h1>
+  <!-- <h1 class="center">天圆地方</h1> -->
 
   <div class="paragraph">
     <p class="normal">
@@ -28,12 +28,12 @@
     <p class="normal">只见他一刻不停伸手在血泊中写写画画了起来。</p>
     <p class="center">竟然是他！</p>
     <p>
-        <van-image
-          fit="contain"
-          :src="blood"
-          @click="showImagePreview({ images: [blood], showIndex: false })"
-        />
-      </p>
+      <van-image
+        fit="contain"
+        :src="blood"
+        @click="showImagePreview({ images: [blood], showIndex: false })"
+      />
+    </p>
     <p class="center">【陷害父亲的凶手是谁？】</p>
     <p style="display: flex; align-items: center; justify-content: center" class="center">
       <van-cell-group inset>
@@ -47,10 +47,10 @@
 </template>
 
 <script setup>
-import { showToast, showDialog,showImagePreview } from 'vant'
+import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import blood from '@/assets/images/blood.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

@@ -1,6 +1,6 @@
 <template>
-  <div style="padding-bottom: 48px">
-    <h1 class="center">姑婆屋</h1>
+  <div style="padding-bottom: 64px" @click="handleMainBoxClick">
+    <!-- <h1 class="center">姑婆屋</h1> -->
 
     <div class="paragraph">
       <p class="center">《顺德县志》</p>
@@ -69,7 +69,7 @@
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import garden from '@/assets/images/garden.jpeg'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',
@@ -116,6 +116,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '或许可以通过手机地图app找到答案' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

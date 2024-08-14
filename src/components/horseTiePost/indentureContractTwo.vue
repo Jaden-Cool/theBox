@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">卖身契2</h1>
+    <!-- <h1 class="center">卖身契2</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -31,7 +31,7 @@
 import { showToast } from 'vant'
 // import { reactive, toRefs } from 'vue'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 // const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

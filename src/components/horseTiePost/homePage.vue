@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">拴马桩</h1>
+    <!-- <h1 class="center">拴马桩</h1> -->
 
     <div class="paragraph">
       <p class="center">你手触碰到拴马桩，一阵土石之力绵绵的溢出。日子平淡，却暗藏生机。</p>
@@ -64,7 +64,7 @@
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import door from '@/assets/images/door.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

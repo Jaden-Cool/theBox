@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="center">wg时期</h1>
+  <div @click="handleMainBoxClick">
+    <!-- <h1 class="center">wg时期</h1> -->
     <div class="paragraph">
       <p class="normal">
         在一个漆黑的夜晚，四周寂静得让人害怕。午未怀揣着那些视为生命般重要的地契和各种金银财宝，悄悄地来到了一棵井边的柚子树下。他不敢通知任何人，连招娣都没有知会。这些物件在安稳时期就是瑰宝，在这个年代却是一张张烫得发红的烙铁。
@@ -42,6 +42,7 @@
 <script setup>
 import { showDialog } from 'vant'
 import { useRouter } from 'vue-router'
+const emit = defineEmits(['handleAutoPlay'])
 const router = useRouter()
 const handleContinueClick = () => {
   showDialog({
@@ -51,6 +52,9 @@ const handleContinueClick = () => {
   }).then(() => {
     router.push({ name: 'ShunLiquorWorkShop' })
   })
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

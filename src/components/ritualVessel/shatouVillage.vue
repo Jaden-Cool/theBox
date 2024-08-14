@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">沙头村1</h1>
+    <!-- <h1 class="center">沙头村1</h1> -->
 
     <div class="paragraph">
       <p class="center">
@@ -51,7 +51,7 @@ import { showImagePreview, showToast, showDialog } from 'vant'
 import portrait from '@/assets/images/portrait.jpeg'
 import fish from '@/assets/images/fish.png'
 // const router = useRouter()
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: '',

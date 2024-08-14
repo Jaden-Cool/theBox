@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="center">橋珠酒家结局</h1>
+  <div style="padding-bottom: 64px" @click="handleMainBoxClick">
+    <!-- <h1 class="center">橋珠酒家结局</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -31,13 +31,8 @@
 
 <script setup>
 import { showDialog } from 'vant'
-// import { useRouter } from 'vue-router'
-// const router = useRouter()
-// const handleContinueClick = () => {
-//   router.push({ name: 'EndingPage' })
-// }
+const emit = defineEmits(['handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
-
 const handleFloatingBtnClick = () => {
   showDialog({
     message: `
@@ -46,6 +41,9 @@ const handleFloatingBtnClick = () => {
     【提示3：旋转日晷，对准四个日晷边缘上的四个属性颜色。把昳字拆开剩下一个失字，前往失字的位置。】
     `
   }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="main-box">
-    <h1 class="center">渡西江</h1>
+  <div class="main-box" @click="handleMainBoxClick">
+    <!-- <h1 class="center">渡西江</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -33,9 +33,12 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 1)
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

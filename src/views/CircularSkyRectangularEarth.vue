@@ -8,6 +8,7 @@
       :is="currentComponent"
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
+      @handleAutoPlay="handleAutoPlay"
     />
 
     <div class="audio-box" v-if="audioSrc">
@@ -90,6 +91,12 @@ const onPlay = () => {
 }
 const onPause = () => {
   state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  audio.value.play()
 }
 
 // 滚动事件处理函数

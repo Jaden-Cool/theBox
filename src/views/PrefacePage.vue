@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="paragraph">
-      <h1 class="center">【前言】</h1>
+      <!-- <h1 class="center">【前言】</h1> -->
       <p class="normal">
         你好，欢迎来到欢乐海岸PLUS，我是作者北极。首先，<strong>感谢你给了顺德一次表达自己的机会</strong>。无论你来自何方，我也衷心地希望你可以透过这次体验，感受到这座城市古老的脉络。”
       </p>

@@ -8,6 +8,7 @@
       :is="currentComponent"
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
+      @handleAutoPlay="handleAutoPlay"
     />
   </div>
 
@@ -30,6 +31,7 @@ import sourTastes from '@/components/shunLiquorWorkShop/sourTastes.vue'
 import theEndingOfQiaoZhuRestaurant from '@/components/shunLiquorWorkShop/theEndingOfQiaoZhuRestaurant.vue'
 // BGM
 import gupowu from '@/assets/audio/0201gupowu.mp3'
+import xinnian from '@/assets/audio/0304xinnian.mp3'
 
 const state = reactive({
   tabs: [
@@ -68,6 +70,9 @@ const handleTabsChange = (name, title) => {
     case '口味酸':
       state.audioSrc = gupowu
       break
+    case '橋珠酒家结局':
+      state.audioSrc = xinnian
+      break
     default:
       state.audioSrc = ''
       break
@@ -86,6 +91,12 @@ const onPlay = () => {
 }
 const onPause = () => {
   state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  audio.value.play()
 }
 
 // 滚动事件处理函数

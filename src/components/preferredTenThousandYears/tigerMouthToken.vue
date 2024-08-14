@@ -1,6 +1,6 @@
 <template>
   <div style="padding-bottom: 48px">
-    <h1 class="center">虎口符</h1>
+    <!-- <h1 class="center">虎口符</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -38,16 +38,16 @@
       <p class="center">拿出包含东南西北字样的纸，叠成一只东南西北。</p>
 
       <p class="center">
-        需要辅助的话，可以 <a href="https://jingyan.baidu.com/article/335530daaeb86119cb41c3a7.html " target="_blank"
-          >点击这里
-        </a>观看教程
-       
+        需要辅助的话，可以
+        <a href="https://jingyan.baidu.com/article/335530daaeb86119cb41c3a7.html " target="_blank"
+          >点击这里 </a
+        >观看教程
       </p>
       <p class="center">——————————</p>
 
-      <p class="center" style="margin: 0;"><strong>饥荒至，食指东</strong></p>
-      <p class="center" style="margin: 0;"><strong>虎口开，西南分</strong></p>
-      <p class="center" style="margin: 0;"><strong>虎口拔牙整四颗，生机还需险中求</strong></p>
+      <p class="center" style="margin: 0"><strong>饥荒至，食指东</strong></p>
+      <p class="center" style="margin: 0"><strong>虎口开，西南分</strong></p>
+      <p class="center" style="margin: 0"><strong>虎口拔牙整四颗，生机还需险中求</strong></p>
 
       <p class="center">【得出四字】</p>
 
@@ -66,7 +66,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

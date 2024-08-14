@@ -16,27 +16,28 @@
 
 <script setup>
 // import { RouterView, useRouter } from 'vue-router'
-import { RouterView, useRouter } from 'vue-router'
-import { reactive, toRefs, onMounted } from 'vue'
+import { RouterView } from 'vue-router'
+// import { reactive, toRefs, onMounted } from 'vue'
+import { onMounted } from 'vue'
 // import { showToast } from 'vant'
 import 'vant/es/toast/style'
 import 'vant/es/dialog/style'
-const router = useRouter()
-const state = reactive({
-  sidebarActive: 0,
-  sidebarList: []
-})
-const { sidebarActive, sidebarList } = toRefs(state)
+// const router = useRouter()
+// const state = reactive({
+//   sidebarActive: 0,
+//   sidebarList: []
+// })
+// const { sidebarActive, sidebarList } = toRefs(state)
 // const url = computed(() => {
 //   return state.sidebarList?.[state.sidebarActive]?.name || ''
 // })
-const handleSidebarChange = (index) => {
-  if (index >= 0 && index < state.sidebarList.length) {
-    router.push({ name: state.sidebarList[index].name })
-  } else {
-    console.error('Invalid sidebar index:', index)
-  }
-}
+// const handleSidebarChange = (index) => {
+//   if (index >= 0 && index < state.sidebarList.length) {
+//     router.push({ name: state.sidebarList[index].name })
+//   } else {
+//     console.error('Invalid sidebar index:', index)
+//   }
+// }
 // const handleCopyClick = async () => {
 //   try {
 //     const textToCopy = `域名/${url.value}`
@@ -47,11 +48,11 @@ const handleSidebarChange = (index) => {
 //   }
 // }
 onMounted(() => {
-  const resArr = router.options.routes.map((item, index) => {
-    const title = item.meta && item.meta.title ? item.meta.title : ''
-    return { id: index, title, name: item.name }
-  })
-  state.sidebarList = resArr
+  // const resArr = router.options.routes.map((item, index) => {
+  //   const title = item.meta && item.meta.title ? item.meta.title : ''
+  //   return { id: index, title, name: item.name }
+  // })
+  // state.sidebarList = resArr
 })
 </script>
 
@@ -59,7 +60,7 @@ onMounted(() => {
 @import '@/assets/less/base.less';
 </style>
 
-<style lang="less" scoped>
+<!-- <style lang="less" scoped>
 @keyframes subtleFade {
   0% {
     opacity: 1;
@@ -74,4 +75,4 @@ onMounted(() => {
 .subtleFade {
   animation: subtleFade 1s infinite;
 }
-</style>
+</style> -->

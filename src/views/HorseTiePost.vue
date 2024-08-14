@@ -8,6 +8,7 @@
       :is="currentComponent"
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
+      @handleAutoPlay="handleAutoPlay"
     />
 
     <div class="audio-box" v-if="audioSrc">
@@ -18,7 +19,7 @@
 </template>
 
 <script setup>
-import { reactive, ref,toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 import { debounce } from '@/utils'
@@ -69,14 +70,14 @@ const state = reactive({
     { id: 10, title: '卖身契1' },
     { id: 11, title: '卖身契2' },
     { id: 12, title: '大罗村' },
-    { id: 13, title: '广东银行' },
+    { id: 13, title: '广东银行' }
   ],
   active: 0,
   isAtBottom: false,
   iconName: 'music-o',
   audioSrc: ''
 })
-const { active, tabs, isAtBottom , iconName, audioSrc} = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -135,7 +136,7 @@ const handleTabsChange = (name, title) => {
     case '橋珠酒家':
       state.audioSrc = lianbing
       break
-      case '橋珠酒家火劫':
+    case '橋珠酒家火劫':
       state.audioSrc = Fire
       break
     default:
@@ -156,6 +157,12 @@ const onPlay = () => {
 }
 const onPause = () => {
   state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  audio.value.play()
 }
 
 // 滚动事件处理函数

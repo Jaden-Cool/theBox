@@ -1,6 +1,6 @@
 <template>
-  <div style="padding-bottom: 48px">
-    <h1 class="center">清鹂梳头</h1>
+  <div style="padding-bottom: 48px" @click="handleMainBoxClick">
+    <!-- <h1 class="center">清鹂梳头</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -21,9 +21,9 @@
       </p>
 
       <p class="normal">清鹂坐在梳妆台前，透过镜子看着瀘紹年，眼中盈满泪水。</p>
+    </div>
 
-      <p class="center">——————————</p>
-
+    <div class="paragraph">
       <p class="center">“一梳梳到髮尾，”</p>
 
       <p class="normal">梳子从发根滑到发尾，瀘紹年目光温柔，仿佛在为清鹂的未来铺平道路。</p>
@@ -73,9 +73,9 @@
       <p class="normal">
         瀘紹年继续梳着清鹂的头发，手指间传递出温暖与力量，她细心地将发髻盘起，用那一支早已准备好的珠花轻轻插入发间。清鹂的发丝在灯光下闪烁着柔光，宛如新娘的光环。
       </p>
+    </div>
 
-      <p class="center">——————————</p>
-
+    <div class="paragraph">
       <p class="normal">
         “乖女，你从小就懂事，可惜受了不少苦。现在也算是苦尽甘来，我们家虾仔定会真心待你好。往后的日子，你们好好过，好好爱自己，也要好好爱他。”
       </p>
@@ -89,8 +89,9 @@
       <p class="normal">
         这个夜晚，瀘紹年用她那双温暖的手，梳理的不仅仅是清鹂的发丝，更是她对自己女儿招娣的思念和不舍。
       </p>
-      <p class="center">——————————</p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【用梳篦在盒内找到两组变形的文字，根据变化规律，猜出两组四字成语】</p>
 
       <p style="display: flex; align-items: center; justify-content: center" class="center">
@@ -100,7 +101,6 @@
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
-
     <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
@@ -108,7 +108,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -144,6 +144,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '在底盒的内侧有两道白色的花纹...' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

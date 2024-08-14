@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">扇子</h1>
+    <!-- <h1 class="center">扇子</h1> -->
     <div class="paragraph">
       <p class="normal">
         我用这扇，给你留了一点祝福，只要是你... 只要是你就定能找到……
@@ -13,9 +13,9 @@
       <p class="center"><strong>青山易改指巷镜，保底就在美人尖。</strong></p>
     </div>
     <div class="center subtleFade">
-      <p style="margin: 0;">到达指示场景处</p>
-      <p style="margin: 0;">寻找<strong>"午未"</strong>二字</p>
-      <p style="margin: 0;">将午未放上去</p>
+      <p style="margin: 0">到达指示场景处</p>
+      <p style="margin: 0">寻找<strong>"午未"</strong>二字</p>
+      <p style="margin: 0">将午未放上去</p>
     </div>
     <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">母亲离开</h1>
+    <!-- <h1 class="center">母亲离开</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -36,7 +36,7 @@
 <script setup>
 import { showDialog } from 'vant'
 
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({
     message: '请确定已完成所要求的操作',

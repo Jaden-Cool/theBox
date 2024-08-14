@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">三块石头1</h1>
+    <!-- <h1 class="center">三块石头1</h1> -->
     <div class="paragraph">
       <p class="normal">
         你从幻觉中醒来，心中有些难过。

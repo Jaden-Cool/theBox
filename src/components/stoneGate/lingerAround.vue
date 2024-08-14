@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">徘徊</h1>
+    <!-- <h1 class="center">徘徊</h1> -->
 
     <div class="paragraph">
       <p class="center">
@@ -88,7 +88,7 @@
 
 <script setup>
 import { showDialog } from 'vant'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({ message: '求生！' }).then(() => {
     emit('update:active', 3)

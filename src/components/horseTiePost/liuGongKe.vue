@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">橋珠酒家刘恭可</h1>
+    <!-- <h1 class="center">橋珠酒家刘恭可</h1> -->
 
     <div class="paragraph">
       <p class="center">压力使人成长。</p>
@@ -72,7 +72,7 @@
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import master from '@/assets/images/master.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1 class="center">三块石头板凳故事1</h1>
+  <div style="padding-bottom: 64px;">
+    <!-- <h1 class="center">三块石头板凳故事1</h1> -->
     <div class="paragraph">
       <p class="normal">
         你根据地图上的孔洞来到了地点附近。你远远的看到这里的三块巨石摆成了一个三才之阵，还没接近你就能感受到一种金铁之气扑面而来。
@@ -31,7 +31,7 @@
       <p class="normal">“你才乱，这不是急得没空梳头。”鸾师妹擦了擦眼泪，一拳把日昳揍飞了两米远。</p>
     </div>
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleAutoPlay">
       <p class="normal">
         这段回忆一闪而过。这里面说的到底是谁？你有些乱。此刻的你站在三块石头中间，一阵干净而清冽的感觉充满了你身体。你感觉耳朵处突然有什么通了。就像是坐飞机的时候气压变化一般。身边所有的声音一瞬间被放大了好几倍。
       </p>
@@ -51,20 +51,51 @@
       <p class="center subtleFade" style="margin: 0; font-size: 16px">【根据提示找到这个地方】</p>
     </div>
     <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { showDialog } from 'vant'
-import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
+import jingyu from '@/assets/audio/0302jingyu.mp3' // BGM
+
 const state = reactive({
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: jingyu ? jingyu : '' // BGM的Src
 })
-const { isAtBottom } = toRefs(state)
+const { isAtBottom, iconName, audioSrc } = toRefs(state)
 const handleFloatingBtnClick = () => {
   showDialog({ message: '其中一只猴子后面隐藏了二维码' }).then(() => {})
 }
+
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  audio.value.play()
+}
+
 // 滚动事件处理函数
 const handleScroll = () => {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0

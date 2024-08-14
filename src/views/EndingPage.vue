@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">结局</h1>
+    <!-- <h1 class="center">结局</h1> -->
     <div class="paragraph">
       <p class="normal">
         你终于找到了这个最终的地点，并把放着不知道写着“午未”还是“五味”的徽章放到了此处，但是这一次你的意识并没有穿越。
@@ -51,6 +51,8 @@
     </div>
     <p class="center"><strong>【《寻味》解谜盒——完结】</strong></p>
     <p class="center"><strong>【祝各位 日日有食神。】</strong></p>
+
+    
   </div>
 </template>
 

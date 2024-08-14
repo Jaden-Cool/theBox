@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">拜师答复</h1>
+    <!-- <h1 class="center">拜师答复</h1> -->
 
     <div class="paragraph">
       <p class="normal">日昳回想过后认真回答，“是陈皮的味道。”</p>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 5)
 }

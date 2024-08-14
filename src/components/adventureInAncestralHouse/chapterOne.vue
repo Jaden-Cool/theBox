@@ -1,6 +1,6 @@
 <template>
-  <div style="padding-bottom: 48px">
-    <!-- <h1 class="center">祖屋奇遇</h1> -->
+  <div style="padding-bottom: 48px" @click="handleMainBoxClick">
+    <!-- // <h1 class="center">祖屋奇遇</h1> -->
 
     <div class="paragraph">
       <p class="center">*乒*</p>
@@ -78,7 +78,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -107,6 +107,9 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '看盒子右下角' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h1 class="center">橋珠酒家的劫难</h1>
+  <div style="padding-bottom: 64px">
+    <!-- <h1 class="center">橋珠酒家的劫难</h1> -->
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleAutoPlay(1)">
       <p class="normal">你伸手触碰了这块烧焦的木板，一阵炙热的回忆涌入脑内。</p>
       <p class="normal">
         1938年，九月初二，霜降。日寇入侵顺德，整个城镇笼罩在战火的阴霾中。橋珠酒家也未能幸免。
@@ -19,6 +19,9 @@
       <p class="normal">
         在大火烧完后，冯科第一个冲进了废墟中寻找那个保险箱，可惜当他打开了箱子时，里面曾经价值百万的各种纸张证明都已化为灰烬。
       </p>
+    </div>
+
+    <div class="paragraph" @click="handleAutoPlay(2)">
       <p class="normal">
         当火被完全扑灭的时候，天已经大亮了。常日昳原本的生活是平淡的，他没有什么远大的志向，也不想参与那些复杂的江湖争斗。他只想着每天在橋珠酒家跑跑腿，算算账，偶尔偷吃些糕点，日子虽不富贵，却也安稳。他原打算就这样舒舒服服地过一生，娶一个普普通通的姑娘，过点简单而温馨的小日子。
       </p>
@@ -61,17 +64,18 @@
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
-      <audio ref="audio" :src="fire" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
     </div>
   </div>
 </template>
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, ref,toRefs, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 // BGM
 import fire from '@/assets/audio/0107Fire.mp3'
+import zhongguoren from '@/assets/audio/0108zhongguoren.mp3'
 
 const state = reactive({
   answer: '',
@@ -79,7 +83,7 @@ const state = reactive({
   iconName: 'music-o',
   audioSrc: fire ? fire : ''
 })
-const { answer, isAtBottom,iconName, audioSrc } = toRefs(state)
+const { answer, isAtBottom, iconName, audioSrc } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -118,11 +122,28 @@ const onPlay = () => {
 const onPause = () => {
   state.iconName = 'pause-circle-o'
 }
+const handleAutoPlay = (flag) => {
+  if (!audio.value) {
+    return
+  }
+  if (+flag === 1) {
+    state.audioSrc = fire
+  } else {
+    state.audioSrc = zhongguoren
+  }
+  audio.value.play()
+}
+
 // 滚动事件处理函数
 const handleScroll = () => {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
   const clientHeight = document.documentElement.clientHeight
   const scrollHeight = document.documentElement.scrollHeight
+
+  // if (+scrollTop > 700) {
+  //   state.audioSrc = zhongguoren
+  //   state.iconName = 'music-o'
+  // }
 
   // 首先检查内容是否足够长以产生滚动条
   if (scrollHeight <= clientHeight) {

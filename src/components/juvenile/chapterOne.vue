@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div style="padding-bottom: 48px" @click="handleMainBoxClick">
     <div class="paragraph">
       <p class="normal">
         眼前出现的是个少年。他刚刚又输了一场执竹，随着一阵嘘声，他笑眯眯的被几个小孩挤开了。执竹，里面的“竹”是指香鸡，香烧完后剩下的小棍子。玩法很简单，所以很受村子里的小孩子欢迎。置“竹”于桌面，向上丢起一块石头或者小橡皮球一类的物件，须在那物件落地前趁机在桌面迅速拾取对应数量的“竹”，最后还要接住物件，失误则换人尝试。
@@ -98,7 +98,7 @@ import { copyToClipboard } from '@/utils'
 import kidsGames from '@/assets/images/kidsGames.jpeg'
 import book from '@/assets/images/book.png'
 import female from '@/assets/images/female.jpeg'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active','handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -135,6 +135,9 @@ const handleCopyClick = async () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '民国十三年即公历1924年' }).then(() => {})
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

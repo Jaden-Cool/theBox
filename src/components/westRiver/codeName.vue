@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">暗号</h1>
+    <!-- <h1 class="center">暗号</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -36,23 +36,23 @@
     </div>
 
     <div class="paragraph">
-      <div style="display: flex; align-items: center;margin-top: 28px;">
-        <p style="margin: 0 6px 0 36px;">2-081</p>
-        <p style="margin: 0;">&nbsp;陈显良&nbsp;</p>
-        <p style="margin: 0 6px;">=</p>
-        <p style="margin: 0;">豆皮大</p>
+      <div style="display: flex; align-items: center; margin-top: 28px">
+        <p style="margin: 0 6px 0 36px">2-081</p>
+        <p style="margin: 0">&nbsp;陈显良&nbsp;</p>
+        <p style="margin: 0 6px">=</p>
+        <p style="margin: 0">豆皮大</p>
       </div>
-      <div style="display: flex; align-items: center;">
-        <p style="margin: 0 6px 0 36px;">2-112</p>
-        <p style="margin: 0;">&nbsp;&nbsp;海贼&nbsp;&nbsp;</p>
-        <p style="margin: 0 6px;">=</p>
-        <p style="margin: 0;">李快仔</p>
+      <div style="display: flex; align-items: center">
+        <p style="margin: 0 6px 0 36px">2-112</p>
+        <p style="margin: 0">&nbsp;&nbsp;海贼&nbsp;&nbsp;</p>
+        <p style="margin: 0 6px">=</p>
+        <p style="margin: 0">李快仔</p>
       </div>
-      <div style="display: flex; align-items: center;">
-        <p style="margin: 0 6px 0 36px;">4-157</p>
-        <p style="margin: 0;">青云甘蔗</p>
-        <p style="margin: 0 6px;">=</p>
-        <p style="margin: 0;">？？？</p>
+      <div style="display: flex; align-items: center">
+        <p style="margin: 0 6px 0 36px">4-157</p>
+        <p style="margin: 0">青云甘蔗</p>
+        <p style="margin: 0 6px">=</p>
+        <p style="margin: 0">？？？</p>
       </div>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="center">食神之鼎青云</h1>
+    <!-- <h1 class="center">食神之鼎青云</h1> -->
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">日昳：“阿妈，今日中秋节，今晚村口有墟市，家姐问你去不去看灯？”</p>
       <p class="normal">
         “晚点，晚点去。今晚有叔叔阿姨过来吃饭，我在家煮饭。”日昳没发现妈妈脸上的慌乱。
@@ -62,15 +62,13 @@
 
       <div class="paragraph">
         <p class="center">【您品尝到的鱼形饼是什么味道的？】</p>
-      <p style="display: flex; align-items: center; justify-content: center" class="center">
-        <van-cell-group inset>
-          <van-field v-model="answer" />
-        </van-cell-group>
-        <van-button plain hairline @click="handleConfirmClick">确认</van-button>
-      </p>
-
+        <p style="display: flex; align-items: center; justify-content: center" class="center">
+          <van-cell-group inset>
+            <van-field v-model="answer" />
+          </van-cell-group>
+          <van-button plain hairline @click="handleConfirmClick">确认</van-button>
+        </p>
       </div>
-    
     </div>
   </div>
 </template>
@@ -79,7 +77,7 @@
 import { showToast, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import woodenSign from '@/assets/images/woodenSign.jpeg'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
   answer: ''
 })
@@ -102,5 +100,8 @@ const handleConfirmClick = () => {
       })
       break
   }
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>

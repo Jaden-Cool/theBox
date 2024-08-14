@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">初遇周之贞</h1>
+    <!-- <h1 class="center">初遇周之贞</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -27,7 +27,7 @@
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 // import morseCode from '@/assets/images/morseCode.png'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   valueOne: '',

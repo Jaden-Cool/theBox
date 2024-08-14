@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="center">食神之鼎酒家</h1>
+    <!-- <h1 class="center">食神之鼎酒家</h1> -->
 
-    <div class="paragraph">
+    <div class="paragraph" @click="handleMainBoxClick">
       <p class="normal">
         六岁的常日跌站在门廊中，看着瀘紹年坐在八仙桌前手里攥着一对木头正在出神。常昳走进屋内，牵起了紹年的手，拿起了这双木头“玩具”。
       </p>
@@ -51,9 +51,12 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 5)
+}
+const handleMainBoxClick = () => {
+  emit('handleAutoPlay')
 }
 </script>
 

@@ -24,9 +24,7 @@
       奶奶顿了顿，褶皱而骨节分明的手慢慢伸过来，像儿时一样摸了摸你的脑袋，一双浑浊但不改慈祥的眼睛看着你，眼中似乎有些波动，可随即又柔和了起来。
     </p>
 
-    <p class="normal">
-      “既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧。”
-    </p>
+    <p class="normal">“既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧。”</p>
 
     <p class="normal"><strong>她终于揭示了这个简单的秘密：“你太爷说，秘密在盒底。”</strong></p>
 
@@ -48,7 +46,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-// const emit = defineEmits(['update:active'])
+// const emit = defineEmits(['update:active','handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

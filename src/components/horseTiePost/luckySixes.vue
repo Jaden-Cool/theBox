@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">六六大顺</h1>
+    <!-- <h1 class="center">六六大顺</h1> -->
 
     <div class="paragraph">
       <p class="normal">我坚定的喊道 “六！六双！六六大顺！”</p>
@@ -26,7 +26,7 @@
 
 <script setup>
 import { showDialog } from 'vant'
-const emit = defineEmits(['update:active'])
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   showDialog({
     message: '即将前往“入门考核”',

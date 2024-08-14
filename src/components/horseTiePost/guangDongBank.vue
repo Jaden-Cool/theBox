@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="center">广东银行</h1>
+    <!-- <h1 class="center">广东银行</h1> -->
 
     <div class="paragraph">
       <p class="normal">
@@ -84,7 +84,9 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '平安符中诗词所描述的地方就在这里附近' }).then(() => {}).catch(()=>{})
+  showDialog({ message: '平安符中诗词所描述的地方就在这里附近' })
+    .then(() => {})
+    .catch(() => {})
 }
 </script>
 
