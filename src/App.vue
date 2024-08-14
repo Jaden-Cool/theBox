@@ -22,6 +22,9 @@ import { onMounted } from 'vue'
 // import { showToast } from 'vant'
 import 'vant/es/toast/style'
 import 'vant/es/dialog/style'
+
+
+
 // const router = useRouter()
 // const state = reactive({
 //   sidebarActive: 0,

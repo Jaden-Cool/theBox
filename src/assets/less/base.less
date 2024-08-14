@@ -1,3 +1,13 @@
+/* 尝试隐藏滚动条 */  
+html {  
+  scrollbar-width: none; /* Firefox */  
+  -ms-overflow-style: none; /* IE 10+ */  
+}  
+/* 对于Webkit内核的浏览器（如Chrome, Safari等） */  
+::-webkit-scrollbar {  
+  display: none; /* Chrome, Safari, Opera */  
+}
+
 body {
   background-image: url('@/assets/images/paper.png');
   font-family: 'Kaiti SC', STKaiti, 'AR PL UKai CN', 'AR PL UKai HK', 'AR PL UKai TW',

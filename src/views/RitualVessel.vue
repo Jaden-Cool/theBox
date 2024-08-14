@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active" @change="handleTabsChange">
+    <van-tabs v-show="false" v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
