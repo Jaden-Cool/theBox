@@ -19,7 +19,9 @@
         远离债务和丈夫失踪的困扰之后，这景色让瀘紹年相信可以在这里重新开始，
         唯一的难题是经济来源，经过一段日子的苦思冥想，瀘紹年决定听从兰姐建议带着两个孩子去当地的某处寻找出路……
       </p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【今天在三世书上写了什么？】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>

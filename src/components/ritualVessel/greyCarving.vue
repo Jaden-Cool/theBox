@@ -28,9 +28,13 @@
         />
       </p>
       <p class="normal">日昳哪懂那么多啊，胡乱的编了一个答案出来。</p>
-      <p class="normal">“师傅信风水，也信命格，他自家宅院的装饰自然也暗合天道和命理。师傅是水命，所以我们每个徒弟都要会水。日昳，你记住，眼尖如针，心细如尘，人直如尺。要先从观察生活中最普通日常开始。懂了天道，你自然也会到万物最美的一面。</p>
+      <p class="normal">
+        “师傅信风水，也信命格，他自家宅院的装饰自然也暗合天道和命理。师傅是水命，所以我们每个徒弟都要会水。日昳，你记住，眼尖如针，心细如尘，人直如尺。要先从观察生活中最普通日常开始。懂了天道，你自然也会到万物最美的一面。
+      </p>
       <p class="normal">你面前的这六幅灰雕也是出自师傅之手，我来给你讲解讲解。”</p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【找出那藏了暗八仙的特殊灰雕，输入几朵大花从左到右的三个颜色】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -41,13 +45,13 @@
       <van-popup v-model:show="show">
         <img src="@/assets/images/ironCrutchLi.jpeg" alt="" />
       </van-popup>
+      <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
     </div>
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
 <script setup>
-import { showToast, showDialog,showImagePreview } from 'vant'
+import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import reliefSculpture from '@/assets/images/reliefSculpture.png'
 const emit = defineEmits(['update:active'])

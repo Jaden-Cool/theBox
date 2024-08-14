@@ -65,15 +65,15 @@
       <p class="normal">
         白驹班点起一根香，常午未和领班抬起一只脚，比赛正式开始。白驹班围在了最内圈，一边观战一边给班长鼓劲。戏班的几个常驻武生干脆也抬起了单脚，唱起了《罗成写书》，刚开始的几分钟，常午未仗着一身横练的肌肉，一直保持着稳定的姿势，但随着时间的推移，他的腿开始感到了酸痛。
       </p>
+    </div>
 
-      <p class="center">——————</p>
-
+    <div v-show="isStart" class="paragraph">
       <p class="center">一根香将要燃尽，十分钟过去了</p>
 
       <p class="center">（一般人到这里已经不行了，要是顶不住可以放弃）</p>
+    </div>
 
-      <p class="center">——————</p>
-
+    <div v-show="isStart" class="paragraph">
       <p class="normal">
         一般人到这里早就倒下了，就连在台下几个武生也是苦苦坚持着。靓少凤的表情开始变得严肃起来，他显然没有想到午未能够坚持这么久。他看了一眼常午未，冷冷地说：“我承认你有点毅力。不过，你撑不了多久的。放弃吧小子，你配不上红荔的。”白驹班的人跟着起哄，“放弃啦！”，“你斗不过班长的！”
       </p>
@@ -94,15 +94,15 @@
       <p class="normal">
         看到这一幕，常午未感到眼泪在眼眶里打转，一股巨大的力量在心中涌动。他知道，不仅红荔在等他，龙船队所有的兄弟们都在为他加油。日昳在喉咙底发出了一声怒吼：“收到！师傅！！”力气再次充满了他的全身。
       </p>
+    </div>
 
-      <p class="center">——————</p>
-
+    <div v-show="isStart" class="paragraph">
       <p class="center">一根香将要燃尽，二十分钟过去了</p>
 
       <p class="center">（二十分钟在专业人士中也是非常优秀）</p>
+    </div>
 
-      <p class="center">——————</p>
-
+    <div v-show="isStart" class="paragraph">
       <p class="normal">
         第二根香燃尽了，时间来到了二十分钟。烈日当空，所有人额头上都挂着汗珠。两根木桩下的红布也被汗水染成了猪肝色。白驹班的人一开始都只是等着看午未的笑话，他们都没有想到这个倔强的小子竟然会坚持那么久。台上两个人的脚都微微颤抖了起来。《罗成写书》这一幕的曲也完全唱完了。两边乐手都识趣地停了手。
       </p>
@@ -172,15 +172,17 @@
       <p class="normal">
         有人把那一颗击中了班长头部的东西放到他的手边，说这是你们定情信物。他仔细一看，竟是他昨晚给红荔做的荔枝虾滑。虚脱的午未本能地把虾滑放进了嘴里咀嚼，补充体力。咸口的虾滑伴随着右腿的炽痛，形成了一种微妙的反应。午未看着红荔的背影，一生也忘不了这个味道。
       </p>
+    </div>
 
+    <div v-show="isStart" class="paragraph">
       <p class="center" style="margin-bottom: 0">
-        “<strong>咸</strong>盐共尝心甘愿，<strong>酸</strong>楚同受共春秋。”
+        “<strong style="color: red;">咸</strong>盐共尝心甘愿，<strong style="color: #7f6000;">酸</strong>楚同受共春秋。”
       </p>
 
-      <p class="center" style="margin: 6px 0 6px 0">解锁味道：【酸】</p>
+      <p class="center" style="margin: 6px 0 6px 0">解锁味道：【咸】</p>
 
       <p class="center" style="margin-top: 0">
-        荔枝虾球：晚上用边角料做给爱人的咸口小点。咸鲜中夹杂着大腿的酸痛。
+        荔枝虾球：用河虾给爱人做的咸口小点。咸鲜中夹杂着大腿和鼻子的酸。
       </p>
     </div>
 
@@ -255,9 +257,11 @@ const handleIsStartClick = () => {
 }
 const handleContinueClick = () => {
   showDialog({
-    message: '照片拍好了吗？那出发前往喜万年年寻找二维码进行下一部分吧',
-    showCancelButton: true
-  }).then(() => {}).catch(()=>{})
+    message: '照片拍好了吗？听到了吗？好像听到有婚礼的声音？出发前往喜万年年寻找二维码进行下一部分吧',
+    // showCancelButton: true
+  })
+    .then(() => {})
+    .catch(() => {})
 }
 // 格式化时间
 const formattedTime = computed(() => {

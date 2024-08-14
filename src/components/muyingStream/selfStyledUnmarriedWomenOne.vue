@@ -19,9 +19,10 @@
         那帮送礼物的大哥要是知道了招娣准备跟“水客”（偷渡船家）偷渡去香港，不知道会不会半夜把船凿沉。
       </p>
     </div>
-    <div style="margin-bottom: 26px;" class="center subtleFade">
-      <p style="margin: 0;">【寻找一条石船，通过石船可以去到下一部分】</p>
-      <p style="margin: 0;">（扫描二维码进入【梳起2】）</p>
+
+    <div style="margin-bottom: 26px" class="center subtleFade">
+      <p style="margin: 0">【寻找一条石船，通过石船可以去到下一部分】</p>
+      <p style="margin: 0">（扫描二维码进入【梳起2】）</p>
     </div>
   </div>
 </template>

@@ -12,6 +12,9 @@
         >... 天道也有出错的时候... 也有例外，你们凡人也应有改命的权力。找到那朵花，然后找到那一位...
         ”
       </p>
+    </div>
+
+    <div class="paragraph">
       <p class="center">【他是谁？】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>

@@ -31,15 +31,23 @@
       </p>
     </div>
 
-    <p class="center">【请从左到右排列：末，生，旦，丑，外，小，贴，夫 八个字】</p>
-    <p class="center" style="margin-bottom: 0">可用这个网站作为排列的提示：</p>
-    <p class="center" style="margin-top: 0;"><a href="https://chiculture.org.hk/sc/china-five-thousand-years/3339" target="_blank">https://chiculture.org.hk/sc/china-five-thousand-years/3339</a></p>
-    <p style="display: flex; align-items: center; justify-content: center" class="center">
-      <van-cell-group inset>
-        <van-field v-model="answer" />
-      </van-cell-group>
-      <van-button plain hairline @click="handleConfirmClick">确认</van-button>
-    </p>
+    <div class="paragraph">
+      <p class="center">【请从左到右排列：末，生，旦，丑，外，小，贴，夫 八个字】</p>
+      <p class="center" style="margin-bottom: 0">可用这个网站作为排列的提示：</p>
+      <div class="center" style="margin-top: 0">
+        <!-- <a href="https://chiculture.org.hk/sc/china-five-thousand-years/3339" target="_blank"
+          >https://chiculture.org.hk/sc/china-five-thousand-years/3339</a
+        > -->
+        <p style="margin: 0; color: blue" @click="handleCopyClick">点击这里</p>
+      </div>
+      <p style="display: flex; align-items: center; justify-content: center" class="center">
+        <van-cell-group inset>
+          <van-field v-model="answer" />
+        </van-cell-group>
+        <van-button plain hairline @click="handleConfirmClick">确认</van-button>
+      </p>
+    </div>
+
     <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
@@ -47,6 +55,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
+import { copyToClipboard } from '@/utils'
 const emit = defineEmits(['update:active'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
@@ -76,6 +85,14 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '墙上最左边为丑，正中间花旦左边是外，最右为贴' }).then(() => {})
+}
+const handleCopyClick = async () => {
+  try {
+    copyToClipboard('https://wannianrili.bmcx.com')
+    showToast('已复制跳转所需的URL')
+  } catch (err) {
+    console.error(err);
+  }
 }
 </script>
 

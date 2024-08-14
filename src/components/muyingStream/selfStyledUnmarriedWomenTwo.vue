@@ -13,6 +13,9 @@
           @click="showImagePreview({ images: [aManHoldingAflowerBasket], showIndex: false })"
         />
       </p>
+      </div>
+
+      <div class="paragraph">
       <p class="normal">
         阿妈和李清鹂跟着红船离开的日子已经过去了数月，在替李清鹂做初登台的准备期间，招娣也即将偷渡去香港，而阿妈对招娣的事情并不知情。我这几天都寝食难安，神不守舍，早上练习的时候也险些掉下水。
       </p>
@@ -32,8 +35,9 @@
       <p class="normal">
         过了今天，招娣将不再成为婚嫁的被动者，而是选择靠着自己的力量去掌握自己的命运。她的眼中闪烁着坚定的光芒，我安静站在一旁，默默注视着家姐，心中充满了敬佩和不舍。
       </p>
+    </div>
 
-      <p class="center">————————</p>
+    <div class="paragraph">
       <p class="center"><strong>“一梳福，</strong></p>
       <p class="center"><strong>二梳寿，</strong></p>
       <p class="center"><strong>三梳自在，</strong></p>
@@ -44,14 +48,16 @@
       <p class="center"><strong>八梳金兰姐妹相爱，</strong></p>
       <p class="center"><strong>九梳九九归一，</strong></p>
       <p class="center"><strong>十梳终身不嫁。”</strong></p>
-      <p class="center">————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">随着最后一句誓词说完，黄瑞云把招娣的头发盘成了云髻，仪式就正式的结束了。</p>
       <p class="normal">
         招娣转过身，轻轻拥抱了我，低声说道：“日昳，姐姐走了以后，你要好好照顾自己，将来，不管走到哪里，我们都是一家人。”
       </p>
       <p class="normal">我明白招娣的苦心。要是阿妈在这里的话……</p>
-      <p class="center">————————</p>
     </div>
+
     <div class="paragraph">
       <p class="center">梳篦是当年的顺德特产之一。</p>
       <p class="center">在那个年代洗头非常麻烦，</p>

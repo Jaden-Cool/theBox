@@ -6,7 +6,9 @@
       <p class="normal">
         你跟随着指引来到了荷园。只见一个美丽的女人站在了荷花池前的庭院朝着你招了招手。发现你看到了她以后，她指了指庭院上的匾额。随着你的视线移动到匾额上，她不见了。
       </p>
-      <p class="center">————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">今日是常日昳第一天去找<strong>黄朔风师傅</strong>拜师。</p>
       <p class="normal">
         黄朔风师傅木雕和斗木技艺高超，坊间人称“金眼风”，谓其眼光毒辣，下手快如风。作为一个怪才，他经常在荒山野岭里寻找木材。一切作品都是率性而为。转念之间，朽木往往会被化为神态迥异的飞禽走兽。手艺到达了如此化境，在收徒上他也全凭心意。也是因为如此，姑婆屋的众人才决定让日昳去碰碰运气拜他为师，学习一门谋生的手艺。
@@ -24,8 +26,9 @@
       <p class="normal">
         每天，常日昳在河道上挥汗如雨，随着龙船在水面上飞驰。他的双臂渐渐变得结实了起来，体魄也日益健壮。
       </p>
-      <p class="center">————————</p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【观看[日晷]，日昳的命格五行里面属什么？】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -33,13 +36,14 @@
         </van-cell-group>
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
-      <van-popup v-model:show="show">
-        <p class="center" style="margin: 26px 26px 0 26px">除了何仙姑</p>
-        <p class="center" style="margin: 0">在后天八卦中</p>
-        <p class="center" style="margin: 0 0 26px 0">只有曹国舅也属土</p>
-        <img src="@/assets/images/caoGuoJiu.png" alt="" />
-      </van-popup>
     </div>
+
+    <van-popup v-model:show="show">
+      <p class="center" style="margin: 26px 26px 0 26px">除了何仙姑</p>
+      <p class="center" style="margin: 0">在后天八卦中</p>
+      <p class="center" style="margin: 0 0 26px 0">只有曹国舅也属土</p>
+      <img src="@/assets/images/caoGuoJiu.png" alt="" />
+    </van-popup>
     <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>

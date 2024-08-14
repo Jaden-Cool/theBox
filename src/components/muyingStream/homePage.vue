@@ -6,7 +6,9 @@
       <p class="normal">
         你来到了沐英涧，走进这巷子的一瞬，一阵穿堂风刮起。一阵美妙的音乐声的不知道从哪里传来。目光穿过了面前的三重门，在尽头，你看到了一个人在吹奏笛子，背后是一家宗祠……
       </p>
-      <p class="center">————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="center">“千斤黄金万担谷，夜夜笙歌镬耳屋”</p>
       <p class="normal">
         黄氏大宗祠是一间很有历史的镬耳屋。里面各种金镶玉裹的砖雕、价值连城的木雕，错落有致。相比华贵的装饰，鲜为人知的是，屋子里面还有许多不通往外面的小巷子，作为风水的用途。也不知道为什么，我总觉得这些地方特别安静，令人舒心
@@ -21,6 +23,9 @@
         日昳第二天依旧路过巷子，心想她应该已经换了地方练习，谁知她还在原处。她看到日昳来反而好像还有些高兴，拉着他陪练，好在没有耽误日昳的“眼功”，但日昳总觉得内心有点奇怪：怎么倒变成我陪她练声了？
       </p>
       <p class="center"><strong>倒霉。</strong></p>
+    </div>
+
+    <div class="paragraph">
       <p class="center">【李清鹂找你练声，飙不过某个高音你可走不了】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -32,6 +37,7 @@
         <img src="@/assets/images/aManBlowingAxiao.jpeg" alt="" />
       </van-popup>
     </div>
+
     <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>

@@ -3,12 +3,13 @@
     <h1 class="center">姑婆屋</h1>
 
     <div class="paragraph">
-      <p class="center">——————</p>
       <p class="center">《顺德县志》</p>
       <p class="normal">
         “过去女子出嫁，须由母亲束髻，立心不嫁者则履行一定的仪式自行束髻，称“自梳”。仪式通常在自梳女及不落家妇女聚居的“姑婆屋”内举行，当事者预先购备新衣、鞋袜、妆镜、头绳及香、烛、肴，以黄皮叶煮水沐浴，设供拜观音，立誓永不婚嫁，然后由年长的自梳女将其辫子梳成发髻，更换新衣新鞋，向其他自梳姐妹一一行礼，经济宽裕的，还须摆酒宴客。履行仪式后，该女子即为“梳起”，正式成为“自梳女”，终生不得反悔。”
       </p>
-      <p class="center">——————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
         几年前，瀘紹年通过缫丝的行当认识了好几个决定自梳的独立女性。就连这做鱼腐的手艺都是她们传授的。这些经济独立的女性各自都怀着自己的原因决定自梳。瀘紹年接受了她们的介绍来到了伦教，接下来的日子也注定和这些自梳女（即“妈姐“或“姑婆“）脱不了关系。
       </p>
@@ -46,6 +47,9 @@
           @click="showImagePreview({ images: [garden], showIndex: false })"
         />
       </p>
+    </div>
+
+    <div class="paragraph">
       <p class="center">【前往荷花盛开的地方，寻找这个牌子上的三个字】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>

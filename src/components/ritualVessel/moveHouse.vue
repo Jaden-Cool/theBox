@@ -18,16 +18,20 @@
       <p class="normal">
         接下来的几个月，瀘紹年变卖了家中的屋子和剩余的物品，筹得了一笔钱，带着两个孩子举家搬去了均安沙头村避债。
       </p>
-      <p class="center">————————————————</p>
-      <p class="normal">你的视线重新凝实，手上的小罗盘还在微微发烫。那芭蕉扇闪烁着炽热的红光</p>
     </div>
-    <p class="center">
-      <van-image
-        fit="contain"
-        :src="aFan"
-        @click="showImagePreview({ images: [aFan], showIndex: false })"
-      />
-    </p>
+
+    <div class="paragraph">
+      <p class="normal">你的视线重新凝实，手上的小罗盘还在微微发烫。那芭蕉扇闪烁着炽热的红光</p>
+
+      <p class="center">
+        <van-image
+          fit="contain"
+          :src="aFan"
+          @click="showImagePreview({ images: [aFan], showIndex: false })"
+        />
+      </p>
+    </div>
+
     <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
       【点击此处继续】
     </div>

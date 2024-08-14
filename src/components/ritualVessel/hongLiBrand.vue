@@ -21,7 +21,9 @@
       <p class="normal">
         当然了，这样的僵持对于我来说也不是没有意义。这样我每天就可以借故去看李清鹂。
       </p>
-      <p class="center">——————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
         随着你的思绪从这段记忆中抽离，你回到了现实。就在此时，一阵旋风扑面而来，竟然把你手中的地图卷了起来。地图在空中打了两个转被一阵光影击中，又重新飞到回了你的手上。
       </p>
@@ -35,8 +37,8 @@
       <p class="normal">
         只见在荷花池的对岸，一个男人轻轻把手上的剑入了鞘，那剑气所过之处，在荷叶上切割出了深浅不一的细痕，你隐约能辨认出两句话：
       </p>
-      <p style="margin: 0;" class="center"><strong>灶君自顾金土火，</strong></p>
-      <p style="margin: 0;" class="center"><strong>去木舍水余央间。</strong></p>
+      <p style="margin: 0" class="center"><strong>灶君自顾金土火，</strong></p>
+      <p style="margin: 0" class="center"><strong>去木舍水余央间。</strong></p>
       <p class="center">【根据诗句找到地图上对应地点，去往该地点寻找下一步的二维码】</p>
     </div>
 
@@ -64,7 +66,9 @@ const state = reactive({
 })
 const { show } = toRefs(state)
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '注意看地图上面的十三个红点，其中有一个地点符合这首诗的第二句' }).then(() => {})
+  showDialog({ message: '注意看地图上面的十三个红点，其中有一个地点符合这首诗的第二句' }).then(
+    () => {}
+  )
 }
 </script>
 

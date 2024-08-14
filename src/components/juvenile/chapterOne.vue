@@ -128,8 +128,6 @@ const handleConfirmClick = () => {
 const handleCopyClick = async () => {
   try {
     copyToClipboard('https://wannianrili.bmcx.com')
-    // const textToCopy = 
-    // await navigator.clipboard.writeText(textToCopy)
     showToast('已复制跳转所需的URL')
   } catch (err) {
     console.error(err);

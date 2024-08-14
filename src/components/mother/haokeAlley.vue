@@ -62,14 +62,14 @@
       <p class="normal">
         红荔蹲在墙角，又把一颗荔枝虾球放进嘴里，细细咀嚼。她抬头看着午未，发现午未也在偷看她。两人相视一笑。
       </p>
+    </div>
 
-      <p class="center">————————————</p>
+    <div class="paragraph">
       <p class="center">
         从此之后，两人经常在耗壳巷里面吃虾球，有几颗虾球就这样散落在了这里。希望他们的日子可以一直这么下去。
       </p>
-
-      <p class="center"></p>
     </div>
+
     <div class="center subtleFade" style="margin-bottom: 26px">【前往[戏台]寻找下一步内容】</div>
   </div>
 </template>
