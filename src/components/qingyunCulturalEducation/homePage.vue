@@ -51,17 +51,15 @@
       </p>
     </div>
   </div>
-  <!-- <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+  <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
-// import { showToast, showDialog, showImagePreview } from 'vant'
-import { showToast, showImagePreview } from 'vant'
-// import { reactive, toRefs } from 'vue'
+import { showToast, showDialog,showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import oldTime from '@/assets/images/oldTime.jpeg'
 const emit = defineEmits(['update:active'])
-// const props = defineProps({ isAtBottom: Boolean })
+const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
 })
@@ -87,9 +85,9 @@ const handleConfirmClick = () => {
       break
   }
 }
-// const handleFloatingBtnClick = () => {
-//   showDialog({ message: '留意地上砖石有文字，时刻不忘抬头也寻找' }).then(() => {})
-// }
+const handleFloatingBtnClick = () => {
+  showDialog({ message: '五味之一' }).then(() => {})
+}
 </script>
 
 <style lang="less" scoped>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active">
+    <van-tabs v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -9,11 +9,16 @@
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
     />
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 // 喜万年年
 import aFavorite from '@/components/preferredTenThousandYears/homePage.vue'
@@ -23,18 +28,23 @@ import qingLi from '@/components/preferredTenThousandYears/qingLi.vue'
 import tigerMouthToken from '@/components/preferredTenThousandYears/tigerMouthToken.vue'
 // 寻根问祖
 import traceonesRoots from '@/components/preferredTenThousandYears/traceonesRoots.vue'
+// BGM
+import hunli from '@/assets/audio/0207hunli.mp3'
+import huahaoyueyuan from '@/assets/audio/0208huahaoyueyuan.mp3'
 
 const state = reactive({
   tabs: [
     { id: 0, title: '喜万年年' },
     { id: 1, title: '清鹂梳头' },
     { id: 2, title: '虎口符' },
-    { id: 3, title: '寻根问祖' },
+    { id: 3, title: '寻根问祖' }
   ],
   active: 0,
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: hunli ? hunli : ''
 })
-const { active, tabs, isAtBottom } = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc} = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -57,6 +67,35 @@ const currentComponent = computed(() => {
   return null
 })
 
+const handleTabsChange = (name, title) => {
+  state.iconName = 'music-o'
+  switch (title) {
+    case '喜万年年':
+      state.audioSrc = hunli
+      break
+      case '清鹂梳头':
+      state.audioSrc = huahaoyueyuan
+      break
+    default:
+      state.audioSrc = ''
+      break
+  }
+}
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+
 // 滚动事件处理函数
 const handleScroll = () => {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
@@ -75,15 +114,13 @@ const handleScroll = () => {
   // 判断是否滚动到底部（这里可以根据需要调整阈值）
   state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
 }
-
 // 防抖函数
 const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
 })
-
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {
   window.removeEventListener('scroll', debouncedHandleScroll)

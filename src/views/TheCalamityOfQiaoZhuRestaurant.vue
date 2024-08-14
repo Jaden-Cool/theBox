@@ -58,21 +58,28 @@
     </div>
 
     <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
-    <!-- <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
-      【点击此处自动跳转】
-    </div> -->
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="fire" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
+import { reactive, ref,toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
+// BGM
+import fire from '@/assets/audio/0107Fire.mp3'
+
 const state = reactive({
   answer: '',
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: fire ? fire : ''
 })
-const { answer, isAtBottom } = toRefs(state)
+const { answer, isAtBottom,iconName, audioSrc } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -80,7 +87,7 @@ const handleConfirmClick = () => {
   switch (state.answer) {
     case '青云文社':
       showDialog({
-        message: '前往③内的青云研究所',
+        message: '前往③内的青云研究所'
       })
         .then(() => {})
         .catch(() => {})
@@ -96,6 +103,20 @@ const handleConfirmClick = () => {
 }
 const handleFloatingBtnClick = () => {
   showDialog({ message: '每三个字为一个字谜，最后六个字是一个字的两个部分' }).then(() => {})
+}
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
 }
 // 滚动事件处理函数
 const handleScroll = () => {
@@ -115,16 +136,13 @@ const handleScroll = () => {
   // 判断是否滚动到底部（这里可以根据需要调整阈值）
   state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
 }
-
 // 防抖函数
 const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
 })
-
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {
   window.removeEventListener('scroll', debouncedHandleScroll)

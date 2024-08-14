@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-box">
     <h1 class="center">青云之路</h1>
 
     <div class="paragraph">
@@ -180,4 +180,8 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.main-box{
+  background-color: #e6fff3 !important;
+}
+</style>

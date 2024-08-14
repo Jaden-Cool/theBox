@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="main-box">
     <h1 class="center">渡西江</h1>
 
     <div class="paragraph">
@@ -40,8 +40,8 @@ const handleContinueClick = () => {
 </script>
 
 <style lang="less" scoped>
-.main {
-  background-color: #e6fff3 !important;
+.main-box {
+  background-color: #e6fff3;
 }
 @keyframes subtleFade {
   0% {

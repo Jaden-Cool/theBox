@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active">
+    <van-tabs v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -9,15 +9,20 @@
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
     />
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 import { debounce } from '@/utils'
-// 食神之鼎1
+// 食神之鼎
 import home from '@/components/ritualVessel/homePage.vue'
 // 食神之鼎青云
 import branchOne from '@/components/ritualVessel/branchOne.vue'
@@ -45,6 +50,9 @@ import loongBoatRacing from '@/components/ritualVessel/loongBoatRacing.vue'
 import greyCarving from '@/components/ritualVessel/greyCarving.vue'
 // 红荔1
 import hongLiBrand from '@/components/ritualVessel/hongLiBrand.vue'
+// BGM
+import caiyunzhuiyue from '@/assets/audio/0105caiyunzhuiyue.mp3'
+import gupowu from '@/assets/audio/0201gupowu.mp3'
 
 const state = reactive({
   tabs: [
@@ -61,15 +69,14 @@ const state = reactive({
     { id: 10, title: '姑婆屋' },
     { id: 11, title: '扒龙船1' },
     { id: 12, title: '灰雕' },
-    { id: 13, title: '红荔1' },
-    // { id: 4, title: '三字经' },
-    // { id: 1, title: '食神之鼎酒家' },
-    // { id: 2, title: '食神之鼎红荔' },
+    { id: 13, title: '红荔1' }
   ],
   active: 0,
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: caiyunzhuiyue ? caiyunzhuiyue : ''
 })
-const { active, tabs, isAtBottom } = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -124,6 +131,43 @@ const currentComponent = computed(() => {
   // }
   return null
 })
+const handleTabsChange = (name, title) => {
+  state.iconName = 'music-o'
+  switch (title) {
+    case '食神之鼎':
+      state.audioSrc = caiyunzhuiyue
+      break
+    case '食神之鼎青云':
+      state.audioSrc = caiyunzhuiyue
+      break
+    case '食神之鼎酒家':
+      state.audioSrc = caiyunzhuiyue
+      break
+    case '食神之鼎红荔':
+      state.audioSrc = caiyunzhuiyue
+      break
+    case '姑婆屋':
+      state.audioSrc = gupowu
+      break
+    default:
+      state.audioSrc = ''
+      break
+  }
+}
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
 
 // 滚动事件处理函数
 const handleScroll = () => {
@@ -143,10 +187,8 @@ const handleScroll = () => {
   // 判断是否滚动到底部（这里可以根据需要调整阈值）
   state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
 }
-
 // 防抖函数
 const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })

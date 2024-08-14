@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active">
+    <van-tabs v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -9,11 +9,16 @@
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
     />
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
 import { debounce } from '@/utils'
@@ -29,6 +34,11 @@ import liuGongOne from '@/components/muyingStream/liuGongOne.vue'
 import liuGongTwo from '@/components/muyingStream/liuGongTwo.vue'
 // 刘恭可红荔3
 import liuGongThree from '@/components/muyingStream/liuGongThree.vue'
+// BGM
+import dongxiao from '@/assets/audio/0202dongxiao.mp3'
+import shuqi from '@/assets/audio/0203shuqi.mp3'
+import tianhuayin from '@/assets/audio/0204tianhuayin.mp3'
+
 const state = reactive({
   tabs: [
     { id: 0, title: '沐英涧' },
@@ -39,9 +49,11 @@ const state = reactive({
     { id: 5, title: '刘恭可红荔3' }
   ],
   active: 0,
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: dongxiao ? dongxiao : ''
 })
-const { active, tabs, isAtBottom } = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -71,6 +83,38 @@ const currentComponent = computed(() => {
   return null
 })
 
+const handleTabsChange = (name, title) => {
+  state.iconName = 'music-o'
+  switch (title) {
+    case '沐英涧':
+      state.audioSrc = dongxiao
+      break
+    case '梳起2':
+      state.audioSrc = shuqi
+      break
+    case '刘恭可红荔3':
+      state.audioSrc = tianhuayin
+      break
+    default:
+      state.audioSrc = ''
+      break
+  }
+}
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+
 // 滚动事件处理函数
 const handleScroll = () => {
   nextTick(() => {
@@ -81,10 +125,8 @@ const handleScroll = () => {
       scrollHeight <= clientHeight || scrollTop + clientHeight >= scrollHeight - 100
   })
 }
-
 // 防抖函数
 const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -93,7 +135,6 @@ onMounted(() => {
   }
   window.addEventListener('scroll', debouncedHandleScroll)
 })
-
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {
   window.removeEventListener('scroll', debouncedHandleScroll)

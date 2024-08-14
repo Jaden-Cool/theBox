@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active">
+    <van-tabs v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -10,7 +10,7 @@
       @update:active="handleActiveUpdate"
     />
 
-    <div class="audio-box">
+    <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
       <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
     </div>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, toRefs, computed, onMounted, onUnmounted,nextTick } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { debounce } from '@/utils'
 // 祖屋奇遇
 import adventureInAncestralHouseChapterOne from '@/components/adventureInAncestralHouse/chapterOne.vue'
@@ -36,8 +36,10 @@ import qingyunLiteratureSociety from '@/components/qingyunLiteratureSociety/chap
 import qiaozhuRestaurant from '@/components/qiaozhuRestaurant/chapterOne.vue'
 // 红荔pv
 import HONGLI from '@/components/HONGLI/chapterOne.vue'
-// BGM蝉鸣
-import theChirpingOfCicadas from '@/assets/audio/theChirpingOfCicadas.mp3'
+// BGM
+import chanming from '@/assets/audio/0101chanming.mp3'
+import yueguangguang from '@/assets/audio/0102yueguangguang.mp3'
+import jigongzai from '@/assets/audio/0103jigongzai.mp3'
 
 const state = reactive({
   tabs: [
@@ -55,7 +57,7 @@ const state = reactive({
   active: '0',
   isAtBottom: false,
   iconName: 'music-o',
-  audioSrc: theChirpingOfCicadas
+  audioSrc: chanming ? chanming : ''
 })
 const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
@@ -99,6 +101,29 @@ const currentComponent = computed(() => {
   return null
 })
 
+const handleTabsChange = (name, title) => {
+  state.iconName = 'music-o'
+  switch (title) {
+    case '祖屋奇遇1':
+      state.audioSrc = chanming
+      break
+    case '祖屋奇遇2':
+      state.audioSrc = yueguangguang
+      break
+    case '祖屋奇遇3':
+      state.audioSrc = chanming
+      break
+    case '常日昳1':
+      state.audioSrc = jigongzai
+      break
+    case '常日昳2':
+      state.audioSrc = chanming
+      break
+    default:
+      state.audioSrc = ''
+      break
+  }
+}
 const audio = ref(null)
 const handlePlayAudio = () => {
   if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {

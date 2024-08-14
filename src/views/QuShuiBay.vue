@@ -20,13 +20,46 @@
     <p class="center subtleFade">取出【白色硬质方卡】操作，出现的四字即为下一个地点</p>
 
     <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="tiane" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import { showDialog } from 'vant'
+import { reactive, toRefs, ref } from 'vue'
+// BGM
+import tiane from '@/assets/audio/0104tiane.mp3'
+
+const state = reactive({
+  iconName: 'music-o',
+  audioSrc: tiane ?  tiane : ''
+})
+const { iconName, audioSrc } = toRefs(state)
+
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '将写有提示的方卡浸入水中（请注意安全），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】' }).then(() => {})
+  showDialog({
+    message:
+      '将写有提示的方卡浸入水中（请注意安全），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】'
+  }).then(() => {})
 }
 </script>
 

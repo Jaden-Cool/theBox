@@ -7,7 +7,11 @@
       <van-form>
         <van-field name="radio" label="抽烟吗？">
           <template #input>
-            <van-radio-group v-model="isSmoking" direction="horizontal">
+            <van-radio-group
+              v-model="isSmoking"
+              direction="horizontal"
+              @change="handleRadioGroupChange('isSmoking')"
+            >
               <van-radio name="1">抽</van-radio>
               <van-radio name="2">不抽</van-radio>
             </van-radio-group>
@@ -16,7 +20,11 @@
 
         <van-field v-show="+isSmoking === 2" name="radio" label="喝酒吗？">
           <template #input>
-            <van-radio-group v-model="isDrinking" direction="horizontal">
+            <van-radio-group
+              v-model="isDrinking"
+              direction="horizontal"
+              @change="handleRadioGroupChange('isDrinking')"
+            >
               <van-radio name="1">喝</van-radio>
               <van-radio name="2">不喝</van-radio>
             </van-radio-group>
@@ -36,7 +44,7 @@
           </template>
         </van-field>
 
-        <van-field v-show="+sneeze === 1 && isDrinking != 2" name="radio" label="喜欢吃辣椒么？">
+        <van-field v-show="+sneeze === 1" name="radio" label="喜欢吃辣椒么？">
           <template #input>
             <van-radio-group v-model="likesSpicy" direction="horizontal">
               <van-radio name="1">喜欢</van-radio>
@@ -45,11 +53,7 @@
           </template>
         </van-field>
 
-        <van-field
-          v-show="+sneeze === 2 && isDrinking != 2"
-          name="radio"
-          label="闲时会省出钱买书看吗？"
-        >
+        <van-field v-show="+sneeze === 2" name="radio" label="闲时会省出钱买书看吗？">
           <template #input>
             <van-radio-group v-model="isReading" direction="horizontal">
               <van-radio name="1">会</van-radio>
@@ -59,14 +63,14 @@
         </van-field>
 
         <van-field
-          v-show="(+isSmoking === 2 && +isDrinking === 2) || +isReading === 2"
+          v-show="(+isSmoking === 2 && +isDrinking === 2) || +isReading === 1"
           name="radio"
           label="学厨是为了什么？"
         >
           <template #input>
-            <van-radio-group v-model="learnCooking" direction="horizontal">
-              <van-radio name="1">把菜式发扬光大</van-radio>
-              <van-radio name="2">想赚钱</van-radio>
+            <van-radio-group v-model="learnCooking" direction="vertical">
+              <van-radio name="1" style="margin-bottom: 6px">把菜式发扬光大</van-radio>
+              <van-radio name="2" style="margin-bottom: 6px">想赚钱</van-radio>
               <van-radio name="3">混口饭吃</van-radio>
             </van-radio-group>
           </template>
@@ -106,7 +110,8 @@
       style="margin-bottom: 26px"
       @click="handleContinueClick"
     >
-      在附近寻找一个人少的地方继续
+      <p style="margin: 0">在附近寻找一个人少的地方然后</p>
+      <p style="margin: 0">【点击此处继续】</p>
     </div>
   </div>
 </template>
@@ -124,12 +129,22 @@ const state = reactive({
   learnCooking: ''
 })
 const { isSmoking, isDrinking, sneeze, likesSpicy, isReading, learnCooking } = toRefs(state)
+const handleRadioGroupChange = (key) => {
+  switch (key) {
+    case 'isSmoking':
+      state.isDrinking = ''
+      state.sneeze = ''
+      state.likesSpicy = ''
+      state.isReading = ''
+      state.learnCooking = ''
+      break
+    case 'isDrinking':
+      state.sneeze = ''
+      break
+  }
+}
 const currentComponent = computed(() => {
-  if (
-    +state.isSmoking === 2 &&
-    +state.isDrinking === 2 &&
-    +state.learnCooking === 1
-  ) {
+  if (+state.isSmoking === 2 && +state.isDrinking === 2 && +state.learnCooking === 1) {
     return '解答 A'
   }
   if (
@@ -149,11 +164,7 @@ const currentComponent = computed(() => {
   ) {
     return '解答 A'
   }
-  if (
-    +state.isSmoking === 2 &&
-    +state.isDrinking === 2 &&
-    +state.learnCooking === 2
-  ) {
+  if (+state.isSmoking === 2 && +state.isDrinking === 2 && +state.learnCooking === 2) {
     return '解答 C'
   }
   if (
@@ -173,11 +184,7 @@ const currentComponent = computed(() => {
   ) {
     return '解答 C'
   }
-  if (
-    +state.isSmoking === 2 &&
-    +state.isDrinking === 2 &&
-    +state.learnCooking === 3
-  ) {
+  if (+state.isSmoking === 2 && +state.isDrinking === 2 && +state.learnCooking === 3) {
     return '解答 B'
   }
   if (

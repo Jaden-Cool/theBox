@@ -31,12 +31,29 @@
         日昳用舌头卷着粥，努力避开着自己的味蕾，强忍着恶心，一口一口把这油饼粥往肚子里吞。战乱期间，法币当道，物价乱涨，，一担子米可以换两条人命。
       </p>
       <p class="center">
-        接下来的日子还要在深山老林里面养活两百多个人，日昳此刻才体会到周之贞院长身上的重担。
+        接下来的日子还要在深山老林里面养活两百多个人，日昳此刻才体会到周之贞院长身上的重担。。
       </p>
     </div>
 
     <div class="paragraph">
-      <p class="center">【今天是1943年二月十一日，正月初七 今天的三个字是什么？】</p>
+      <div style="display: flex; align-items: center;margin-top: 28px;">
+        <p style="margin: 0 6px 0 36px;">2-081</p>
+        <p style="margin: 0;">&nbsp;陈显良&nbsp;</p>
+        <p style="margin: 0 6px;">=</p>
+        <p style="margin: 0;">豆皮大</p>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <p style="margin: 0 6px 0 36px;">2-112</p>
+        <p style="margin: 0;">&nbsp;&nbsp;海贼&nbsp;&nbsp;</p>
+        <p style="margin: 0 6px;">=</p>
+        <p style="margin: 0;">李快仔</p>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <p style="margin: 0 6px 0 36px;">4-157</p>
+        <p style="margin: 0;">青云甘蔗</p>
+        <p style="margin: 0 6px;">=</p>
+        <p style="margin: 0;">？？？</p>
+      </div>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
           <van-field maxlength="3" show-word-limit v-model="answer" />
@@ -52,7 +69,8 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-const emit = defineEmits(['update:active'])
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -63,12 +81,12 @@ const handleConfirmClick = () => {
     return
   }
   switch (state.answer) {
-    case '填口满':
+    case '玉米杆':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 1)
+      router.push({ name: 'QingyunCulturalEducation', query: { active: 1 } })
       break
     default:
       state.answer = ''
@@ -80,7 +98,7 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '癸未年 【羊年】 甲寅月 庚子日' }).then(() => {})
+  showDialog({ message: '隐没的青云文社中，章节-书页' }).then(() => {})
 }
 </script>
 

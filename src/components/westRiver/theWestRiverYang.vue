@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'black-bg': translate, 'white-bg': !translate }">
+  <div :class="{ 'black-bg': !translate, 'white-bg': translate }">
     <h1 class="center">西江</h1>
 
     <div v-if="!translate">

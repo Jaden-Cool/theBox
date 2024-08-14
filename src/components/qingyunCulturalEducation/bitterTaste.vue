@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-box">
     <h1 class="center">口味苦</h1>
 
     <div class="paragraph">
@@ -39,7 +39,7 @@
           。</strong
         >
       </div>
-      
+
       <div class="center">
         【解锁真味：
         <p style="margin: 0; color: #00b0f0">苦</p>
@@ -71,6 +71,9 @@ const handleContinueClick = () => {
 </script>
 
 <style lang="less" scoped>
+.main-box {
+  background-color: #e6fff3;
+}
 @keyframes subtleFade {
   0% {
     opacity: 1;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active">
+    <van-tabs v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -9,11 +9,16 @@
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
     />
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { reactive, ref,toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 // 拴马桩
 import circularSkyRectangularEarth from '@/components/circularSkyRectangularEarth/homePage.vue'
@@ -23,6 +28,8 @@ import colleaguesWedding from '@/components/circularSkyRectangularEarth/colleagu
 import fengChengRestaurant from '@/components/circularSkyRectangularEarth/fengChengRestaurant.vue'
 // wg时期
 import theWGEra from '@/components/circularSkyRectangularEarth/theWGEra.vue'
+// BGM
+import hunter from '@/assets/audio/0109hunter.mp3'
 
 const state = reactive({
   tabs: [
@@ -32,9 +39,11 @@ const state = reactive({
     { id: 3, title: 'wg时期' },
   ],
   active: 0,
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: ''
 })
-const { active, tabs, isAtBottom } = toRefs(state)
+const { active, tabs, isAtBottom , iconName, audioSrc} = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -57,6 +66,32 @@ const currentComponent = computed(() => {
   return null
 })
 
+const handleTabsChange = (name, title) => {
+  state.iconName = 'music-o'
+  switch (title) {
+    case 'wg时期':
+      state.audioSrc = hunter
+      break
+    default:
+      state.audioSrc = ''
+      break
+  }
+}
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
+
 // 滚动事件处理函数
 const handleScroll = () => {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
@@ -75,15 +110,13 @@ const handleScroll = () => {
   // 判断是否滚动到底部（这里可以根据需要调整阈值）
   state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
 }
-
 // 防抖函数
 const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
 })
-
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {
   window.removeEventListener('scroll', debouncedHandleScroll)

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-model:active="active">
+    <van-tabs v-model:active="active"  @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -9,11 +9,16 @@
       :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
     />
+
+    <div class="audio-box" v-if="audioSrc">
+      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 import { useRoute } from 'vue-router'
 const route = useRoute()
@@ -33,6 +38,9 @@ import pigTrotterCookedWithGinger from '@/components/qingyunCulturalEducation/pi
 import spicyTaste from '@/components/qingyunCulturalEducation/spicyTaste.vue'
 // 扇子
 // import fanPage from '@/components/qingyunCulturalEducation/fanPage.vue'
+// BGM
+import songbie from '@/assets/audio/songbie.mp3'
+import tianhuayin from '@/assets/audio/0204tianhuayin.mp3'
 
 const state = reactive({
   tabs: [
@@ -46,9 +54,11 @@ const state = reactive({
     // { id: 7, title: '扇子' }
   ],
   active: 0,
-  isAtBottom: false
+  isAtBottom: false,
+  iconName: 'music-o',
+  audioSrc: ''
 })
-const { active, tabs, isAtBottom } = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -82,6 +92,34 @@ const currentComponent = computed(() => {
   // }
   return null
 })
+const handleTabsChange = (name, title) => {
+  state.iconName = 'music-o'
+  switch (title) {
+    case '离开文教所':
+      state.audioSrc = songbie
+      break
+      case '读信毕':
+      state.audioSrc = tianhuayin
+      break
+    default:
+      state.audioSrc = ''
+      break
+  }
+}
+const audio = ref(null)
+const handlePlayAudio = () => {
+  if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
+    audio.value.play()
+  } else {
+    audio.value.pause()
+  }
+}
+const onPlay = () => {
+  state.iconName = 'play-circle-o'
+}
+const onPause = () => {
+  state.iconName = 'pause-circle-o'
+}
 
 // 滚动事件处理函数
 const handleScroll = () => {

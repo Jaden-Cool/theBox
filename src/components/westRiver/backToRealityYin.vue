@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-box">
     <h1 class="center">西江阴2</h1>
 
     <div class="paragraph">
@@ -142,6 +142,9 @@ const handleFloatingBtnClick = () => {
 </script>
 
 <style lang="less" scoped>
+.main-box{
+  background-color: #e6fff3;
+}
 .van-cell {
   padding: 8.1px;
 }
