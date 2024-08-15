@@ -21,6 +21,7 @@
 <script setup>
 import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { debounce } from '@/utils'
+import { useUserStore } from '@/store/userStore'
 // 母亲回归
 import mother from '@/components/mother/homePage.vue'
 // 红荔2
@@ -30,6 +31,7 @@ import haokeAlley from '@/components/mother/haokeAlley.vue'
 // BGM
 import lizhisong from '@/assets/audio/0205lizhisong.mp3'
 
+const userStore = useUserStore()
 const state = reactive({
   tabs: [
     { id: 0, title: '母亲回归' },
@@ -112,6 +114,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '凤城大观', value: 'MotherPage' })
 })
 
 // 组件卸载前移除滚动事件监听器

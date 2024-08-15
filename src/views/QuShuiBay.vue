@@ -30,13 +30,15 @@
 
 <script setup>
 import { showDialog } from 'vant'
-import { reactive, toRefs, ref } from 'vue'
+import { reactive, toRefs, ref, onMounted } from 'vue'
+import { useUserStore } from '@/store/userStore'
 // BGM
 import tiane from '@/assets/audio/0104tiane.mp3'
 
+const userStore = useUserStore()
 const state = reactive({
   iconName: 'music-o',
-  audioSrc: tiane ?  tiane : ''
+  audioSrc: tiane ? tiane : ''
 })
 const { iconName, audioSrc } = toRefs(state)
 
@@ -61,6 +63,10 @@ const handleFloatingBtnClick = () => {
       '将写有提示的方卡浸入水中（请注意安全），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】'
   }).then(() => {})
 }
+
+onMounted(() => {
+  userStore.updateDropdownMenuList({ text: '曲水湾鹊桥', value: 'QuShuiBay' })
+})
 </script>
 
 <style lang="less" scoped>

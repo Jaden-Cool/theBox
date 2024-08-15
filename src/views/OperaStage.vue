@@ -239,6 +239,8 @@
 import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { showImagePreview, showDialog } from 'vant'
 import { debounce } from '@/utils'
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
 import shuMingLuo from '@/assets/images/shuMingLuo.jpeg'
@@ -355,6 +357,7 @@ const handleScroll = () => {
 const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
 onMounted(() => {
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '戏台', value: 'OperaStage' })
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', debouncedHandleScroll)

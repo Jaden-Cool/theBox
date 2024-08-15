@@ -11,26 +11,30 @@
       <RouterView />
     </van-col>
   </van-row> -->
+  <van-dropdown-menu v-if="userStore.dropdownMenuList.length > 0">
+    <van-dropdown-item v-model="value" :options="userStore.dropdownMenuList">
+      <template #title>可选章节</template>
+    </van-dropdown-item>
+  </van-dropdown-menu>
+
   <RouterView />
 </template>
 
 <script setup>
 // import { RouterView, useRouter } from 'vue-router'
 import { RouterView } from 'vue-router'
-// import { reactive, toRefs, onMounted } from 'vue'
-import { onMounted } from 'vue'
-// import { showToast } from 'vant'
+import { reactive, toRefs, onMounted } from 'vue'
+import { useUserStore } from '@/store/userStore'
 import 'vant/es/toast/style'
 import 'vant/es/dialog/style'
 
-
-
 // const router = useRouter()
-// const state = reactive({
-//   sidebarActive: 0,
-//   sidebarList: []
-// })
-// const { sidebarActive, sidebarList } = toRefs(state)
+const userStore = useUserStore()
+
+const state = reactive({
+  value: 0
+})
+const { value } = toRefs(state)
 // const url = computed(() => {
 //   return state.sidebarList?.[state.sidebarActive]?.name || ''
 // })

@@ -23,6 +23,8 @@ import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 import { useRoute } from 'vue-router'
 const route = useRoute()
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 // 顺酒坊
 import shunLiquorWorkShop from '@/components/shunLiquorWorkShop/homePage.vue'
 // 口味酸
@@ -126,6 +128,7 @@ onMounted(() => {
     state.active = +route.query.active
   }
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '顺酒坊', value: 'ShunLiquorWorkShop' })
 })
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {

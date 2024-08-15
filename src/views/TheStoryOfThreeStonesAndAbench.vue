@@ -63,8 +63,10 @@
 import { showDialog } from 'vant'
 import { reactive, ref, toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
+import { useUserStore } from '@/store/userStore'
 import jingyu from '@/assets/audio/0302jingyu.mp3' // BGM
 
+const userStore = useUserStore()
 const state = reactive({
   isAtBottom: false,
   iconName: 'music-o',
@@ -122,6 +124,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '三块石头板凳故事', value: 'TheStoryOfThreeStonesAndAbench' })
 })
 
 // 组件卸载前移除滚动事件监听器

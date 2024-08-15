@@ -49,6 +49,7 @@
       <div class="normal" style="margin: 26px 8px">
         9.特殊规则：游戏的配件中，有一条隐藏的第四条故事线。要是到达了那个地方，提交自拍和解题过程，也可联系客服：
         <p
+          id="copy"
           style="display: inline-block; margin: 0; padding: 0; color: blue; text-indent: 0"
           @click="handlePhoneNumClick"
         >
@@ -71,13 +72,25 @@
 import { onMounted } from 'vue'
 import { showToast } from 'vant'
 import { useRouter } from 'vue-router'
+import ClipboardJS from 'clipboard'
 const router = useRouter()
 const handleContinueClick = () => {
   router.push({ name: 'AdventureInAncestralHouse' })
 }
 const handlePhoneNumClick = () => {
-  showToast('复制客服电话成功！')
-  navigator.clipboard.writeText('13450895529')
+  try {
+    var clipboard = new ClipboardJS('#copy', {
+      // 点击copy按钮，直按通过text直接返回复印的内容
+      text: function () {
+        return '13450895529'
+      }
+    })
+    clipboard.on('success', () => {
+      showToast('复制客服电话成功！')
+    })
+  } catch (err) {
+    console.error(err)
+  }
 }
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })

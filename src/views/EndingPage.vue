@@ -67,11 +67,13 @@
 <script setup>
 import { onMounted } from 'vue'
 import { showImagePreview } from 'vant'
+import { useUserStore } from '@/store/userStore'
 import daLiang from '@/assets/images/daLiang.png'
 import QRcode from '@/assets/images/QRcode.png'
-
+const userStore = useUserStore()
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  userStore.updateDropdownMenuList({ text: '五行四象八仙阵', value: 'EndingPage' })
 })
 </script>
 

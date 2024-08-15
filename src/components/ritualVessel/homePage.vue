@@ -62,7 +62,9 @@
 
 <script setup>
 import { showDialog } from 'vant'
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs, onMounted } from 'vue'
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
   show: false
@@ -106,6 +108,9 @@ const handleCupClick = (key) => {
 const handleMainBoxClick = () => {
   emit('handleAutoPlay')
 }
+onMounted(() => {
+  userStore.updateDropdownMenuList({ text: '食神之鼎', value: 'RitualVessel' })
+})
 </script>
 
 <style lang="less" scoped>

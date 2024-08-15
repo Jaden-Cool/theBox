@@ -40,10 +40,10 @@
       </p>
     </div>
 
-    <p class="normal center">
-      <strong>未品人间处处甜，却尝离别朝朝苦。</strong>
-    </p>
-    <p class="normal center">解锁真味：【甜】</p>
+    <div class="center">
+      未品人间处处<p style="display: inline-block;margin: 0;color:#cd9000;">甜</p>，却尝离别朝朝<p style="display: inline-block;margin: 0;color:#00b0f0;">苦</p>。
+    </div>
+    <div class="center">【解锁味道：<p style="display: inline-block;margin: 0;color:#cd9000;">甜</p>】</div>
     <p class="center subtleFade" @click="handleContinueClick">
       【把此页面截图，在美食博物馆门口合照，然后点击此处继续】
     </p>

@@ -22,6 +22,8 @@
 import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 import { debounce } from '@/utils'
 // 沐英涧
 import muyingStream from '@/components/muyingStream/homePage.vue'
@@ -59,6 +61,9 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   state.active = active
+  if(+active === 2){
+    userStore.updateDropdownMenuList({ text: '石船', value: 'MuyingStream?active=2' })
+  }
 }
 
 const currentComponent = computed(() => {
@@ -141,6 +146,7 @@ onMounted(() => {
     state.active = +route.query.active
   }
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '沐英涧', value: 'MuyingStream' })
 })
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {

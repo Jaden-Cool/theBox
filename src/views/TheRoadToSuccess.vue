@@ -95,6 +95,8 @@ import { onMounted, onUnmounted, reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { debounce } from '@/utils'
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 import zhenZhou from '@/assets/images/zhenZhou.jpeg'
 import letter from '@/assets/images/letter.png'
 const router = useRouter()
@@ -174,6 +176,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.addEventListener('scroll', debouncedHandleScroll)
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  userStore.updateDropdownMenuList({ text: '青云之路', value: 'TheRoadToSuccess' })
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', debouncedHandleScroll)

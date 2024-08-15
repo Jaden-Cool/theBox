@@ -36,7 +36,7 @@ const router = createRouter({
     {
       path: '/ZhenZhou',
       name: 'ZhenZhou',
-      meta: { title: '周之贞' },
+      meta: { title: '初遇周之贞' },
       component: () => import('@/views/ZhenZhou.vue')
     },
     {

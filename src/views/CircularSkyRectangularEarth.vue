@@ -21,7 +21,9 @@
 <script setup>
 import { reactive, ref,toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
-// 拴马桩
+import { useUserStore } from '@/store/userStore'
+
+// 天圆地方
 import circularSkyRectangularEarth from '@/components/circularSkyRectangularEarth/homePage.vue'
 // 师妹结婚
 import colleaguesWedding from '@/components/circularSkyRectangularEarth/colleaguesWedding.vue'
@@ -32,6 +34,7 @@ import theWGEra from '@/components/circularSkyRectangularEarth/theWGEra.vue'
 // BGM
 import hunter from '@/assets/audio/0109hunter.mp3'
 
+const userStore = useUserStore()
 const state = reactive({
   tabs: [
     { id: 0, title: '天圆地方' },
@@ -123,6 +126,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '天圆地方', value: 'CircularSkyRectangularEarth' })
 })
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {

@@ -75,7 +75,7 @@
       <div class="center">
         可以使用以下网站作为辅助：
         <!-- <a href="https://wannianrili.bmcx.com" target="_blank">点击这里</a> -->
-        <p style="margin: 0; color: blue" @click="handleCopyClick">点击这里</p>
+        <p id="copy" style="margin: 0; color: blue" @click="handleCopyClick">点击这里</p>
       </div>
       <p class="center">请把这个万年历网站用手机浏览器打开并保留，后面还会用到。</p>
 
@@ -94,11 +94,11 @@
 <script setup>
 import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
-import { copyToClipboard } from '@/utils'
 import kidsGames from '@/assets/images/kidsGames.jpeg'
 import book from '@/assets/images/book.png'
 import female from '@/assets/images/female.jpeg'
-const emit = defineEmits(['update:active','handleAutoPlay'])
+import ClipboardJS from 'clipboard'
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''
@@ -127,10 +127,17 @@ const handleConfirmClick = () => {
 }
 const handleCopyClick = async () => {
   try {
-    copyToClipboard('https://wannianrili.bmcx.com')
-    showToast('已复制跳转所需的URL')
+    var clipboard = new ClipboardJS('#copy', {
+      // 点击copy按钮，直按通过text直接返回复印的内容
+      text: function () {
+        return 'https://wannianrili.bmcx.com'
+      }
+    })
+    clipboard.on('success', () => {
+      showToast('已复制跳转所需的URL')
+    })
   } catch (err) {
-    console.error(err);
+    console.error(err)
   }
 }
 const handleFloatingBtnClick = () => {

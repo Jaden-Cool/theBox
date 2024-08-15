@@ -15,6 +15,8 @@
 <script setup>
 import { reactive, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 // 初遇周之贞
 import firstEncounter from '@/components/zhenZhou/firstEncounter.vue'
 // 回答周之贞
@@ -71,6 +73,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '初遇周之贞', value: 'ZhenZhou' })
 })
 
 // 组件卸载前移除滚动事件监听器

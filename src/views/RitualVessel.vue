@@ -22,6 +22,8 @@
 import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 import { debounce } from '@/utils'
 // 食神之鼎
 import home from '@/components/ritualVessel/homePage.vue'
@@ -45,7 +47,7 @@ import moveHouse from '@/components/ritualVessel/moveHouse.vue'
 import shatouVillage from '@/components/ritualVessel/shatouVillage.vue'
 // 姑婆屋
 import auntiesHouse from '@/components/ritualVessel/auntiesHouse.vue'
-// 扒龙船1
+// 扒龙船
 import loongBoatRacing from '@/components/ritualVessel/loongBoatRacing.vue'
 // 灰雕
 import greyCarving from '@/components/ritualVessel/greyCarving.vue'
@@ -72,7 +74,7 @@ const state = reactive({
     { id: 12, title: '灰雕' },
     { id: 13, title: '红荔1' }
   ],
-  active: 0,
+  active: 2,
   isAtBottom: false,
   iconName: 'music-o',
   audioSrc: caiyunzhuiyue ? caiyunzhuiyue : ''
@@ -82,6 +84,12 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   state.active = active
+  if(+active === 10){
+    userStore.updateDropdownMenuList({ text: '姑婆屋', value: 'RitualVessel?active=10' })
+  }
+  if(+active === 11){
+    userStore.updateDropdownMenuList({ text: '适适轩', value: 'RitualVessel?active=11' })
+  }
 }
 
 const currentComponent = computed(() => {

@@ -35,10 +35,7 @@
       <p class="center">【请从左到右排列：末，生，旦，丑，外，小，贴，夫 八个字】</p>
       <p class="center" style="margin-bottom: 0">可用这个网站作为排列的提示：</p>
       <div class="center" style="margin-top: 0">
-        <!-- <a href="https://chiculture.org.hk/sc/china-five-thousand-years/3339" target="_blank"
-          >https://chiculture.org.hk/sc/china-five-thousand-years/3339</a
-        > -->
-        <p style="margin: 0; color: blue" @click="handleCopyClick">点击这里</p>
+        <p id="copy" style="margin: 0; color: blue" @click="handleCopyClick">点击这里</p>
       </div>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -55,7 +52,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-import { copyToClipboard } from '@/utils'
+import ClipboardJS from 'clipboard'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
@@ -88,8 +85,16 @@ const handleFloatingBtnClick = () => {
 }
 const handleCopyClick = async () => {
   try {
-    copyToClipboard('https://wannianrili.bmcx.com')
-    showToast('已复制跳转所需的URL')
+    // copyToClipboard('https://wannianrili.bmcx.com')
+    var clipboard = new ClipboardJS('#copy', {
+      // 点击copy按钮，直按通过text直接返回复印的内容
+      text: function () {
+        return 'https://wannianrili.bmcx.com'
+      }
+    })
+    clipboard.on('success', () => {
+      showToast('已复制跳转所需的URL')
+    })
   } catch (err) {
     console.error(err)
   }

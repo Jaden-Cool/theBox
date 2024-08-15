@@ -22,6 +22,8 @@
 import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 const route = useRoute()
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 import { debounce } from '@/utils'
 // 拴马桩
 import horseTiePost from '@/components/horseTiePost/homePage.vue'
@@ -82,6 +84,9 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   state.active = active
+  if (+active === 9) {
+    userStore.updateDropdownMenuList({ text: '橋珠酒家刘恭可', value: 'HorseTiePost?active=9' })
+  }
 }
 
 const currentComponent = computed(() => {
@@ -192,6 +197,7 @@ onMounted(() => {
     state.active = +route.query.active
   }
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '拴马桩', value: 'HorseTiePost' })
 })
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {

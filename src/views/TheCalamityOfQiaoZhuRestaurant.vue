@@ -72,6 +72,8 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, ref, toRefs, onMounted, onUnmounted } from 'vue'
+import { useUserStore } from '@/store/userStore'
+const userStore = useUserStore()
 import { debounce } from '@/utils'
 // BGM
 import fire from '@/assets/audio/0107Fire.mp3'
@@ -163,6 +165,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '橋珠酒家的劫难', value: 'TheCalamityOfQiaoZhuRestaurant' })
 })
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {

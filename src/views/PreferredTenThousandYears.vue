@@ -21,6 +21,7 @@
 <script setup>
 import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
+import { useUserStore } from '@/store/userStore'
 // 喜万年年
 import aFavorite from '@/components/preferredTenThousandYears/homePage.vue'
 // 清鹂梳头
@@ -33,6 +34,7 @@ import traceonesRoots from '@/components/preferredTenThousandYears/traceonesRoot
 import hunli from '@/assets/audio/0207hunli.mp3'
 import huahaoyueyuan from '@/assets/audio/0208huahaoyueyuan.mp3'
 
+const userStore = useUserStore()
 const state = reactive({
   tabs: [
     { id: 0, title: '喜万年年' },
@@ -127,6 +129,7 @@ const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500�
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   window.addEventListener('scroll', debouncedHandleScroll)
+  userStore.updateDropdownMenuList({ text: '喜万年年', value: 'PreferredTenThousandYears' })
 })
 // 组件卸载前移除滚动事件监听器
 onUnmounted(() => {
