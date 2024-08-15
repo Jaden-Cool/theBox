@@ -74,7 +74,7 @@ const state = reactive({
     { id: 12, title: '灰雕' },
     { id: 13, title: '红荔1' }
   ],
-  active: 2,
+  active: 0,
   isAtBottom: false,
   iconName: 'music-o',
   audioSrc: caiyunzhuiyue ? caiyunzhuiyue : ''
@@ -83,11 +83,12 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  handleTabsChange('', state.tabs[active].title)
   state.active = active
-  if(+active === 10){
+  if (+active === 10) {
     userStore.updateDropdownMenuList({ text: '姑婆屋', value: 'RitualVessel?active=10' })
   }
-  if(+active === 11){
+  if (+active === 11) {
     userStore.updateDropdownMenuList({ text: '适适轩', value: 'RitualVessel?active=11' })
   }
 }

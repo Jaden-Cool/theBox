@@ -64,7 +64,9 @@ const handleConfirmClick = () => {
       // })
       showDialog({
         message: '鹊桥底还有一道桥，寻找隐藏二维码进入下一段剧情'
-      }).then(() => {})
+      })
+        .then(() => {})
+        .catch(() => {})
       break
     default:
       state.answer = ''
@@ -76,6 +78,8 @@ const handleConfirmClick = () => {
   }
 }
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '翻转铁盒，底部藏有六字' }).then(() => {})
+  showDialog({ message: '翻转铁盒，底部藏有六字' })
+    .then(() => {})
+    .catch(() => {})
 }
 </script>

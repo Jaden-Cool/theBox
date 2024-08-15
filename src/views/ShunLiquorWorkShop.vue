@@ -50,6 +50,7 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  handleTabsChange('', state.tabs[active].title)
   state.active = active
 }
 

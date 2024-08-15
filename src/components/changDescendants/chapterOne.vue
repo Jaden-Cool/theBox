@@ -31,9 +31,9 @@
     <p class="center">抛出</p>
 
     <div class="center cup-box">
-      <img src="@/assets/images/agree.png" @click="handleCupClick('青云文社pv')" />
-      <img src="@/assets/images/hesitate.png" @click="handleCupClick('橋珠酒家pv')" />
-      <img src="@/assets/images/object.png" @click="handleCupClick('红荔pv')" />
+      <img src="@/assets/images/agree.jpg" @click="handleCupClick('青云文社pv')" />
+      <img src="@/assets/images/hesitate.jpg" @click="handleCupClick('橋珠酒家pv')" />
+      <img src="@/assets/images/object.jpg" @click="handleCupClick('红荔pv')" />
     </div>
 
     <!-- <p>
@@ -43,20 +43,44 @@
 </template>
 
 <script setup>
-import { showImagePreview } from 'vant'
+import { showImagePreview, showDialog } from 'vant'
 import grandma from '@/assets/images/grandma.jpeg'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const handleCupClick = (key) => {
   switch (key) {
     case '青云文社pv':
-      emit('update:active', 7)
+      showDialog({
+        message: '即将探索【青云文社】故事线',
+        confirmButtonText: '继续故事',
+        showCancelButton: true
+      })
+        .then(() => {
+          emit('update:active', 7)
+        })
+        .catch(() => {})
       break
     case '橋珠酒家pv':
-      emit('update:active', 8)
+      showDialog({
+        message: '即将探索【橋珠酒家】故事线',
+        confirmButtonText: '继续故事',
+        showCancelButton: true
+      })
+        .then(() => {
+          emit('update:active', 8)
+        })
+        .catch(() => {})
       break
     case '红荔pv':
-      emit('update:active', 9)
+      showDialog({
+        message: '即将探索【红荔】故事线',
+        confirmButtonText: '继续故事',
+        showCancelButton: true
+      })
+        .then(() => {
+          emit('update:active', 9)
+        })
+        .catch(() => {})
       break
   }
 }

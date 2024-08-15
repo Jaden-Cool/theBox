@@ -6,7 +6,10 @@ export const useUserStore = defineStore('user', {
   }),
   actions: {
     updateDropdownMenuList(item) {
-      this.dropdownMenuList.push(item)
+      const exists = this.dropdownMenuList.some((existingItem) => existingItem.value === item.value)
+      if (!exists) {
+        this.dropdownMenuList.push(item)
+      }
     }
   }
 })

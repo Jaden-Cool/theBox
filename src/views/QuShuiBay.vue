@@ -11,8 +11,8 @@
     </div>
 
     <div class="paragraph">
-      <p class="normal center">涟漪荡起，水波幻化，水上出现了一行字。</p>
-      <p class="normal center">
+      <p class="center">涟漪荡起，水波幻化，水上出现了一行字。</p>
+      <p class="center">
         <strong>祸源所载，遇水方现。</strong>
       </p>
     </div>

@@ -55,7 +55,7 @@ const state = reactive({
     { id: 8, title: '橋珠酒家pv' },
     { id: 9, title: '红荔pv' }
   ],
-  active: '0',
+  active: 0,
   isAtBottom: false,
   iconName: 'music-o',
   audioSrc: chanming ? chanming : ''
@@ -65,6 +65,7 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   state.active = active
+  handleTabsChange()
 }
 
 const currentComponent = computed(() => {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-bottom: 64px">
     <!-- <h1 class="center">回到现实</h1> -->
 
     <div class="paragraph">
@@ -30,6 +30,7 @@
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs, defineProps } from 'vue'
+defineEmits(['handleAutoPlay'])
 const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
   answer: ''

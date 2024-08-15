@@ -44,7 +44,14 @@ const handleMainBoxClick = () => {
 
 <style lang="less" scoped>
 .main-box {
+  padding: 24px 0;
   background-color: #e6fff3;
+  .paragraph:first-child{
+    margin-top: 0;
+  }
+  .subtleFade{
+    margin: 0 !important;
+  }
 }
 @keyframes subtleFade {
   0% {

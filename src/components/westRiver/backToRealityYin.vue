@@ -144,6 +144,10 @@ const handleFloatingBtnClick = () => {
 <style lang="less" scoped>
 .main-box {
   background-color: #e6fff3;
+  padding-bottom: 64px;
+  .paragraph:first-child {
+    margin-top: 0;
+  }
 }
 .van-cell {
   padding: 8.1px;

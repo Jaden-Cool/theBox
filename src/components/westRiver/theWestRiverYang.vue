@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'black-bg': !translate, 'white-bg': translate }">
+  <div :class="{ 'black-bg': !translate, 'white-bg': translate }" @click="handleAutoPlay">
     <!-- <h1 class="center">西江</h1> -->
 
     <div v-if="!translate">
@@ -205,9 +205,7 @@
       <img class="translate" src="@/assets/images/translate.png" @click="handleTranslateClick" />
     </Vue3DraggableResizable>
 
-    <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
-      点击此处继续
-    </div>
+    <div class="center subtleFade" @click="handleContinueClick">点击此处继续</div>
   </div>
 </template>
 
@@ -268,12 +266,20 @@ onUnmounted(() => {
   color: black !important;
 }
 .black-bg {
+  padding: 26px 0;
   background-color: black;
   h1 {
     color: white !important;
   }
   P {
     color: white !important;
+  }
+  .subtleFade {
+    margin-top: 26px;
+    color: white;
+  }
+  .paragraph:first-child {
+    margin: 0 24px 0 24px;
   }
 }
 @keyframes subtleFade {

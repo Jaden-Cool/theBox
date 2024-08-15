@@ -60,6 +60,7 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  handleTabsChange('', state.tabs[active].title)
   state.active = active
   if(+active === 2){
     userStore.updateDropdownMenuList({ text: '石船', value: 'MuyingStream?active=2' })

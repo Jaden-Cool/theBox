@@ -12,7 +12,7 @@
     />
 
     <div class="audio-box" v-if="audioSrc">
-      <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
+      <van-icon :name="iconName" :color="color" size="22" @click="handlePlayAudio" />
       <audio ref="audio" :src="audioSrc" type="audio/mp3" loop @play="onPlay" @pause="onPause" />
     </div>
   </div>
@@ -47,12 +47,14 @@ const state = reactive({
   active: 0,
   isAtBottom: false,
   iconName: 'music-o',
-  audioSrc: hunter ? hunter : ''
+  audioSrc: hunter ? hunter : '',
+  color: 'black'
 })
-const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
+const { active, tabs, isAtBottom, iconName, audioSrc, color } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  handleTabsChange('', state.tabs[active].title)
   state.active = active
 }
 
@@ -106,7 +108,6 @@ const handleAutoPlay = () => {
   }
   audio.value.play()
 }
-
 
 // 滚动事件处理函数
 const handleScroll = () => {

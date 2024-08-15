@@ -83,6 +83,7 @@ const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  handleTabsChange('', state.tabs[active].title)
   state.active = active
   if (+active === 9) {
     userStore.updateDropdownMenuList({ text: '橋珠酒家刘恭可', value: 'HorseTiePost?active=9' })

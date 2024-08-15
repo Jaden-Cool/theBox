@@ -29,9 +29,9 @@
 
     <div class="paragraph">
       <div class="cup-box">
-        <img src="@/assets/images/agree.png" @click="handleCupClick('食神之鼎青云')" />
-        <img src="@/assets/images/hesitate.png" @click="handleCupClick('食神之鼎酒家')" />
-        <img src="@/assets/images/object.png" @click="handleCupClick('食神之鼎红荔')" />
+        <img src="@/assets/images/agree.jpg" @click="handleCupClick('食神之鼎青云')" />
+        <img src="@/assets/images/hesitate.jpg" @click="handleCupClick('食神之鼎酒家')" />
+        <img src="@/assets/images/object.jpg" @click="handleCupClick('食神之鼎红荔')" />
       </div>
 
       <p class="normal center">
@@ -82,7 +82,7 @@ const handleCupClick = (key) => {
           showCancelButton: true
         }).then(() => {
           emit('update:active', 1)
-        })
+        }).catch(()=>{})
         break
       case '食神之鼎酒家':
         showDialog({
@@ -91,7 +91,7 @@ const handleCupClick = (key) => {
           showCancelButton: true
         }).then(() => {
           emit('update:active', 4)
-        })
+        }).catch(()=>{})
         break
       case '食神之鼎红荔':
         showDialog({
@@ -100,7 +100,7 @@ const handleCupClick = (key) => {
           showCancelButton: true
         }).then(() => {
           emit('update:active', 7)
-        })
+        }).catch(()=>{})
         break
     }
   }, 1000)
@@ -118,6 +118,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 12px;
   margin-bottom: 26px;
 }
 .cup-box > img {
