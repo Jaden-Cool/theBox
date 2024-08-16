@@ -59,7 +59,18 @@
       </p>
     </div>
 
-    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <!--  -->
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
@@ -69,7 +80,9 @@ import { useRouter } from 'vue-router'
 import { reactive, toRefs, onMounted } from 'vue'
 const router = useRouter()
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
 const { answer } = toRefs(state)
 const handleConfirmClick = () => {
@@ -77,14 +90,7 @@ const handleConfirmClick = () => {
     return
   }
   switch (state.answer) {
-    case '热':
-      showToast({
-        message: '恭喜，回答正确',
-        icon: 'success'
-      })
-      router.push({ name: 'ClairvoyancePage' })
-      break
-    case '吵':
+    case '1323':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
@@ -99,12 +105,17 @@ const handleConfirmClick = () => {
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({ message: '例如，如果答案是，从左到右剩下两个水壶和两个电视就输入22为答案' }).then(
-    () => {}
-  )
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：水牛忌讳【热】和【吵】'
+    }).then(() => {})
+  } else {
+    showDialog({
+      message: '提示2：墙上饼干罐子是唯一不热又不吵的东西。输入四字的最终答案'
+    }).then(() => {})
+  }
 }
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })

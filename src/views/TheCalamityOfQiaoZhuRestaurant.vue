@@ -60,7 +60,20 @@
       </p>
     </div>
 
-    <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <!-- <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <!--  -->
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -71,21 +84,21 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, ref, toRefs, onMounted, onUnmounted } from 'vue'
+import { reactive, ref, toRefs, onMounted } from 'vue'
 import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
-import { debounce } from '@/utils'
 // BGM
 import fire from '@/assets/audio/0107Fire.mp3'
 import zhongguoren from '@/assets/audio/0108zhongguoren.mp3'
 
 const state = reactive({
   answer: '',
-  isAtBottom: false,
   iconName: 'music-o',
-  audioSrc: fire ? fire : ''
+  audioSrc: fire ? fire : '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer, isAtBottom, iconName, audioSrc } = toRefs(state)
+const { answer, iconName, audioSrc, showPopover, actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -95,9 +108,6 @@ const handleConfirmClick = () => {
       showDialog({
         message: '前往③内的青云研究所'
       })
-        .then(() => {})
-        .catch(() => {})
-
       break
     default:
       showToast({
@@ -107,9 +117,9 @@ const handleConfirmClick = () => {
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({ message: '每三个字为一个字谜，最后六个字是一个字的两个部分' }).then(() => {})
-}
+// const handleFloatingBtnClick = () => {
+//   showDialog({ message: '每三个字为一个字谜，最后六个字是一个字的两个部分' }).then(() => {})
+// }
 const audio = ref(null)
 const handlePlayAudio = () => {
   if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
@@ -136,40 +146,26 @@ const handleAutoPlay = (flag) => {
   audio.value.play()
 }
 
-// 滚动事件处理函数
-const handleScroll = () => {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
-  const clientHeight = document.documentElement.clientHeight
-  const scrollHeight = document.documentElement.scrollHeight
-
-  // if (+scrollTop > 700) {
-  //   state.audioSrc = zhongguoren
-  //   state.iconName = 'music-o'
-  // }
-
-  // 首先检查内容是否足够长以产生滚动条
-  if (scrollHeight <= clientHeight) {
-    // 如果没有滚动条，直接设置 isAtBottom 为 true
-    state.isAtBottom = true
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：每三个字为一个字谜，最后六个字是一个字的两个部分'
+    }).then(() => {})
   } else {
-    // 如果有滚动条，则根据滚动位置判断
-    state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
+    showDialog({
+      message: '提示2：十二加月写作青，交字失去双臂是文'
+    }).then(() => {})
   }
-
-  // 判断是否滚动到底部（这里可以根据需要调整阈值）
-  state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
 }
-// 防抖函数
-const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
+
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  window.addEventListener('scroll', debouncedHandleScroll)
-  userStore.updateDropdownMenuList({ text: '橋珠酒家的劫难', value: 'TheCalamityOfQiaoZhuRestaurant' })
-})
-// 组件卸载前移除滚动事件监听器
-onUnmounted(() => {
-  window.removeEventListener('scroll', debouncedHandleScroll)
+
+  userStore.updateDropdownMenuList({
+    text: '橋珠酒家的劫难',
+    value: 'TheCalamityOfQiaoZhuRestaurant'
+  })
 })
 </script>
 

@@ -37,7 +37,7 @@ const state = reactive({
     { id: 1, title: '红荔2' },
     { id: 2, title: '耗壳巷' }
   ],
-  active: 1,
+  active: 0,
   iconName: 'music-o',
   audioSrc: ''
 })

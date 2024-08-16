@@ -22,29 +22,46 @@
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
+
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <!--  -->
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
 <script setup>
-import { showToast, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
+import { showToast,showDialog, showImagePreview } from 'vant'
 import woodenSign from '@/assets/images/woodenSign.jpeg'
 import morseCode from '@/assets/images/morseCode.png'
 
+const router = useRouter()
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer } = toRefs(state)
+const { answer,showPopover, actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
   }
   switch (state.answer) {
     case 'YUN':
-      showImagePreview({ images: [morseCode], showIndex: false })
+      router.push({ name: 'ThreeWordPrimer' })
       break
     case 'yun':
-      showImagePreview({ images: [morseCode], showIndex: false })
+      router.push({ name: 'ThreeWordPrimer' })
       break
     default:
       state.answer = ''
@@ -53,6 +70,15 @@ const handleConfirmClick = () => {
         icon: 'cross'
       })
       break
+  }
+}
+const onSelect = (action, index) => {
+  if (index === 0) {
+     showImagePreview({ images: [morseCode], showIndex: false })
+  } else {
+    showDialog({
+      message: '提示2：句号为长，逗号为短。破解三个英文字母的摩斯密码'
+    }).then(() => {})
   }
 }
 </script>
