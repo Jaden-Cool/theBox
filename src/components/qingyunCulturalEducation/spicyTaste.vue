@@ -35,13 +35,24 @@
       <p class="center">青山易改指巷镜，宝地就在美人尖。</p>
     </div>
 
-    <div class="center subtleFade" style="margin-bottom: 26px">
+    <div class="center subtleFade">
       <p class="center" style="margin: 0">到达指示场景处，</p>
       <p class="center" style="margin: 0">寻找午未二字，</p>
       <p class="center" style="margin: 0">将午未放上去</p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <!-- v-show="props.isAtBottom" -->
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
 
     <!-- <div class="paragraph">
       <p>【提示1：最后一次使用地图和扇子，根据最后的提示定位。】</p>
@@ -52,19 +63,37 @@
 </template>
 
 <script setup>
+import { reactive, toRefs } from 'vue'
 import { showDialog, showImagePreview } from 'vant'
 import sweetMemories from '@/assets/images/sweetMemories.png'
-const props = defineProps({ isAtBottom: Boolean })
-const handleFloatingBtnClick = () => {
-  showDialog({
-    message: `
-    【提示1：最后一次使用地图和扇子，根据最后的提示定位。】
-    【提示2：打开扇子和地图，把扇子上的“金钉”对准顺内页的德眼。把敦仁尚美那一面在上，展开扇子以后挡住整个红色的部分。】
-    【提示3：】红色的⑨和⑩字在黄色的边缘上。把扇子里扇骨的青山二字，对准耗壳巷和天空之镜。最终在扇子上的“美”字尖尖的底下就是最终地点】
-    `
-  })
-    .then(() => {})
-    .catch(() => {})
+// const props = defineProps({ isAtBottom: Boolean })
+const state = reactive({
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }, { text: '提示3' }]
+})
+const { showPopover, actions } = toRefs(state)
+const onSelect = (action, index) => {
+  switch (index) {
+    case 0:
+      showDialog({
+        message: '提示1：最后一次使用地图和扇子，根据最后的提示定位。'
+      }).then(() => {})
+      break
+
+    case 1:
+      showDialog({
+        message:
+          '提示2：打开扇子和地图，把扇子上的“金钉”对准顺内页的德眼。把敦仁尚美那一面在上，展开扇子以后挡住整个红色的部分。'
+      }).then(() => {})
+      break
+
+    case 2:
+      showDialog({
+        message:
+          '提示3：红色的⑨和⑩字在黄色的边缘上。把扇子里扇骨的青山二字，对准耗壳巷和天空之镜。最终在扇子上的“美”字尖尖的底下就是最终地点。'
+      }).then(() => {})
+      break
+  }
 }
 </script>
 

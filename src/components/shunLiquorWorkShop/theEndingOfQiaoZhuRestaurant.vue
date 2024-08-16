@@ -22,28 +22,61 @@
     </div>
 
     <div class="center subtleFade" style="margin: 26px 8px">
-      【到达指示场景处，寻找午未二字，将午未放上去】
+      <p class="center" style="margin: 0;">到达指示场景处，</p>
+      <p class="center" style="margin: 0;">寻找<strong>午未</strong>二字，</p>
+      <p class="center" style="margin: 0;">将<strong>午未</strong>放上去。</p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <!-- <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <!-- v-show="props.isAtBottom" -->
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
 <script setup>
+import { reactive, toRefs } from 'vue'
 import { showDialog } from 'vant'
 const emit = defineEmits(['handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
-const handleFloatingBtnClick = () => {
-  showDialog({
-    message: `
-    【提示1：最后一次使用地图，金钉和日晷，根据诗词操作】
-    【提示2：把地图翻开一次，像找当时橋珠酒家许愿牌那样，露出内部彩色缩略图。把金针穿过那个位置以后，把日晷正中心也戳穿。】
-    【提示3：旋转日晷，对准四个日晷边缘上的四个属性颜色。把昳字拆开剩下一个失字，前往失字的位置。】
-    `
-  }).then(() => {})
-}
+const state = reactive({
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }, { text: '提示3' }]
+})
+const { showPopover, actions } = toRefs(state)
 const handleMainBoxClick = () => {
   emit('handleAutoPlay')
+}
+const onSelect = (action, index) => {
+  switch (index) {
+    case 0:
+      showDialog({
+        message: '提示1：最后一次使用地图，金钉和日晷，根据诗词操作'
+      }).then(() => {})
+      break
+    case 1:
+      showDialog({
+        message:
+          '提示2：把地图翻开一次，像找当时橋珠酒家许愿牌那样，露出内部彩色缩略图。把金针穿过那个位置以后，把日晷正中心也戳穿。'
+      }).then(() => {})
+      break
+    case 2:
+      showDialog({
+        message:
+          '提示3：旋转日晷，对准四个日晷边缘上的四个属性颜色。把昳字拆开剩下一个失字，前往失字的位置。'
+      }).then(() => {})
+      break
+  }
 }
 </script>
 

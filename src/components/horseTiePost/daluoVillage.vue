@@ -34,19 +34,32 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <!-- v-show="props.isAtBottom" -->
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
+import { showToast, showDialog } from 'vant'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+// const props = defineProps({ isAtBottom: Boolean })
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer } = toRefs(state)
+const { answer, showPopover, actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -68,14 +81,23 @@ const handleConfirmClick = () => {
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({
-    message: '提示1：把符顺时针旋转九十度尝试阅读？提示2：后面的六个数字是以中轴线镜面对折的'
-  }).then(() => {})
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：把符顺时针旋转九十度尝试阅读'
+    }).then(() => {})
+  } else {
+    showDialog({
+      message: '提示2：后面的六个数字是以中轴线镜面对折的'
+    }).then(() => {})
+  }
 }
 </script>
 
 <style lang="less" scoped>
+:deep(.van-popup) {
+  left: 24px;
+}
 .van-cell {
   padding: 8.1px;
 }

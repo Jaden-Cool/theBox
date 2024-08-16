@@ -41,7 +41,7 @@ const state = reactive({
     { id: 1, title: '口味酸' },
     { id: 2, title: '橋珠酒家结局' }
   ],
-  active: 0,
+  active: 2,
   isAtBottom: false,
   iconName: 'music-o',
   audioSrc: ''

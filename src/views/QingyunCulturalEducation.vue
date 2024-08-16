@@ -54,7 +54,7 @@ const state = reactive({
     { id: 6, title: '口味辛' },
     // { id: 7, title: '扇子' }
   ],
-  active: 0,
+  active: 1,
   isAtBottom: false,
   iconName: 'music-o',
   audioSrc: ''
