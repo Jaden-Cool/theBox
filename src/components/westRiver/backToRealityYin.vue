@@ -143,7 +143,7 @@ const handleFloatingBtnClick = () => {
 
 <style lang="less" scoped>
 .main-box {
-  background-color: #e6fff3;
+  background: url('@/assets/images/greenBG.jpg') repeat 100% 100%;
   padding: 26px 0;
   .paragraph:first-child {
     margin-top: 0;

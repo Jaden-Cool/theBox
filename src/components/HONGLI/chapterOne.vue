@@ -6,26 +6,17 @@
   <p class="center"><strong>一扇年久失修的老门……</strong></p>
 
   <div class="paragraph">
-    <p class="normal">
-      你缓缓地睁开了眼睛，这次的记忆不像之前那么清晰，你赶紧趁忘记之前，将一些碎片告诉了奶奶。
-    </p>
+    <p class="normal">你缓缓地睁开了眼睛，这次的记忆不像之前那么清晰，你赶紧趁忘记之前，将一些碎片告诉了奶奶。</p>
 
-    <p class="normal">
-      奶奶神色略微复杂，仿佛在回忆着什么久远的往事，“我和你几个姑婆不愿意卖掉祖屋的其中一个原因，就是因为阿爹跟我说，若有缘人挖到这个盒子的话，会来找我。”她倒了杯普洱，继续说道：“你太爷还在世的时候不喜欢吵闹，没有怎么去听粤剧的，更别说敲锣了......
-      ”
-    </p>
+    <p class="normal">奶奶神色略微复杂，仿佛在回忆着什么久远的往事，“我和你几个姑婆不愿意卖掉祖屋的其中一个原因，就是因为阿爹跟我说，若有缘人挖到这个盒子的话，会来找我。”她倒了杯普洱，继续说道：“你太爷还在世的时候不喜欢吵闹，没有怎么去听粤剧的，更别说敲锣了...... ”</p>
 
     <p class="normal">这真的是太爷藏的盒子吗？你的疑问好像反而变多了。</p>
 
     <p class="normal">“你也不要纠结太多，他们当年那辈的事情说不好的。”</p>
 
-    <p class="normal">
-      奶奶顿了顿，缓缓抚摸了你的头发，握了握手，眼睛看着你，眼中充满了忧虑，可随即又柔和了起来。
-    </p>
+    <p class="normal">奶奶顿了顿，缓缓抚摸了你的头发，握了握手，眼睛看着你，眼中充满了忧虑，可随即又柔和了起来。</p>
 
-    <p class="normal">
-      “不知不觉你都长那么大了，既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧，一定平安回来好吗？”
-    </p>
+    <p class="normal">“不知不觉你都长那么大了，既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧，一定平安回来好吗？”</p>
 
     <p class="normal">
       <strong>最后，她终于告诉了你下一步的去向：“你太爷说，秘密在盒底。”</strong>
@@ -40,13 +31,13 @@
     </p>
   </div>
 
-  <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+  <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
-// const emit = defineEmits(['update:active','handleAutoPlay'])
+defineEmits(['handleAutoPlay'])
 
 const state = reactive({
   answer: ''

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-show="true" v-model:active="active" @change="handleTabsChange">
+    <van-tabs v-show="false" v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -145,6 +145,9 @@ const currentComponent = computed(() => {
 })
 const handleTabsChange = (name, title) => {
   state.iconName = 'music-o'
+  if (audio.value) {
+    audio.value.pause()
+  }
   switch (title) {
     case '食神之鼎':
       state.audioSrc = caiyunzhuiyue

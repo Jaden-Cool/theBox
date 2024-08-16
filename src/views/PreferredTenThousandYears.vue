@@ -66,6 +66,9 @@ const currentComponent = computed(() => {
 
 const handleTabsChange = (name, title) => {
   state.iconName = 'music-o'
+  if (audio.value) {
+    audio.value.pause()
+  }
   switch (title) {
     case '喜万年年':
       state.audioSrc = hunli

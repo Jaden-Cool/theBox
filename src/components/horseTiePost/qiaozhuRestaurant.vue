@@ -82,14 +82,14 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 1)
+      emit('update:active', 6)
       break
     case '顺德 一定得':
       showToast({
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 1)
+      emit('update:active', 6)
       break
     default:
       state.answer = ''

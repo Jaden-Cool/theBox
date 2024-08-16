@@ -4,11 +4,7 @@
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
-    <component
-      :is="currentComponent"
-      @update:active="handleActiveUpdate"
-      @handleAutoPlay="handleAutoPlay"
-    />
+    <component :is="currentComponent" @update:active="handleActiveUpdate" @handleAutoPlay="handleAutoPlay" />
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -91,11 +87,21 @@ const currentComponent = computed(() => {
   // }
   return null
 })
+const audio = ref(null)
 const handleTabsChange = (name, title) => {
   state.iconName = 'music-o'
+  if (audio.value) {
+    audio.value.pause()
+  }
+  if (audio.value) {
+    audio.value.pause()
+  }
   switch (title) {
     case '离开文教所':
       state.audioSrc = songbie
+      break
+    case '命运分岔':
+      state.audioSrc = tianhuayin
       break
     case '读信毕':
       state.audioSrc = tianhuayin
@@ -105,7 +111,6 @@ const handleTabsChange = (name, title) => {
       break
   }
 }
-const audio = ref(null)
 const handlePlayAudio = () => {
   if (state.iconName === 'music-o' || state.iconName === 'pause-circle-o') {
     audio.value.play()

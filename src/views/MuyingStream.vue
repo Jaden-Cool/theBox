@@ -91,6 +91,9 @@ const currentComponent = computed(() => {
 
 const handleTabsChange = (name, title) => {
   state.iconName = 'music-o'
+  if (audio.value) {
+    audio.value.pause()
+  }
   switch (title) {
     case '沐英涧':
       state.audioSrc = dongxiao

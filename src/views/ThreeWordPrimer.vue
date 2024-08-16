@@ -83,10 +83,11 @@ const handleAutoPlay = () => {
 }
 const userStore = useUserStore()
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   userStore.updateDropdownMenuList([
     { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-    { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
-    { text: '【三、三字经】', value: 'ThreeWordPrimer' }
+    { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' }
+    // { text: '【三、三字经】', value: 'ThreeWordPrimer' }
   ])
 })
 </script>

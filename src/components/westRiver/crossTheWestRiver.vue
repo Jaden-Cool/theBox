@@ -45,7 +45,7 @@ const handleMainBoxClick = () => {
 <style lang="less" scoped>
 .main-box {
   padding: 24px 0;
-  background-color: #e6fff3;
+  background: url('@/assets/images/greenBG.jpg') repeat 100% 100%;
   .paragraph:first-child{
     margin-top: 0;
   }

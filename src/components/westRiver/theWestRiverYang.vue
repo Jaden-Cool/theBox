@@ -205,7 +205,7 @@
       <img class="translate" src="@/assets/images/translate.png" @click="handleTranslateClick" />
     </Vue3DraggableResizable>
 
-    <div class="center subtleFade" @click="handleContinueClick">点击此处继续</div>
+    <div class="center subtleFade" @click="handleContinueClick">接受命运</div>
   </div>
 </template>
 
@@ -262,6 +262,7 @@ onUnmounted(() => {
 
 <style lang="less" scoped>
 .white-bg {
+  padding: 26px 0;
   background-color: white;
   color: black !important;
 }
@@ -275,7 +276,6 @@ onUnmounted(() => {
     color: white !important;
   }
   .subtleFade {
-    margin-top: 26px;
     color: white;
   }
   .paragraph:first-child {
