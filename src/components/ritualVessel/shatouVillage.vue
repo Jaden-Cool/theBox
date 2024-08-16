@@ -46,11 +46,9 @@
 
 <script setup>
 import { reactive, toRefs } from 'vue'
-// import { useRouter } from 'vue-router'
 import { showImagePreview, showToast, showDialog } from 'vant'
 import portrait from '@/assets/images/portrait.jpeg'
 import fish from '@/assets/images/fish.png'
-// const router = useRouter()
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
@@ -65,7 +63,6 @@ const handleConfirmClick = () => {
   const isInWorkHoursAndWeekdaysBoolean = isInWorkHoursAndWeekdays()
   switch (state.answer) {
     case '姑婆屋':
-      // （周一或者，六点后回答正确跳转【姑婆屋】，其他时间弹出对话框【回答正确，在博物馆内寻找【马姐菜：煎酿鲮鱼】扫描二维码继续】 以及下面图片）
       if (isInWorkHoursAndWeekdaysBoolean) {
         state.show = true
       } else {
@@ -85,7 +82,6 @@ const handleDialogConfirm = () => {
   showToast({
     message: '回答正确，在博物馆内寻找【马姐菜：煎酿鲮鱼】扫描二维码继续'
   })
-  //   router.push({ name: 'EndingPage' })
 }
 const isInWorkHoursAndWeekdays = () => {
   // 获取当前时间
@@ -110,8 +106,8 @@ const isInWorkHoursAndWeekdays = () => {
     currentHour >= startTimeHour &&
     (currentHour < endTimeHour || (currentHour === endTimeHour && currentMinute < endTimeMinute))
   ) {
-    // 如果在工作时间范围内，再判断是否是周一到周五
-    if (currentDay >= 1 && currentDay <= 5) {
+    // 如果在工作时间范围内，再判断是否是周二到周日
+    if (currentDay >= 2 && currentDay <= 7) {
       return true // 是的，当前时间在周一到周五的09:00-17:30之间
     }
   }

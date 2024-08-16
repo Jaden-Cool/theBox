@@ -78,21 +78,6 @@ const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   handleTabsChange('', state.tabs[active].title)
   state.active = active
-  if (+active === 10) {
-    userStore.updateDropdownMenuList([
-      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-      { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
-      { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' }
-    ])
-  }
-  if (+active === 11) {
-    userStore.updateDropdownMenuList([
-      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-      { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
-      { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' },
-      { text: '【四、适适轩】', value: 'RitualVessel?active=11' }
-    ])
-  }
 }
 
 const currentComponent = computed(() => {
@@ -196,6 +181,21 @@ onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   if (route.query.active) {
     state.active = +route.query.active
+    if (+state.active === 10) {
+      userStore.updateDropdownMenuList([
+        { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+        { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
+        { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' }
+      ])
+    }
+    if (+state.active === 11) {
+      userStore.updateDropdownMenuList([
+        { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+        { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
+        { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' },
+        { text: '【四、适适轩】', value: 'RitualVessel?active=11' }
+      ])
+    }
   }
 })
 </script>

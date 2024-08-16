@@ -25,8 +25,10 @@
     </div>
 
     <div class="paragraph">
-      <p class="center">【金铁伞骨辨方向，伞面阴影系宗祠】</p>
-      <p class="center">【饥火烧肠属难渡，解困三字梨园指】</p>
+      <p class="center" style="margin: 26px 0 0 0;"><strong>金铁伞骨辨方向，</strong></p>
+      <p class="center" style="margin: 0;"><strong>伞面阴影系宗祠。</strong></p>
+      <p class="center" style="margin: 0;"><strong>饥火烧肠属难渡，</strong></p>
+      <p class="center" style="margin: 0;"><strong>解困三字梨园指。</strong></p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
           <van-field v-model="answer" />

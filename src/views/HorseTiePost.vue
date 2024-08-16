@@ -78,15 +78,6 @@ const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   handleTabsChange('', state.tabs[active].title)
   state.active = active
-  if (+active === 9) {
-    userStore.updateDropdownMenuList([
-      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-      { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
-      { text: '【三、三块石头】', value: 'TheStoryOfThreeStonesAndAbench' },
-      { text: '【四、拴马桩】', value: 'HorseTiePost' },
-      { text: '【五、半闲亭】', value: 'HorseTiePost?active=9' }
-    ])
-  }
 }
 
 const currentComponent = computed(() => {
@@ -185,6 +176,15 @@ onMounted(() => {
     { text: '【三、三块石头】', value: 'TheStoryOfThreeStonesAndAbench' },
     { text: '【四、拴马桩】', value: 'HorseTiePost' }
   ])
+  if (state.active === 9) {
+    userStore.updateDropdownMenuList([
+      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+      { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
+      { text: '【三、三块石头】', value: 'TheStoryOfThreeStonesAndAbench' },
+      { text: '【四、拴马桩】', value: 'HorseTiePost' },
+      { text: '【五、半闲亭】', value: 'HorseTiePost?active=9' }
+    ])
+  }
 })
 </script>
 

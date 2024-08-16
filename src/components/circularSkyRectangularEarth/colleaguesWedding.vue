@@ -23,7 +23,7 @@
       </p>
       <p class="center"><strong>*碰！*</strong></p>
       <p class="normal">
-        “你个没良心的，让我担心成这样！你说一个月，这都多久了！”阿鸾的泪水如断了线的珠子，不停地洒落，每一拳都带着她满心的焦虑和恐惧。
+        一个人影从阴影中闪出，把午未撞倒了在地上。雷霆万钧的拳风接踵而来。午未只来得及抬手护住自己的脸。
       </p>
       <p class="normal">
         午未没有反抗，只是默默地承受着阿鸾的打骂，眼中的空洞逐渐被愧疚和无奈填满。
@@ -64,7 +64,6 @@
 </template>
 
 <script setup>
-//   import { showToast, showDialog } from 'vant'
 import { showDialog, showToast } from 'vant'
 import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
@@ -84,7 +83,7 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      emit('update:active', 1)
+      emit('update:active', 2)
       break
 
     default:

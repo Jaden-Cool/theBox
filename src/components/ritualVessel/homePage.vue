@@ -42,7 +42,7 @@
       </p>
     </div>
 
-    <van-popup v-model:show="show">
+    <van-popup v-model:show="show" z-index="9999">
       <img src="@/assets/images/talisman.png" alt="" />
     </van-popup>
     <!-- <p>
@@ -57,49 +57,54 @@ import { reactive, toRefs, onMounted } from 'vue'
 import { useUserStore } from '@/store/userStore'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
-  show: false
+  show: true
 })
 const { show } = toRefs(state)
 const handleCupClick = (key) => {
-  state.show = true
-  setTimeout(() => {
-    state.show = false
-    switch (key) {
-      case '食神之鼎青云':
-        showDialog({
-          message: '即将探索【食神之鼎青云】故事线',
-          confirmButtonText: '继续故事',
-          showCancelButton: true
-        })
-          .then(() => {
+  switch (key) {
+    case '食神之鼎青云':
+      showDialog({
+        message: '即将探索【食神之鼎青云】故事线',
+        confirmButtonText: '继续故事',
+        showCancelButton: true
+      })
+        .then(() => {
+          state.show = true
+          setTimeout(() => {
             emit('update:active', 1)
-          })
-          .catch(() => {})
-        break
-      case '食神之鼎酒家':
-        showDialog({
-          message: '即将探索【食神之鼎酒家】故事线',
-          confirmButtonText: '继续故事',
-          showCancelButton: true
+          }, 5000)
         })
-          .then(() => {
+        .catch(() => {})
+      break
+    case '食神之鼎酒家':
+      showDialog({
+        message: '即将探索【食神之鼎酒家】故事线',
+        confirmButtonText: '继续故事',
+        showCancelButton: true
+      })
+        .then(() => {
+          state.show = true
+          setTimeout(() => {
             emit('update:active', 4)
-          })
-          .catch(() => {})
-        break
-      case '食神之鼎红荔':
-        showDialog({
-          message: '即将探索【食神之鼎红荔】故事线',
-          confirmButtonText: '继续故事',
-          showCancelButton: true
+          }, 5000)
         })
-          .then(() => {
+        .catch(() => {})
+      break
+    case '食神之鼎红荔':
+      showDialog({
+        message: '即将探索【食神之鼎红荔】故事线',
+        confirmButtonText: '继续故事',
+        showCancelButton: true
+      })
+        .then(() => {
+          state.show = true
+          setTimeout(() => {
             emit('update:active', 7)
-          })
-          .catch(() => {})
-        break
-    }
-  }, 1000)
+          }, 5000)
+        })
+        .catch(() => {})
+      break
+  }
 }
 const handleMainBoxClick = () => {
   emit('handleAutoPlay')
@@ -133,5 +138,8 @@ onMounted(() => {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.van-popup--center{
+  max-width: none;
 }
 </style>

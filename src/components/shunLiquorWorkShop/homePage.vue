@@ -48,8 +48,6 @@
 </template>
 
 <script setup>
-// import { useRouter } from 'vue-router'
-// const router = useRouter()
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const handleContinueClick = () => {
   emit('update:active', 1)

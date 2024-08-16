@@ -16,9 +16,9 @@
       </p>
       <p class="center">他说着化成了一碰金沙，散落一地：</p>
 
-      <p class="center">三才之阵开天眼，二页天书图展全</p>
-      <p class="center">金钉透过火劫出，穿越时间成晷针，</p>
-      <p class="center">日晷归为四象齐，昳字减日剩其真。</p>
+      <p class="center" style="margin: 0;"><strong>三才之阵开天眼，二页天书图展全</strong></p>
+      <p class="center" style="margin: 0;"><strong>金钉透过火劫出，穿越时间成晷针，</strong></p>
+      <p class="center" style="margin: 0 0 26px 0;"><strong>日晷归为四象齐，昳字减日剩其真。</strong></p>
     </div>
 
     <div class="center subtleFade" style="margin: 26px 8px">
