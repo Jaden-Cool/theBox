@@ -45,7 +45,7 @@ const state = reactive({
     { id: 4, title: '刘恭可红荔2' },
     { id: 5, title: '刘恭可红荔3' }
   ],
-  active: 1,
+  active: 0,
   iconName: 'music-o',
   audioSrc: dongxiao ? dongxiao : ''
 })
