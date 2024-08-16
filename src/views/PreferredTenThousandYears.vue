@@ -6,7 +6,7 @@
 
     <component
       :is="currentComponent"
-      :isAtBottom="isAtBottom"
+      
       @update:active="handleActiveUpdate"
       @handleAutoPlay="handleAutoPlay"
     />
@@ -19,8 +19,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, toRefs, computed, onMounted, onUnmounted } from 'vue'
-import { debounce } from '@/utils'
+import { reactive, ref, toRefs, computed, onMounted } from 'vue'
 import { useUserStore } from '@/store/userStore'
 // 喜万年年
 import aFavorite from '@/components/preferredTenThousandYears/homePage.vue'
@@ -43,11 +42,10 @@ const state = reactive({
     { id: 3, title: '寻根问祖' }
   ],
   active: 0,
-  isAtBottom: false,
   iconName: 'music-o',
   audioSrc: hunli ? hunli : ''
 })
-const { active, tabs, isAtBottom, iconName, audioSrc} = toRefs(state)
+const { active, tabs, iconName, audioSrc} = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -106,35 +104,10 @@ const handleAutoPlay = () => {
   audio.value.play()
 }
 
-// 滚动事件处理函数
-const handleScroll = () => {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
-  const clientHeight = document.documentElement.clientHeight
-  const scrollHeight = document.documentElement.scrollHeight
-
-  // 首先检查内容是否足够长以产生滚动条
-  if (scrollHeight <= clientHeight) {
-    // 如果没有滚动条，直接设置 isAtBottom 为 true
-    state.isAtBottom = true
-  } else {
-    // 如果有滚动条，则根据滚动位置判断
-    state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
-  }
-
-  // 判断是否滚动到底部（这里可以根据需要调整阈值）
-  state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
-}
-// 防抖函数
-const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  window.addEventListener('scroll', debouncedHandleScroll)
   userStore.updateDropdownMenuList({ text: '喜万年年', value: 'PreferredTenThousandYears' })
-})
-// 组件卸载前移除滚动事件监听器
-onUnmounted(() => {
-  window.removeEventListener('scroll', debouncedHandleScroll)
 })
 </script>
 

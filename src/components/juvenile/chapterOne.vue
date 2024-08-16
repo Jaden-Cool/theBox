@@ -87,7 +87,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -99,7 +99,7 @@ import book from '@/assets/images/book.png'
 import female from '@/assets/images/female.jpeg'
 import ClipboardJS from 'clipboard'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })

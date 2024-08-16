@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div>
     <!-- <h1 class="center">扒龙舟1</h1> -->
 
     <div class="paragraph">
@@ -44,7 +44,7 @@
       <p class="center" style="margin: 0 0 26px 0">只有曹国舅也属土</p>
       <img src="@/assets/images/caoGuoJiu.png" alt="" />
     </van-popup>
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -52,7 +52,7 @@
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: '',
   show: false

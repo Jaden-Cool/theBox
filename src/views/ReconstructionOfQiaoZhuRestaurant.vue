@@ -28,15 +28,18 @@
       <p class="center">
         <strong>顺德 一定得</strong>
       </p>
-      <p>
-        【当年顺德最著名的三大酒楼一夜之间被烧成了平地，堪称顺德餐饮业的忌日。像橋珠酒家那样东山再起的屈指可数。现实这并没有把这些顽强的人打败，这就是顺德精神。把盒子内的一颗金钉和一张红纸取出，也在此留下你自己的心愿吧。顺德眼的出口商店有金笔可以借用
-        】
+    </div>
+
+    <div class="paragraph">
+      <p class="normal">
+        当年顺德最著名的三大酒楼一夜之间被烧成了平地，堪称顺德餐饮业的忌日。像橋珠酒家那样东山再起的屈指可数。现实这并没有把这些顽强的人打败，这就是顺德精神。把盒子内的一颗金钉和一张红纸取出，也在此留下你自己的心愿吧。顺德眼的出口商店有金笔可以借用
       </p>
-      <div class="center subtleFade" style="margin-bottom: 26px">
-        <p style="margin: 0">许过愿后，前往③</p>
-        <p style="margin: 0">在青云研究所内</p>
-        <p style="margin: 0">找到二维码扫描继续</p>
-      </div>
+    </div>
+
+    <div class="center subtleFade" style="margin-bottom: 26px">
+      <p style="margin: 0">许过愿后，前往③</p>
+      <p style="margin: 0">在青云研究所内</p>
+      <p style="margin: 0">找到二维码扫描继续</p>
     </div>
   </div>
 </template>

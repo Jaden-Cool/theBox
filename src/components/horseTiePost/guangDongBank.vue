@@ -46,7 +46,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -55,7 +55,7 @@ import { showToast, showDialog } from 'vant'
 import { reactive, toRefs, defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })

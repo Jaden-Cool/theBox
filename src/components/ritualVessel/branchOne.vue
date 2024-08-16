@@ -59,16 +59,16 @@
       <p class="normal">
         看着日昳都吃剩一个猪屁股了，招娣溺爱的锤了日昳一下，便挑选了一个绑着红绳的鱼仔饼。
       </p>
+    </div>
 
-      <div class="paragraph">
-        <p class="center">【您品尝到的鱼形饼是什么味道的？】</p>
-        <p style="display: flex; align-items: center; justify-content: center" class="center">
-          <van-cell-group inset>
-            <van-field v-model="answer" />
-          </van-cell-group>
-          <van-button plain hairline @click="handleConfirmClick">确认</van-button>
-        </p>
-      </div>
+    <div class="paragraph">
+      <p class="center">【您品尝到的鱼形饼是什么味道的？】</p>
+      <p style="display: flex; align-items: center; justify-content: center" class="center">
+        <van-cell-group inset>
+          <van-field v-model="answer" />
+        </van-cell-group>
+        <van-button plain hairline @click="handleConfirmClick">确认</van-button>
+      </p>
     </div>
   </div>
 </template>

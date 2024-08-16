@@ -33,21 +33,21 @@
       <div class="center">
         <strong
           >饮得锅灰骨汤
-          <p style="margin: 0; color: #00b0f0">苦</p>
+          <p style="display: inline-block;margin: 0; color: #00b0f0">苦</p>
           ，无惧战火血汗
-          <p style="margin: 0; color: #c00000">咸</p>
+          <p style="display: inline-block;margin: 0; color: #c00000">咸</p>
           。</strong
         >
       </div>
 
-      <div class="center">
+      <div class="center" style="margin: 26px 0;">
         【解锁真味：
-        <p style="margin: 0; color: #00b0f0">苦</p>
+        <p style="display: inline-block;margin: 0; color: #00b0f0">苦</p>
         】
       </div>
     </div>
 
-    <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
+    <div class="center subtleFade" @click="handleContinueClick">
       <p style="margin: 0; padding: 0">把此页面截图</p>
       <p style="margin: 0; padding: 0">团队青云研究所里拍一张合照</p>
       <p style="margin: 0; padding: 0">记录完毕后点击此处继续</p>
@@ -72,7 +72,12 @@ const handleContinueClick = () => {
 
 <style lang="less" scoped>
 .main-box {
+  padding: 26px 0;
   background-color: #e6fff3;
+  .paragraph:first-child{
+    margin-top: 0;
+
+  }
 }
 @keyframes subtleFade {
   0% {

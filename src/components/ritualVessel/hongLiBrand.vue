@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div>
     <!-- <h1 class="center">红荔1</h1> -->
 
     <div class="paragraph">
@@ -38,33 +38,36 @@
         只见在荷花池的对岸，一个男人轻轻把手上的剑入了鞘，那剑气所过之处，在荷叶上切割出了深浅不一的细痕，你隐约能辨认出两句话：
       </p>
       <p style="margin: 0" class="center"><strong>灶君自顾金土火，</strong></p>
-      <p style="margin: 0" class="center"><strong>去木舍水余央间。</strong></p>
-      <p class="center">【根据诗句找到地图上对应地点，去往该地点寻找下一步的二维码】</p>
+      <p style="margin: 0 0 26px 0" class="center"><strong>去木舍水余央间。</strong></p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div class="center subtleFade">
+      <p style="margin: 0;">根据诗句找到地图上对应地点，</p>
+      <p style="margin: 0 0 26px 0;">&nbsp;&nbsp;&nbsp;&nbsp;去往该地点寻找下一步的二维码。</p>
+    </div>
 
-    <van-dialog
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+
+    <!-- <van-dialog
       v-model:show="show"
       title="回答正确，在博物馆内寻找【马姐菜：煎酿鲮鱼】扫描二维码继续"
       show-cancel-button
-      @confirm="handleDialogConfirm"
     >
       <img :src="fish" />
-    </van-dialog>
+    </van-dialog> -->
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs } from 'vue'
+// import { reactive, toRefs } from 'vue'
 import { showImagePreview, showDialog } from 'vant'
 import aManWithAsword from '@/assets/images/aManWithAsword.png'
-import fish from '@/assets/images/fish.png'
-const props = defineProps({ isAtBottom: Boolean })
-const state = reactive({
-  show: false
-})
-const { show } = toRefs(state)
+// import fish from '@/assets/images/fish.png'
+
+// const state = reactive({
+//   show: false
+// })
+// const { show } = toRefs(state)
 const handleFloatingBtnClick = () => {
   showDialog({ message: '注意看地图上面的十三个红点，其中有一个地点符合这首诗的第二句' }).then(
     () => {}
@@ -73,9 +76,9 @@ const handleFloatingBtnClick = () => {
 </script>
 
 <style lang="less" scoped>
-:deep(.van-dialog__header) {
-  padding: 16px;
-}
+// :deep(.van-dialog__header) {
+//   padding: 16px;
+// }
 :deep(.van-dialog__content) {
   margin-bottom: 16px;
 }

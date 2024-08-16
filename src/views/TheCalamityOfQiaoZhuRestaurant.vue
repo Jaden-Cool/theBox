@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 64px">
+  <div>
     <!-- <h1 class="center">橋珠酒家的劫难</h1> -->
 
     <div class="paragraph" @click="handleAutoPlay(1)">

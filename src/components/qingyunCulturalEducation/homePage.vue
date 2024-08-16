@@ -41,6 +41,7 @@
         当时很多人都患上了夜盲症，包括日昳在内，一到晚上就被迫只能睡觉了。虽然知道病因是缺维他命A，但是文教所里面根本就没有药。直到有人找到了用锅底灰加到牛骨汤里面的偏方，这件事情才得到了缓解。在那段时间，所有人一眼都能看得出谁有夜盲症。因为他们笑起来牙齿都是黑的。
       </p>
     </div>
+
     <div class="paragraph">
       <p class="center">【此时你品尝到的是什么味道？】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
@@ -50,8 +51,9 @@
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
+
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
-  <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
@@ -59,7 +61,7 @@ import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import oldTime from '@/assets/images/oldTime.jpeg'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })

@@ -58,7 +58,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -66,7 +66,7 @@
 import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })

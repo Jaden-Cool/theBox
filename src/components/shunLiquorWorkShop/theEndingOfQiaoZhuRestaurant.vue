@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 64px" @click="handleMainBoxClick">
+  <div @click="handleMainBoxClick">
     <!-- <h1 class="center">橋珠酒家结局</h1> -->
 
     <div class="paragraph">
@@ -27,7 +27,7 @@
       <p class="center" style="margin: 0;">将<strong>午未</strong>放上去。</p>
     </div>
 
-    <!-- <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+    <!-- <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
 
     <van-popover
       v-model:show="showPopover"
@@ -37,7 +37,7 @@
       @select="onSelect"
     >
       <template #reference>
-        <!-- v-show="props.isAtBottom" -->
+        <!--  -->
         <div class="floating-btn">提示</div>
       </template>
     </van-popover>

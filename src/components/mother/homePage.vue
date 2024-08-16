@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div>
     <!-- <h1 class="center">母亲回归</h1> -->
 
     <div class="paragraph">
@@ -45,7 +45,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -54,7 +54,7 @@ import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 import ClipboardJS from 'clipboard'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })
@@ -93,7 +93,7 @@ const handleCopyClick = async () => {
       }
     })
     clipboard.on('success', () => {
-      showToast('已复制跳转所需的URL')
+      showToast({ duration: 4000, message: '已复制跳转所需的URL\n请使用新的标签页打开' })
     })
   } catch (err) {
     console.error(err)

@@ -49,7 +49,7 @@
       @select="onSelect"
     >
       <template #reference>
-        <!-- v-show="props.isAtBottom" -->
+        <!--  -->
         <div class="floating-btn">提示</div>
       </template>
     </van-popover>
@@ -66,7 +66,7 @@
 import { reactive, toRefs } from 'vue'
 import { showDialog, showImagePreview } from 'vant'
 import sweetMemories from '@/assets/images/sweetMemories.png'
-// const props = defineProps({ isAtBottom: Boolean })
+// 
 const state = reactive({
   showPopover: false,
   actions: [{ text: '提示1' }, { text: '提示2' }, { text: '提示3' }]

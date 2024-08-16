@@ -22,7 +22,13 @@
         <strong>未品人间处处甜，却尝离别朝朝苦。</strong>
       </p>
       <p class="normal center">解锁真味：【苦】</p>
-      <p class="normal center">公仔饼：中秋节在街边买到的饼。饼甜中混着别离的苦。</p>
+      <div class="center" style="display: flex; justify-content: center; margin-bottom: 26px">
+        <p style="margin: 0">公仔饼：</p>
+        <div>
+          <p style="margin: 0; text-align: left">中秋节在街边买到的饼，</p>
+          <p style="margin: 0; text-align: left">饼甜中混着别离的苦。</p>
+        </div>
+      </div>
     </div>
     <p style="margin: 0; font-size: 16px" class="center">
       【把此页面截图，团队每个人都摸着中华食品拍照】

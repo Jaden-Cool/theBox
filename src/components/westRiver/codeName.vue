@@ -1,7 +1,6 @@
 <template>
   <div class="main-box">
     <!-- <h1 class="center">暗号</h1> -->
-
     <div class="paragraph">
       <p class="normal">
         “好。装恶人可太难为我了”
@@ -54,6 +53,7 @@
         <p style="margin: 0 6px">=</p>
         <p style="margin: 0">&nbsp;？？？</p>
       </div>
+      
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
           <van-field maxlength="3" show-word-limit v-model="answer" />
@@ -62,7 +62,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -71,7 +71,7 @@ import { showToast, showDialog } from 'vant'
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })
@@ -103,9 +103,6 @@ const handleFloatingBtnClick = () => {
 </script>
 
 <style lang="less" scoped>
-.main-box {
-  padding-bottom: 64px;
-}
 .van-cell {
   padding: 8.1px;
 }

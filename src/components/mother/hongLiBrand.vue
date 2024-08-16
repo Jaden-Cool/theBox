@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px" @click="handleMainBoxClick">
+  <div @click="handleMainBoxClick">
     <!-- <h1 class="center">红荔2</h1> -->
 
     <div class="paragraph">
@@ -56,7 +56,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -65,7 +65,7 @@ import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import huaDan from '@/assets/images/huaDan.jpeg'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })

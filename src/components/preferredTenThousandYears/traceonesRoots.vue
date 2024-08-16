@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div>
     <!-- <h1 class="center">寻根问祖</h1> -->
 
     <div class="paragraph">
@@ -27,9 +27,9 @@
       <p class="normal">
         终于，历经几天的跋涉，他们的脚步终于接近了村子。满目疮痍的村庄让他们有些怅然，午未的心情也随之沉重下来。他知道，回到祖屋后，生活还远没有到达平静的彼岸。他们只能相信刘恭可留下的锦囊的指引，要不然他们面前可能是死路一条。
       </p>
+    </div>
 
-      <p class="center">——————————</p>
-
+    <div class="paragraph">
       <p class="normal">
         常午未一家人拖着疲惫的身躯，终于在暮色中回到了他们的祖屋。屋子看起来异常破败，门窗破旧，屋顶上长满了青苔，仿佛多年没有人居住。正当他们犹豫着怎么进入时，邻居王一平正好从田里收工回来，远远地看见了他们。
       </p>
@@ -61,7 +61,9 @@
       <p class="normal">
         午未一家人站在院子中央，看着土灶内的火焰，望着后院那棵蓬勃生长，果实累累的凤眼果，心中重新燃起了希望。
       </p>
-      <p class="center">——————————</p>
+    </div>
+
+    <div class="paragraph">
       <p class="normal">
         “贵人禄马到，因缘再续，天官赐福，食神归位。”
         你口中呢喃着这句话，视线逐渐从记忆中淡出。回过神来，刘恭可为首的几位八仙已经站在了你的面前。
@@ -72,22 +74,22 @@
       </p>
       <p style="margin: 0" class="center">四方圣兽立盒缘，金木水火皆有标，</p>
       <p style="margin: 0" class="center">虎口再开吞二兽，四圣镇守对应处，</p>
-      <p style="margin: 0" class="center">时辰齐聚八仙定，灶君新命卦下藏。</p>
+      <p style="margin: 0 0 26px 0" class="center">时辰齐聚八仙定，灶君新命卦下藏。</p>
     </div>
-
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
     <div class="center subtleFade">
       <p style="margin: 0">到达指示场景处</p>
       <p style="margin: 0">寻找<strong>"午未"</strong>二字</p>
       <p style="margin: 0">将午未放上去</p>
     </div>
+
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
 <script setup>
 import { showDialog } from 'vant'
-const props = defineProps({ isAtBottom: Boolean })
+
 const handleFloatingBtnClick = () => {
   showDialog({
     message:

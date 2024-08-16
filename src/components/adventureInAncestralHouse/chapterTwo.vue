@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px"  @click="handleMainBoxClick">
+  <div  @click="handleMainBoxClick">
     <div v-if="!translate">
       <div class="paragraph">
         <p class="normal">
@@ -172,8 +172,8 @@
             <br />
           </p>
 
-          <p class="letter" align="right">癸亥年 腊月二十四</p>
-          <p class="letter" align="right"><strong>爱妻瀘紹年</strong></p>
+          <p class="letter" style="text-align: right;">癸亥年 腊月二十四</p>
+          <p class="letter" style="text-align: right;"><strong>爱妻瀘紹年</strong></p>
         </div>
       </div>
 
@@ -202,7 +202,7 @@
         </p>
       </div>
     </div>
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
     <Vue3DraggableResizable
       :initW="40"
@@ -227,7 +227,7 @@ import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
 const emit = defineEmits(['update:active','handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: '',
   x: 10,

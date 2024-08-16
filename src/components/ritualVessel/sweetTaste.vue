@@ -38,15 +38,25 @@
           @click="showImagePreview({ images: [tianchahua], showIndex: false })"
         />
       </p>
+      <div class="center">
+        未品人间处处
+        <p style="display: inline-block; margin: 0; color: #cd9000">甜</p>
+        ，却尝离别朝朝
+        <p style="display: inline-block; margin: 0; color: #00b0f0">苦</p>
+        。
+      </div>
+      <div class="center">
+        【解锁味道：
+        <p style="display: inline-block; margin: 26px 0; color: #cd9000">甜</p>
+        】
+      </div>
     </div>
 
-    <div class="center">
-      未品人间处处<p style="display: inline-block;margin: 0;color:#cd9000;">甜</p>，却尝离别朝朝<p style="display: inline-block;margin: 0;color:#00b0f0;">苦</p>。
+    <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
+      <p style="margin: 0">把此页面截图，</p>
+      <p style="margin: 0">在美食博物馆门口合照，</p>
+      <p style="margin: 0">然后点击此处继续。</p>
     </div>
-    <div class="center">【解锁味道：<p style="display: inline-block;margin: 0;color:#cd9000;">甜</p>】</div>
-    <p class="center subtleFade" @click="handleContinueClick">
-      【把此页面截图，在美食博物馆门口合照，然后点击此处继续】
-    </p>
   </div>
 </template>
 
@@ -60,9 +70,11 @@ const handleContinueClick = () => {
     message: '人生总是充满了不经意的遗憾',
     confirmButtonText: '继续故事',
     showCancelButton: true
-  }).then(() => {
-    emit('update:active', 3)
   })
+    .then(() => {
+      emit('update:active', 3)
+    })
+    .catch(() => {})
 }
 </script>
 

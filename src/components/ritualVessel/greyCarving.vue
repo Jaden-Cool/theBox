@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 48px">
+  <div>
     <!-- <h1 class="center">灰雕</h1> -->
 
     <div class="paragraph">
@@ -45,8 +45,9 @@
       <van-popup v-model:show="show">
         <img src="@/assets/images/ironCrutchLi.jpeg" alt="" />
       </van-popup>
-      <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
     </div>
+    
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -55,7 +56,7 @@ import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import reliefSculpture from '@/assets/images/reliefSculpture.png'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: '',
   show: false

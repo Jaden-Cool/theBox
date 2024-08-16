@@ -1,12 +1,11 @@
 <template>
-  <div style="padding-bottom: 10px;">
+  <div>
     <van-tabs v-show="false" v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
     <component
       :is="currentComponent"
-      :isAtBottom="isAtBottom"
       @update:active="handleActiveUpdate"
       @handleAutoPlay="handleAutoPlay"
     />
@@ -19,8 +18,7 @@
 </template>
 
 <script setup>
-import { reactive, ref, toRefs, computed, onMounted, onUnmounted, nextTick } from 'vue'
-import { debounce } from '@/utils'
+import { reactive, ref, toRefs, computed, onMounted } from 'vue'
 // 祖屋奇遇
 import adventureInAncestralHouseChapterOne from '@/components/adventureInAncestralHouse/chapterOne.vue'
 import adventureInAncestralHouseChapterTwo from '@/components/adventureInAncestralHouse/chapterTwo.vue'
@@ -56,11 +54,10 @@ const state = reactive({
     { id: 9, title: '红荔pv' }
   ],
   active: 0,
-  isAtBottom: false,
   iconName: 'music-o',
   audioSrc: chanming ? chanming : ''
 })
-const { active, tabs, isAtBottom, iconName, audioSrc } = toRefs(state)
+const { active, tabs, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -69,7 +66,6 @@ const handleActiveUpdate = (active) => {
 }
 
 const currentComponent = computed(() => {
-  handleScroll()
   if (+state.active === 0) {
     return adventureInAncestralHouseChapterOne
   }
@@ -146,30 +142,9 @@ const handleAutoPlay = () => {
   }
   audio.value.play()
 }
-
-// 滚动事件处理函数
-const handleScroll = () => {
-  nextTick(() => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
-    const clientHeight = document.documentElement.clientHeight // 元素内部可视区域的高度
-    const scrollHeight = document.documentElement.scrollHeight //元素内部所有内容
-    state.isAtBottom =
-      scrollHeight <= clientHeight || scrollTop + clientHeight >= scrollHeight - 100
-  })
-}
-
-// 防抖函数
-const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
-
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  window.addEventListener('scroll', debouncedHandleScroll)
-})
-
-// 组件卸载前移除滚动事件监听器
-onUnmounted(() => {
-  window.removeEventListener('scroll', debouncedHandleScroll)
 })
 </script>
 

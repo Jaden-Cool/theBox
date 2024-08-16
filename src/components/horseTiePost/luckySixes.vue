@@ -16,25 +16,41 @@
       </p>
     </div>
 
-    <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
-      点击这里尝试第一轮面试
+    <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick(1)">
+      点击这里 <strong>尝试</strong> 第一轮面试
     </div>
 
-    <div class="center subtleFade" style="margin-bottom: 26px">点击这里跳过第一轮面试</div>
+    <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick(2)">
+      点击这里 <strong>跳过</strong> 第一轮面试
+    </div>
   </div>
 </template>
 
 <script setup>
 import { showDialog } from 'vant'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const handleContinueClick = () => {
-  showDialog({
-    message: '即将前往“入门考核”',
-    confirmButtonText: '确定',
-    showCancelButton: true
-  }).then(() => {
-    emit('update:active', 2)
-  })
+const handleContinueClick = (flag) => {
+  if (+flag === 1) {
+    showDialog({
+      message: '即将前往“入门考核”',
+      confirmButtonText: '确定',
+      showCancelButton: true
+    })
+      .then(() => {
+        emit('update:active', 2)
+      })
+      .catch(() => {})
+  } else {
+    showDialog({
+      message: '即将前往“正式考核”',
+      confirmButtonText: '确定',
+      showCancelButton: true
+    })
+      .then(() => {
+        emit('update:active', 3)
+      })
+      .catch(() => {})
+  }
 }
 </script>
 

@@ -42,7 +42,7 @@
       @select="onSelect"
     >
       <template #reference>
-        <!-- v-show="props.isAtBottom" -->
+        <!--  -->
         <div class="floating-btn">提示</div>
       </template>
     </van-popover>
@@ -53,7 +53,7 @@
 import { reactive, toRefs } from 'vue'
 import { showToast, showDialog } from 'vant'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-// const props = defineProps({ isAtBottom: Boolean })
+// 
 const state = reactive({
   answer: '',
   showPopover: false,

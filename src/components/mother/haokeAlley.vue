@@ -70,7 +70,7 @@
       </p>
     </div>
 
-    <div class="center subtleFade" style="margin-bottom: 26px">【前往[戏台]寻找下一步内容】</div>
+    <div class="center subtleFade" style="margin-bottom: 26px">【前往<strong>戏台</strong>寻找下一步内容】</div>
   </div>
 </template>
 

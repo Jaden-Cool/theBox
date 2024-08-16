@@ -31,7 +31,7 @@
       </p>
     </div>
 
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
     <van-dialog
       v-model:show="show"
@@ -52,7 +52,7 @@ import portrait from '@/assets/images/portrait.jpeg'
 import fish from '@/assets/images/fish.png'
 // const router = useRouter()
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: '',
   show: false

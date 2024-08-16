@@ -1,7 +1,6 @@
 <template>
   <div class="main-box">
     <!-- <h1 class="center">青云之路</h1> -->
-
     <div class="paragraph">
       <p class="normal">
         你来到了青云研究院，感受着桌子的厚重感。一股青木的灵气源源不断的涌入你的身体里。这张桌子好像是刷了桐油一般，让你想起了家乡的龙舟......
@@ -86,25 +85,24 @@
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
+
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
-  <div v-show="isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, reactive, toRefs } from 'vue'
+import { onMounted, reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { showToast, showDialog, showImagePreview } from 'vant'
-import { debounce } from '@/utils'
 import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
 import zhenZhou from '@/assets/images/zhenZhou.jpeg'
 import letter from '@/assets/images/letter.png'
 const router = useRouter()
 const state = reactive({
-  answer: '',
-  isAtBottom: false
+  answer: ''
 })
-const { answer, isAtBottom } = toRefs(state)
+const { answer } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -151,40 +149,22 @@ const handleFloatingBtnClick = () => {
     message: '使用 葵未年佳音月己亥日 解出三个字，然后根据三个字的表面含义找到对应的内容'
   }).then(() => {})
 }
-// 滚动事件处理函数
-const handleScroll = () => {
-  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0
-  const clientHeight = document.documentElement.clientHeight
-  const scrollHeight = document.documentElement.scrollHeight
-
-  // 首先检查内容是否足够长以产生滚动条
-  if (scrollHeight <= clientHeight) {
-    // 如果没有滚动条，直接设置 isAtBottom 为 true
-    state.isAtBottom = true
-  } else {
-    // 如果有滚动条，则根据滚动位置判断
-    state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
-  }
-
-  // 判断是否滚动到底部（这里可以根据需要调整阈值）
-  state.isAtBottom = scrollTop + clientHeight >= scrollHeight - 100 // 假设距离底部100px时认为已到底部
-}
-
-// 防抖函数
-const debouncedHandleScroll = debounce(handleScroll, 500) // 等待时间为500毫秒
 
 onMounted(() => {
-  window.addEventListener('scroll', debouncedHandleScroll)
   window.scrollTo({ top: 0, behavior: 'smooth' })
   userStore.updateDropdownMenuList({ text: '青云之路', value: 'TheRoadToSuccess' })
-})
-onUnmounted(() => {
-  window.removeEventListener('scroll', debouncedHandleScroll)
 })
 </script>
 
 <style lang="less" scoped>
 .main-box {
+  padding: 26px 0;
   background-color: #e6fff3 !important;
+  .paragraph:first-child {
+    margin-top: 0;
+  }
+  .floating-btn{
+    margin-bottom: 0;
+  }
 }
 </style>

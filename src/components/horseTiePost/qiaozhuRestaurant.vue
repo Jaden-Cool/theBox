@@ -54,7 +54,7 @@
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
-    <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
     <van-dialog v-model:show="show" title="蓝色指向的阵眼处寻找一块烧焦的木牌" show-cancel-button>
       <img :src="map" />
     </van-dialog>
@@ -66,7 +66,7 @@ import { showToast } from 'vant'
 import { reactive, toRefs } from 'vue'
 import map from '@/assets/images/map.svg'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: '',
   show: false

@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-bottom: 64px">
+  <div>
     <!-- <h1 class="center">回到现实</h1> -->
 
     <div class="paragraph">
@@ -13,7 +13,9 @@
         四个字有点歪歪扭扭的，看来此时它才是<strong>正确的状态</strong>。
       </p>
       <p class="normal"><strong>一小块多出来的纸片</strong>飘落到了你的脚旁，你都没有发现。</p>
+    </div>
 
+    <div class="paragraph">
       <p class="center">【有两个字改变了，改变前后加起来四个字就是下一个目的地的指引】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
@@ -22,16 +24,15 @@
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
-
-  <div v-show="props.isAtBottom" class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 </template>
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, toRefs, defineProps } from 'vue'
+import { reactive, toRefs } from 'vue'
 defineEmits(['handleAutoPlay'])
-const props = defineProps({ isAtBottom: Boolean })
+
 const state = reactive({
   answer: ''
 })

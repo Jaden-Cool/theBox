@@ -17,7 +17,9 @@
       </p>
     </div>
 
-    <p class="center subtleFade">取出【白色硬质方卡】操作，出现的四字即为下一个地点</p>
+    <p class="center subtleFade" style="margin: 0;">取出【白色硬质方卡】操作，</p>
+    <p class="center subtleFade" style="margin: 0 0 26px 0;">出现的四字即为下一个地点。</p>
+
 
     <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
