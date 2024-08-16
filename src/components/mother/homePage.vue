@@ -85,7 +85,6 @@ const handleFloatingBtnClick = () => {
 }
 const handleCopyClick = async () => {
   try {
-    // copyToClipboard('https://wannianrili.bmcx.com')
     var clipboard = new ClipboardJS('#copy', {
       // 点击copy按钮，直按通过text直接返回复印的内容
       text: function () {
