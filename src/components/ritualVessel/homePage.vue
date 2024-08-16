@@ -80,27 +80,33 @@ const handleCupClick = (key) => {
           message: '即将探索【食神之鼎青云】故事线',
           confirmButtonText: '继续故事',
           showCancelButton: true
-        }).then(() => {
-          emit('update:active', 1)
-        }).catch(()=>{})
+        })
+          .then(() => {
+            emit('update:active', 1)
+          })
+          .catch(() => {})
         break
       case '食神之鼎酒家':
         showDialog({
           message: '即将探索【食神之鼎酒家】故事线',
           confirmButtonText: '继续故事',
           showCancelButton: true
-        }).then(() => {
-          emit('update:active', 4)
-        }).catch(()=>{})
+        })
+          .then(() => {
+            emit('update:active', 4)
+          })
+          .catch(() => {})
         break
       case '食神之鼎红荔':
         showDialog({
           message: '即将探索【食神之鼎红荔】故事线',
           confirmButtonText: '继续故事',
           showCancelButton: true
-        }).then(() => {
-          emit('update:active', 7)
-        }).catch(()=>{})
+        })
+          .then(() => {
+            emit('update:active', 7)
+          })
+          .catch(() => {})
         break
     }
   }, 1000)
@@ -109,7 +115,7 @@ const handleMainBoxClick = () => {
   emit('handleAutoPlay')
 }
 onMounted(() => {
-  userStore.updateDropdownMenuList({ text: '食神之鼎', value: 'RitualVessel' })
+  userStore.updateDropdownMenuList({ text: '食神之鼎', value: 'RitualVessel?active=0' })
 })
 </script>
 
