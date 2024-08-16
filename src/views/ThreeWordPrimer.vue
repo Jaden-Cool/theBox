@@ -79,6 +79,9 @@ const handleAutoPlay = () => {
   if (!audio.value) {
     return
   }
+  if (state.iconName === 'pause-circle-o') {
+    return
+  }
   audio.value.play()
 }
 const userStore = useUserStore()

@@ -143,6 +143,9 @@ const handleAutoPlay = () => {
   if (!audio.value) {
     return
   }
+  if (state.iconName === 'pause-circle-o') {
+    return
+  }
   audio.value.play()
 }
 // 组件挂载后添加滚动事件监听器

@@ -113,6 +113,9 @@ const handleAutoPlay = (flag) => {
   if (!audio.value) {
     return
   }
+  if (state.iconName === 'pause-circle-o') {
+    return
+  }
   if (+flag === 1) {
     state.audioSrc = fire
   } else {
