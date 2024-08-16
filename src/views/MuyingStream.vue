@@ -4,12 +4,7 @@
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
-    <component
-      :is="currentComponent"
-      
-      @update:active="handleActiveUpdate"
-      @handleAutoPlay="handleAutoPlay"
-    />
+    <component :is="currentComponent" @update:active="handleActiveUpdate" @handleAutoPlay="handleAutoPlay" />
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -60,8 +55,15 @@ const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   handleTabsChange('', state.tabs[active].title)
   state.active = active
-  if(+active === 2){
-    userStore.updateDropdownMenuList({ text: '石船', value: 'MuyingStream?active=2' })
+  if (+active === 2) {
+    userStore.updateDropdownMenuList([
+      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+      { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+      { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
+      { text: '【四、适适轩】', value: 'RitualVessel', active: 11 },
+      { text: '【五、沐英涧】', value: 'MuyingStream' },
+      { text: '【六、石船】', value: 'MuyingStream', active: 2 }
+    ])
   }
 }
 
@@ -131,7 +133,13 @@ onMounted(() => {
   if (route.query.active) {
     state.active = +route.query.active
   }
-  userStore.updateDropdownMenuList({ text: '沐英涧', value: 'MuyingStream' })
+  userStore.updateDropdownMenuList([
+    { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+    { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
+    { text: '【四、适适轩】', value: 'RitualVessel', active: 11 },
+    { text: '【五、沐英涧】', value: 'MuyingStream' }
+  ])
 })
 </script>
 

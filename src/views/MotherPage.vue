@@ -4,12 +4,7 @@
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
-    <component
-      :is="currentComponent"
-      
-      @update:active="handleActiveUpdate"
-      @handleAutoPlay="handleAutoPlay"
-    />
+    <component :is="currentComponent" @update:active="handleActiveUpdate" @handleAutoPlay="handleAutoPlay" />
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -41,7 +36,7 @@ const state = reactive({
   iconName: 'music-o',
   audioSrc: ''
 })
-const { active, tabs, iconName, audioSrc  } = toRefs(state)
+const { active, tabs, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -97,7 +92,15 @@ const handleAutoPlay = () => {
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  userStore.updateDropdownMenuList({ text: '凤城大观', value: 'MotherPage' })
+  userStore.updateDropdownMenuList([
+    { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+    { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
+    { text: '【四、适适轩】', value: 'RitualVessel', active: 11 },
+    { text: '【五、沐英涧】', value: 'MuyingStream' },
+    { text: '【六、石船】', value: 'MuyingStream', active: 2 },
+    { text: '【七、凤城大观】', value: 'MotherPage' }
+  ])
 })
 </script>
 

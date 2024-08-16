@@ -14,8 +14,6 @@
 
 <script setup>
 import { reactive, toRefs, computed, onMounted } from 'vue'
-import { useUserStore } from '@/store/userStore'
-const userStore = useUserStore()
 // 初遇周之贞
 import firstEncounter from '@/components/zhenZhou/firstEncounter.vue'
 // 回答周之贞
@@ -48,6 +46,5 @@ const currentComponent = computed(() => {
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  userStore.updateDropdownMenuList({ text: '初遇周之贞', value: 'ZhenZhou' })
 })
 </script>

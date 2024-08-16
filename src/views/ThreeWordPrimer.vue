@@ -7,9 +7,7 @@
       <p class="normal center">
         <strong style="font-size: 26px">当——当——当——</strong>
       </p>
-      <p class="normal">
-        外面的铜鼎传出了一阵金铁之声，就像一个洪钟一般。随着三声钟鸣声，你隐约听到了一阵读书声。这文章是那么的耳熟，到底是什么呢？
-      </p>
+      <p class="normal">外面的铜鼎传出了一阵金铁之声，就像一个洪钟一般。随着三声钟鸣声，你隐约听到了一阵读书声。这文章是那么的耳熟，到底是什么呢？</p>
 
       <p class="center">【输入三字答案以继续】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
@@ -31,7 +29,8 @@
 
 <script setup>
 import { showToast, showDialog } from 'vant'
-import { reactive, ref, toRefs } from 'vue'
+import { reactive, ref, toRefs, onMounted } from 'vue'
+import { useUserStore } from '@/store/userStore'
 import sanzijing from '@/assets/audio/0106sanzijing.mp3' // BGM
 
 const state = reactive({
@@ -82,4 +81,12 @@ const handleAutoPlay = () => {
   }
   audio.value.play()
 }
+const userStore = useUserStore()
+onMounted(() => {
+  userStore.updateDropdownMenuList([
+    { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+    { text: '【三、三字经】', value: 'ThreeWordPrimer' }
+  ])
+})
 </script>

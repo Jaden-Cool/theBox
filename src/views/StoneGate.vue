@@ -55,7 +55,14 @@ const currentComponent = computed(() => {
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  userStore.updateDropdownMenuList({ text: '石门', value: 'StoneGate' })
+  userStore.updateDropdownMenuList([
+    { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+    { text: '【三、三字经】', value: 'ThreeWordPrimer' },
+    { text: '【四、烧焦木板】', value: 'TheCalamityOfQiaoZhuRestaurant' },
+    { text: '【五、青云之路】', value: 'TheRoadToSuccess' },
+    { text: '【六、石门】', value: 'StoneGate' }
+  ])
 })
 </script>
 

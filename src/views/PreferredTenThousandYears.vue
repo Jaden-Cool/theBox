@@ -4,12 +4,7 @@
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
-    <component
-      :is="currentComponent"
-      
-      @update:active="handleActiveUpdate"
-      @handleAutoPlay="handleAutoPlay"
-    />
+    <component :is="currentComponent" @update:active="handleActiveUpdate" @handleAutoPlay="handleAutoPlay" />
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -45,7 +40,7 @@ const state = reactive({
   iconName: 'music-o',
   audioSrc: hunli ? hunli : ''
 })
-const { active, tabs, iconName, audioSrc} = toRefs(state)
+const { active, tabs, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -75,7 +70,7 @@ const handleTabsChange = (name, title) => {
     case '喜万年年':
       state.audioSrc = hunli
       break
-      case '清鹂梳头':
+    case '清鹂梳头':
       state.audioSrc = huahaoyueyuan
       break
     default:
@@ -107,7 +102,17 @@ const handleAutoPlay = () => {
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
-  userStore.updateDropdownMenuList({ text: '喜万年年', value: 'PreferredTenThousandYears' })
+  userStore.updateDropdownMenuList([
+    { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+    { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
+    { text: '【四、适适轩】', value: 'RitualVessel', active: 11 },
+    { text: '【五、沐英涧】', value: 'MuyingStream' },
+    { text: '【六、石船】', value: 'MuyingStream', active: 2 },
+    { text: '【七、凤城大观】', value: 'MotherPage' },
+    { text: '【八、戏台】', value: 'OperaStage' },
+    { text: '【九、喜万年年】', value: 'PreferredTenThousandYears' }
+  ])
 })
 </script>
 

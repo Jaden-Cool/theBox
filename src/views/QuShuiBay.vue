@@ -1,13 +1,9 @@
 <template>
   <div>
     <div class="paragraph">
-      <p class="normal">
-        搜索“曲水湾鹊桥底”，你惊讶地发现，这个位置是顺德华侨城旗下一个旅游区内。告别奶奶，你驱车来到欢乐海岸PLUS。
-      </p>
+      <p class="normal">搜索“曲水湾鹊桥底”，你惊讶地发现，这个位置是顺德华侨城旗下一个旅游区内。告别奶奶，你驱车来到欢乐海岸PLUS。</p>
 
-      <p class="normal">
-        跟随着手机的定位来到曲水湾鹊桥下，清凉的风刮起阵阵涟漪，黑天鹅正在引吭高歌。正值盛夏，你却感到一丝秋天的气息。
-      </p>
+      <p class="normal">跟随着手机的定位来到曲水湾鹊桥下，清凉的风刮起阵阵涟漪，黑天鹅正在引吭高歌。正值盛夏，你却感到一丝秋天的气息。</p>
     </div>
 
     <div class="paragraph">
@@ -17,9 +13,8 @@
       </p>
     </div>
 
-    <p class="center subtleFade" style="margin: 0;">取出【白色硬质方卡】操作，</p>
-    <p class="center subtleFade" style="margin: 0 0 26px 0;">出现的四字即为下一个地点。</p>
-
+    <p class="center subtleFade" style="margin: 0">取出【白色硬质方卡】操作，</p>
+    <p class="center subtleFade" style="margin: 0 0 26px 0">出现的四字即为下一个地点。</p>
 
     <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
@@ -32,12 +27,9 @@
 
 <script setup>
 import { showDialog } from 'vant'
-import { reactive, toRefs, ref, onMounted } from 'vue'
-import { useUserStore } from '@/store/userStore'
-// BGM
-import tiane from '@/assets/audio/0104tiane.mp3'
+import { reactive, toRefs, ref } from 'vue'
+import tiane from '@/assets/audio/0104tiane.mp3' // BGM
 
-const userStore = useUserStore()
 const state = reactive({
   iconName: 'music-o',
   audioSrc: tiane ? tiane : ''
@@ -61,14 +53,9 @@ const onPause = () => {
 
 const handleFloatingBtnClick = () => {
   showDialog({
-    message:
-      '将写有提示的方卡浸入水中（请注意安全），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】'
+    message: '将写有提示的方卡浸入水中（请注意安全），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】'
   }).then(() => {})
 }
-
-onMounted(() => {
-  userStore.updateDropdownMenuList({ text: '曲水湾鹊桥', value: 'QuShuiBay' })
-})
 </script>
 
 <style lang="less" scoped>

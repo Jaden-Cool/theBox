@@ -4,11 +4,7 @@
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
-    <component
-      :is="currentComponent"
-      @update:active="handleActiveUpdate"
-      @handleAutoPlay="handleAutoPlay"
-    />
+    <component :is="currentComponent" @update:active="handleActiveUpdate" @handleAutoPlay="handleAutoPlay" />
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -83,10 +79,19 @@ const handleActiveUpdate = (active) => {
   handleTabsChange('', state.tabs[active].title)
   state.active = active
   if (+active === 10) {
-    userStore.updateDropdownMenuList({ text: '姑婆屋', value: 'RitualVessel?active=10' })
+    userStore.updateDropdownMenuList([
+      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+      { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+      { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 }
+    ])
   }
   if (+active === 11) {
-    userStore.updateDropdownMenuList({ text: '适适轩', value: 'RitualVessel?active=11' })
+    userStore.updateDropdownMenuList([
+      { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
+      { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+      { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
+      { text: '【四、适适轩】', value: 'RitualVessel', active: 11 }
+    ])
   }
 }
 

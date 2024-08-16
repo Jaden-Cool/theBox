@@ -1,7 +1,7 @@
 <template>
   <van-dropdown-menu v-if="userStore.dropdownMenuList.length > 0">
     <van-dropdown-item :options="userStore.dropdownMenuList" @change="handleDropdownMenuItemChange">
-      <template #title>可选章节</template>
+      <template #title>已解锁章节</template>
     </van-dropdown-item>
   </van-dropdown-menu>
 
@@ -16,9 +16,8 @@ import 'vant/es/dialog/style'
 
 const router = useRouter()
 const userStore = useUserStore()
-const handleDropdownMenuItemChange = (value) => {
-  console.log(`/${value}`)
-  router.push({ path: `/${value}`, query: { active: 0 } })
+const handleDropdownMenuItemChange = (value, active) => {
+  router.push({ path: `/${value}`, query: { active } })
 }
 </script>
 
