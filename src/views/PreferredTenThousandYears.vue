@@ -104,11 +104,11 @@ onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   userStore.updateDropdownMenuList([
     { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
-    { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
-    { text: '【四、适适轩】', value: 'RitualVessel', active: 11 },
+    { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
+    { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' },
+    { text: '【四、适适轩】', value: 'RitualVessel?active=11' },
     { text: '【五、沐英涧】', value: 'MuyingStream' },
-    { text: '【六、石船】', value: 'MuyingStream', active: 2 },
+    { text: '【六、石船】', value: 'MuyingStream?active=2' },
     { text: '【七、凤城大观】', value: 'MotherPage' },
     { text: '【八、戏台】', value: 'OperaStage' },
     { text: '【九、喜万年年】', value: 'PreferredTenThousandYears' }

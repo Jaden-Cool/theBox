@@ -16,8 +16,9 @@ import 'vant/es/dialog/style'
 
 const router = useRouter()
 const userStore = useUserStore()
-const handleDropdownMenuItemChange = (value, active) => {
-  router.push({ path: `/${value}`, query: { active } })
+const handleDropdownMenuItemChange = (value) => {
+  userStore.path = value
+  router.push({ name: 'TransferPage' })
 }
 </script>
 

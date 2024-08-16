@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-show="false" v-model:active="active" @change="handleTabsChange">
+    <van-tabs v-show="true" v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -81,16 +81,16 @@ const handleActiveUpdate = (active) => {
   if (+active === 10) {
     userStore.updateDropdownMenuList([
       { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-      { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
-      { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 }
+      { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
+      { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' }
     ])
   }
   if (+active === 11) {
     userStore.updateDropdownMenuList([
       { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-      { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
-      { text: '【三、姑婆屋】', value: 'RitualVessel', active: 10 },
-      { text: '【四、适适轩】', value: 'RitualVessel', active: 11 }
+      { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
+      { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' },
+      { text: '【四、适适轩】', value: 'RitualVessel?active=11' }
     ])
   }
 }

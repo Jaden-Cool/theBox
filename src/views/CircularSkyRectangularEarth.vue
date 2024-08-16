@@ -101,10 +101,10 @@ onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
   userStore.updateDropdownMenuList([
     { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 },
+    { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
     { text: '【三、三块石头】', value: 'TheStoryOfThreeStonesAndAbench' },
     { text: '【四、拴马桩】', value: 'HorseTiePost' },
-    { text: '【五、半闲庭】', value: 'HorseTiePost', active: 9 },
+    { text: '【五、半闲庭】', value: 'HorseTiePost?active=9' },
     { text: '【六、天圆地方】', value: 'CircularSkyRectangularEarth' }
   ])
 })

@@ -142,6 +142,12 @@ const router = createRouter({
       component: () => import('@/views/PreferredTenThousandYears.vue')
     },
     {
+      path: '/TransferPage',
+      name: 'TransferPage',
+      meta: { title: '选择章节中转页' },
+      component: () => import('@/views/TransferPage.vue')
+    },
+    {
       path: '/EndingPage',
       name: 'EndingPage',
       meta: { title: '结局' },

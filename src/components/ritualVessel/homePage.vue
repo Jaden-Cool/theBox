@@ -108,7 +108,7 @@ const userStore = useUserStore()
 onMounted(() => {
   userStore.updateDropdownMenuList([
     { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
-    { text: '【二、食神之鼎】', value: 'RitualVessel', active: 0 }
+    { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' }
   ])
 })
 </script>
