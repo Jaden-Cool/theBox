@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-show="false" v-model:active="active" @change="handleTabsChange">
+    <van-tabs v-show="true" v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -185,6 +185,7 @@ onMounted(() => {
   if (route.query.active) {
     state.active = +route.query.active
     if (+state.active === 10) {
+      state.audioSrc = gupowu
       userStore.updateDropdownMenuList([
         { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
         { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
