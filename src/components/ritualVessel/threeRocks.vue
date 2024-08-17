@@ -7,7 +7,7 @@
       <p class="center"><strong>访客地图顺德眼，取出金针穿正中</strong></p>
       <p class="center"><strong>舆图展开八星洞，西公寓旁寻石踪</strong></p>
     </div>
-    <p class="center subtleFade" style="margin: 0; font-size: 16px">【按照指示前往该地点，寻找通往下一步的二维码】</p>
+    <p class="center subtleFade" style="margin: 0 0 26px 0; font-size: 16px">【按照指示前往该地点，寻找通往下一步的二维码】</p>
 
     <van-popover v-model:show="showPopover" :actions="actions" placement="top-start" :offset="[24, 10]" @select="onSelect">
       <template #reference>

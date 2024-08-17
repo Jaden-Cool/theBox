@@ -57,7 +57,7 @@ import { reactive, toRefs, onMounted } from 'vue'
 import { useUserStore } from '@/store/userStore'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
-  show: true
+  show: false
 })
 const { show } = toRefs(state)
 const handleCupClick = (key) => {
@@ -71,6 +71,7 @@ const handleCupClick = (key) => {
         .then(() => {
           state.show = true
           setTimeout(() => {
+            state.show = false
             emit('update:active', 1)
           }, 5000)
         })
@@ -85,6 +86,7 @@ const handleCupClick = (key) => {
         .then(() => {
           state.show = true
           setTimeout(() => {
+            state.show = false
             emit('update:active', 4)
           }, 5000)
         })
@@ -99,6 +101,7 @@ const handleCupClick = (key) => {
         .then(() => {
           state.show = true
           setTimeout(() => {
+            state.show = false
             emit('update:active', 7)
           }, 5000)
         })
@@ -139,7 +142,7 @@ onMounted(() => {
   height: 100%;
   object-fit: contain;
 }
-.van-popup--center{
+.van-popup--center {
   max-width: none;
 }
 </style>
