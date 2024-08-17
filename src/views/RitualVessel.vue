@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-tabs v-show="true" v-model:active="active" @change="handleTabsChange">
+    <van-tabs v-show="false" v-model:active="active" @change="handleTabsChange">
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
@@ -70,11 +70,13 @@ const state = reactive({
   ],
   active: 0,
   iconName: 'music-o',
-  audioSrc: caiyunzhuiyue ? caiyunzhuiyue : ''
+  audioSrc: ''
 })
 const { active, tabs, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
+  console.log(123)
+
   window.scrollTo({ top: 0, behavior: 'smooth' })
   handleTabsChange('', state.tabs[active].title)
   state.active = active
@@ -182,8 +184,16 @@ const handleAutoPlay = () => {
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+
+  state.audioSrc = ''
+
   if (route.query.active) {
     state.active = +route.query.active
+
+    if (+state.active === 0) {
+      state.audioSrc = caiyunzhuiyue
+    }
+
     if (+state.active === 10) {
       state.audioSrc = gupowu
       userStore.updateDropdownMenuList([
@@ -192,6 +202,7 @@ onMounted(() => {
         { text: '【三、姑婆屋】', value: 'RitualVessel?active=10' }
       ])
     }
+
     if (+state.active === 11) {
       userStore.updateDropdownMenuList([
         { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },

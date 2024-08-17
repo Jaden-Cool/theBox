@@ -126,9 +126,13 @@ const handleAutoPlay = () => {
 // 组件挂载后添加滚动事件监听器
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+
+   state.audioSrc = ''
+
   if (route.query.active) {
     state.active = +route.query.active
   }
+
   userStore.updateDropdownMenuList([
     { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
     { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
@@ -136,7 +140,9 @@ onMounted(() => {
     { text: '【四、适适轩】', value: 'RitualVessel?active=11' },
     { text: '【五、沐英涧】', value: 'MuyingStream' }
   ])
+  
   if (+state.active === 2) {
+    state.audioSrc = shuqi
     userStore.updateDropdownMenuList([
       { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
       { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
