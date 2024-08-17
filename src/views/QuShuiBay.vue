@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="handleAutoPlay">
     <div class="paragraph">
       <p class="normal">搜索“曲水湾鹊桥底”，你惊讶地发现，这个位置是顺德华侨城旗下一个旅游区内。告别奶奶，你驱车来到欢乐海岸PLUS。</p>
 
@@ -49,6 +49,15 @@ const onPlay = () => {
 }
 const onPause = () => {
   state.iconName = 'pause-circle-o'
+}
+const handleAutoPlay = () => {
+  if (!audio.value) {
+    return
+  }
+  if (state.iconName === 'pause-circle-o') {
+    return
+  }
+  audio.value.play()
 }
 
 const handleFloatingBtnClick = () => {
