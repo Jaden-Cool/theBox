@@ -70,7 +70,7 @@ const state = reactive({
   ],
   active: 0,
   iconName: 'music-o',
-  audioSrc: ''
+  audioSrc: gupowu ? gupowu : ''
 })
 const { active, tabs, iconName, audioSrc } = toRefs(state)
 
@@ -185,9 +185,9 @@ const handleAutoPlay = () => {
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 
-  state.audioSrc = ''
-
   if (route.query.active) {
+    state.audioSrc = ''
+
     state.active = +route.query.active
 
     if (+state.active === 0) {

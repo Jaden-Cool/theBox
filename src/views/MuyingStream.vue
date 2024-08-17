@@ -127,9 +127,9 @@ const handleAutoPlay = () => {
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 
-   state.audioSrc = ''
-
   if (route.query.active) {
+    state.audioSrc = ''
+
     state.active = +route.query.active
   }
 
@@ -140,7 +140,7 @@ onMounted(() => {
     { text: '【四、适适轩】', value: 'RitualVessel?active=11' },
     { text: '【五、沐英涧】', value: 'MuyingStream' }
   ])
-  
+
   if (+state.active === 2) {
     state.audioSrc = shuqi
     userStore.updateDropdownMenuList([
