@@ -1,14 +1,15 @@
 <template>
-  <div  @click="handleMainBoxClick">
+  <div @click="handleMainBoxClick">
     <div v-if="!translate">
       <div class="paragraph">
-        <p class="normal">
-          好像略微有些中暑，你恍恍惚惚地到了水井邊，探头向下，有那么一瞬间，在深邃的水波中似乎能看到個二十多歲的女人。眨眼之间，畫面逐漸清晰，她正抱著個尚在襁褓的嬰兒。那女人身旁似乎还有人，模模糊糊，看著像是個..戴眼鏡，着黑色圓帽的先生。又是转瞬间，那女人，婴儿，他身后的男人，都消去了，只余下不波的古井。你莫名地想起以前那种为人代写书信的先生，和一些模糊的画面..许是暑热让脑子有些空幻了吧。
-        </p>
+        <p class="normal">好像略微有些中暑，你恍恍惚惚地到了水井邊，探头向下，有那么一瞬间，在深邃的水波中似乎能看到個二十多歲的女人。眨眼之间，畫面逐漸清晰，她正抱著個尚在襁褓的嬰兒。那女人身旁似乎还有人，模模糊糊，看著像是個..戴眼鏡，着黑色圓帽的先生。又是转瞬间，那女人，婴儿，他身后的男人，都消去了，只余下不波的古井。你莫名地想起以前那种为人代写书信的先生，和一些模糊的画面..许是暑热让脑子有些空幻了吧。</p>
       </div>
 
       <div class="paragraph">
-        <div class="letterPaper">
+        <p class="center">
+          <van-image fit="contain" :src="letterTwo" @click="showImagePreview({ images: [letterTwo], showIndex: false })" />
+        </p>
+        <!-- <div class="letterPaper">
           <p class="letter">
             愛夫常惜端：
             <br />
@@ -74,23 +75,18 @@
 
           <p class="letter" align="right">癸亥年 腊月二十四</p>
           <p class="letter" align="right"><strong>瀘紹年親筆</strong></p>
-        </div>
+        </div> -->
       </div>
 
       <div class="paragraph">
         <p class="normal">慢慢地，妳從影像当中緩過神來。</p>
 
         <p class="normal">
-          <strong>
-            繁體字看着略有些頭痛，有些字句甚至不知道是什麽意思。正要去查閱些資料，纸面却如同那修仙的传说般，浮现出一枚阴阳太极般的古奥符文，繁體書信竟在这符文一转间，化为簡體。
-          </strong>
+          <strong> 繁體字看着略有些頭痛，有些字句甚至不知道是什麽意思。正要去查閱些資料，纸面却如同那修仙的传说般，浮现出一枚阴阳太极般的古奥符文，繁體書信竟在这符文一转间，化为簡體。 </strong>
         </p>
 
         <p class="center">
-          <strong>
-            【注意游戏界面上方的繁简体按钮，此处点击后，可切换至自动翻译界面，
-            开启后，包含繁体字内容的界面将自动转换，请玩家根据自身阅读习惯自行选择】
-          </strong>
+          <strong> 【注意游戏界面上方的繁简体按钮，此处点击后，可切换至自动翻译界面， 开启后，包含繁体字内容的界面将自动转换，请玩家根据自身阅读习惯自行选择】 </strong>
         </p>
 
         <p class="center">【借助盒子內的<strong>日晷</strong>推算出瀘紹年信中孩子的名字】</p>
@@ -106,13 +102,14 @@
 
     <div v-else>
       <div class="paragraph">
-        <p class="normal">
-          你摇晃到了水井边，恍惚之间，你在深邃的井中看到了一个二十多岁的女人，画面逐渐清晰，她抱著一个襁褓中的婴儿。旁边站著的模模糊糊看著像是一个带著眼镜和黑色圆帽的先生。你听说过，以前好像确实有很多这种师傅，帮人代笔写书。不知道为什么你觉得这一幕有点熟悉的感觉。
-        </p>
+        <p class="normal">你摇晃到了水井边，恍惚之间，你在深邃的井中看到了一个二十多岁的女人，画面逐渐清晰，她抱著一个襁褓中的婴儿。旁边站著的模模糊糊看著像是一个带著眼镜和黑色圆帽的先生。你听说过，以前好像确实有很多这种师傅，帮人代笔写书。不知道为什么你觉得这一幕有点熟悉的感觉。</p>
       </div>
 
       <div class="paragraph">
-        <div class="letterPaper">
+        <p class="center">
+          <van-image fit="contain" :src="letterOne" @click="showImagePreview({ images: [letterOne], showIndex: false })" />
+        </p>
+        <!-- <div class="letterPaper">
           <p class="letter">
             爱夫常惜端：<br />
             <br />
@@ -172,24 +169,18 @@
             <br />
           </p>
 
-          <p class="letter" style="text-align: right;">癸亥年 腊月二十四</p>
-          <p class="letter" style="text-align: right;"><strong>爱妻瀘紹年</strong></p>
-        </div>
+          <p class="letter" style="text-align: right">癸亥年 腊月二十四</p>
+          <p class="letter" style="text-align: right"><strong>爱妻瀘紹年</strong></p>
+        </div> -->
       </div>
 
       <div class="paragraph">
         <p class="normal">慢慢地，你从影像中缓过神来。</p>
 
-        <p class="normal">
-            你看着繁体字觉得略有些头痛，有些字句甚至不知道是什么意思。想去查阅一些资料，突然仿佛融会贯通一般，
-            繁体书信便自动变成了<strong>简体</strong>。
-        </p>
+        <p class="normal">你看着繁体字觉得略有些头痛，有些字句甚至不知道是什么意思。想去查阅一些资料，突然仿佛融会贯通一般， 繁体书信便自动变成了<strong>简体</strong>。</p>
 
         <p class="center">
-          <strong>
-            【注意游戏界面上方的繁简体按钮，此处点击后，可切换至自动翻译界面，
-            开启后，包含繁体字内容的界面将自动转换，请玩家根据自身阅读习惯自行选择】
-          </strong>
+          <strong> 【注意游戏界面上方的繁简体按钮，此处点击后，可切换至自动翻译界面， 开启后，包含繁体字内容的界面将自动转换，请玩家根据自身阅读习惯自行选择】 </strong>
         </p>
 
         <p class="center">【借助盒子內的<strong>日晷</strong>推算出瀘紹年信中孩子的名字】</p>
@@ -202,31 +193,23 @@
         </p>
       </div>
     </div>
-    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
 
-    <Vue3DraggableResizable
-      :initW="40"
-      :initH="40"
-      v-model:x="x"
-      v-model:y="y"
-      v-model:w="w"
-      v-model:h="h"
-      :parent="true"
-      :draggable="true"
-      :resizable="false"
-    >
+    <Vue3DraggableResizable :initW="40" :initH="40" v-model:x="x" v-model:y="y" v-model:w="w" v-model:h="h" :parent="true" :draggable="true" :resizable="false">
       <img class="translate" src="@/assets/images/translate.png" @click="handleTranslateClick" />
     </Vue3DraggableResizable>
   </div>
 </template>
 
 <script setup>
-import { showToast, showDialog, showLoadingToast } from 'vant'
+import { showToast, showDialog, showLoadingToast,showImagePreview } from 'vant'
 import { reactive, toRefs, onMounted, onUnmounted } from 'vue'
 import { debounce } from '@/utils'
 import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
-const emit = defineEmits(['update:active','handleAutoPlay'])
+import letterOne from '@/assets/images/letterOne.jpeg'
+import letterTwo from '@/assets/images/letterTwo.jpeg'
+const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
   answer: '',

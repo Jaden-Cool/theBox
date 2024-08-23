@@ -81,7 +81,7 @@ const handleConfirmClick = () => {
   switch (state.answer) {
     case '青云文社':
       showDialog({
-        message: '前往③内的青云研究所'
+        message: '前往③内的青云文社'
       })
       break
     default:

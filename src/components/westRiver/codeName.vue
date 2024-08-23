@@ -15,22 +15,24 @@
       <p class="normal">
         接下来的几天，他们走村串巷，依靠当地村民的接应和帮助，才得以顺利前行。每到一个村庄，村民们总是热情地招待他们，为孩子们提供食物和温暖的住所。
       </p>
+      <p>
+        <van-image fit="contain" :src="village" @click="showImagePreview({ images: [village], showIndex: false })" />
+      </p>
       <p class="normal">
-        今天接应他们的是三个年迈的村代表，三位老农热情地为他们准备了一锅绵软的番薯粥和油角。这粥里面有重新捣碎的油饼（也就是榨油剩下的大豆渣滓）。看着身边这些曾经养尊处优的孩子们狼吞虎咽地吃着，常日昳却在一旁默默地出神了。曾几何时他们家也是几天才能勉强吃上一碗能立筷的粥，他突然很想念阿妈的鱼腐。他已经很久没有这么饿过了，但是多日的强行军让他一点胃口都没有。
+        今天接应他们的是三个年迈的村代表，三位老农热情地把他们领进了屋里，并端出了一锅番薯粥。这粥里面有重新捣碎的油饼（也就是榨油剩下的大豆渣滓）。看着身边这些曾经养尊处优的孩子们狼吞虎咽地吃着，常日昳却在一旁默默地出神了。曾几何时他们家也是几天才能勉强吃上一碗能立筷的粥，他突然很想念阿妈的鱼腐。他已经很久没有这么饿过了，但是多日的强行军让他一点胃口都没有。
       </p>
       <p class="normal">
         老农叹了口气，拍了拍他的肩膀，“小伙子，吃吧，今日年初二，村子里啊，开油锅啦，村子里都在吃煎堆呢。难得有点油水进肚子，以后你们进山里可就更难啦...
         趁着现在，就算吃不进去也塞一点。”
       </p>
       <p class="normal">
-        常日昳有些迟疑地点了点头。拿起一碗粥就吸溜了一口。一股陈旧的油抑味直冲天庭，吃惯了橋珠酒家伙食的日昳差一点把口中的粥重新吐了出来。日昳马上知道了老农在骗他。油饼是榨油剩下的残渣，从这个味道吃起来已经至少有几年了。要是真的有那油去炸煎堆，这油饼不应该是这个味道。如此说......
-        这里可能就是村子里最后的余粮了。
+        常日昳有些迟疑地点了点头。拿起一碗粥就吸溜了一口。一股陈旧的油抑味直冲天庭，吃惯了橋珠酒家伙食的日昳，差一点把口中的粥重新吐了出来。日昳马上明白了老农的苦心。油饼是榨油剩下的残渣，从这浓烈的油抑味就能知道这油饼至少已经放了好几年了。要是真的有那新鲜的油去炸煎堆，这油饼不应该是这个味道。如此说...... 这里可能就是村子里最后的余粮了。
       </p>
       <p class="normal">
-        日昳用舌头卷着粥，努力避开着自己的味蕾，强忍着恶心，一口一口把这油饼粥往肚子里吞。战乱期间，法币当道，物价乱涨，，一担子米可以换两条人命。
+        日昳用舌头卷着粥，努力避开着自己的味蕾，强忍着恶心，一口一口把这油饼粥往肚子里吞。战乱期间，法币当道，物价乱涨，一担子米可以换两条人命。
       </p>
       <p class="center">
-        接下来的日子还要在深山老林里面养活两百多个人，日昳此刻才体会到周之贞院长身上的重担。。
+        接下来的日子还要在深山老林里面养活两百多个人，日昳此刻才体会到周之贞院长身上的重担......
       </p>
     </div>
 
@@ -62,20 +64,34 @@
       </p>
     </div>
 
-    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <!-- <div class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
+import { showToast, showDialog,showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
+import village from '@/assets/images/village.png'
 const router = useRouter()
 
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer } = toRefs(state)
+const { answer,showPopover, actions  } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -86,10 +102,10 @@ const handleConfirmClick = () => {
         message: '恭喜，回答正确',
         icon: 'success'
       })
-      router.push({ name: 'QingyunCulturalEducation', query: { active: 1 } })
+      router.push({ name: 'QingyunCulturalEducation', query: { active: 0 } })
       break
     default:
-      state.answer = ''
+      // state.answer = ''
       showToast({
         message: '不正确，请再试一次，或者考虑一下看提示哦~',
         icon: 'cross'
@@ -97,9 +113,20 @@ const handleConfirmClick = () => {
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({ message: '隐没的青云文社中，章节-书页' }).then(() => {})
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：答案在隐没的青云文社中'
+    }).then(() => {})
+  } else {
+    showDialog({
+      message: '提示2：青云文社内找到《隐没的青云文社》一书，找到章节-书页-内容，即可解读内容'
+    }).then(() => {})
+  }
 }
+// const handleFloatingBtnClick = () => {
+//   showDialog({ message: '隐没的青云文社中，章节-书页' }).then(() => {})
+// }
 </script>
 
 <style lang="less" scoped>

@@ -24,7 +24,7 @@ import bitterTaste from '@/components/qingyunCulturalEducation/bitterTaste.vue'
 // 离开文教所
 import exitTheCulturalInstitute from '@/components/qingyunCulturalEducation/exitTheCulturalInstitute.vue'
 // 命运分岔
-import aBifurcationOfFate from '@/components/qingyunCulturalEducation/aBifurcationOfFate.vue'
+// import aBifurcationOfFate from '@/components/qingyunCulturalEducation/aBifurcationOfFate.vue'
 // 读信毕
 import afterReadingTheLetter from '@/components/qingyunCulturalEducation/afterReadingTheLetter.vue'
 // 猪脚姜
@@ -42,7 +42,7 @@ const state = reactive({
     { id: 0, title: '青云文教所' },
     { id: 1, title: '口味苦' },
     { id: 2, title: '离开文教所' },
-    { id: 3, title: '命运分岔' },
+    // { id: 3, title: '命运分岔' },
     { id: 4, title: '读信毕' },
     { id: 5, title: '猪脚姜' },
     { id: 6, title: '口味辛' }
@@ -70,9 +70,9 @@ const currentComponent = computed(() => {
   if (+state.active === 2) {
     return exitTheCulturalInstitute
   }
-  if (+state.active === 3) {
-    return aBifurcationOfFate
-  }
+  // if (+state.active === 3) {
+  //   return aBifurcationOfFate
+  // }
   if (+state.active === 4) {
     return afterReadingTheLetter
   }
@@ -100,9 +100,9 @@ const handleTabsChange = (name, title) => {
     case '离开文教所':
       state.audioSrc = songbie
       break
-    case '命运分岔':
-      state.audioSrc = tianhuayin
-      break
+    // case '命运分岔':
+    //   state.audioSrc = tianhuayin
+    //   break
     case '读信毕':
       state.audioSrc = tianhuayin
       break

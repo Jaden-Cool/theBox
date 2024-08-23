@@ -24,9 +24,10 @@
       </p>
     </div>
 
-    <p class="subtleFade" @click="handleFloatingBtnClick">
+    <!-- <p class="subtleFade" @click="handleFloatingBtnClick">
       【提示：取出地图，使用珠绳，根据诗词里面链接对应的两个建筑物，操作绳子寻找旧桥】
-    </p>
+    </p> -->
+    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
   </div>
 </template>
 
@@ -34,7 +35,7 @@
 import { onMounted } from 'vue'
 import { showDialog } from 'vant'
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '到目标地点以后扫描二维码继续' }).then(() => {})
+  showDialog({ message: '取出地图，使用珠绳，根据诗词里面链接对应的两个建筑物，操作绳子寻找旧桥。旧桥处会有一个二维码......' }).then(() => {})
 }
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })

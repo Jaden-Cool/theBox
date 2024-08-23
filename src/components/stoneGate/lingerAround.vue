@@ -11,11 +11,11 @@
     <div class="paragraph">
       <p class="center">他的意识似乎飘离到了一处陌生的地方。穿过了一个巨大的石门后，他已经忘记了刚才在哪儿，在干什么，此时心中只有万分的遗憾、愤怒、不甘。他似乎感觉到自己所处的地方忽明忽暗，但他动弹不得，也睁不开眼睛。</p>
 
-      <p class="center"><strong>在哪里？</strong></p>
+      <p class="center"><strong>他在哪里？</strong></p>
 
       <p class="center">虽然他没有睁眼，但是他明白自己处于一个不一样的时代，这里也是顺德。这是天界吗？</p>
 
-      <p class="center"><strong>你疑惑</strong></p>
+      <p class="center"><strong>你充满了疑惑</strong></p>
 
       <p class="center">你看到好多人都有了千里眼，能通过手上的玻璃，看到名厨把深藏多年的配方和做法托盘而出。</p>
 
@@ -50,12 +50,12 @@
       <p class="center"><strong>【解锁核心玩法】</strong></p>
 
       <p class="normal">
-        <strong> 本游戏所体验到的所有味道都可以分为食物尝到的口味，与带出的心中滋味，如果说鱼形饼表面为甜，那么实则承载了离别之苦。午未的人生分裂成了三个分支，重新组合就会形成一段合恰的五味人生。</strong>
+        <strong> 本游戏所体验到的所有味道都可以分为食物尝到的口味，与带出的心中滋味，如果说鱼形饼表面为甜，那么实则承载了离别之苦。午未的人生分裂成了三个分支，重新组合就会形成一段合恰的五味人生。 五种味道隐作五行相生之阵，生生不息。 收集完五种味道所对应的五张场景自拍和页面截图，即可前往购买处，凭购买小票兑换特殊奖励一份，仅限前100组玩家</strong>
       </p>
-      <p class="normal"><strong> 五种味道隐作五行相生之阵，生生不息。</strong></p>
-      <p class="normal">
+      <!-- <p class="normal"><strong> 五种味道隐作五行相生之阵，生生不息。</strong></p> -->
+      <!-- <p class="normal">
         <strong> 收集完五种味道所对应的五张场景自拍和页面截图，即可前往购买处，凭购买小票兑换特殊奖励一份，仅限前100组玩家。</strong>
-      </p>
+      </p> -->
     </div>
 
     <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">点击此处继续</div>

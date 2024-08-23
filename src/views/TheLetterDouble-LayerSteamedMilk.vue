@@ -24,11 +24,11 @@
     </div>
 
     <div class="paragraph">
-      <p class="normal">回到现实，你也有了些许疲惫，手中<strong>握着盒子中的一角钱，行至仁信双皮奶店内，没想到用这老旧的一角钱真的换到了一碗水牛奶</strong>。店里的店员貌似对这张一角钱都有一种默契。</p>
+      <p class="normal">回到现实，你也有了些许疲惫，手中<strong>握着盒子中的一角钱，行至曲水湾的仁信老铺内，没想到用这张老旧的一角钱真的换到了一碗水牛奶</strong>。店里的店员貌似对这张一角钱都有一种默契。</p>
     </div>
 
     <div class="paragraph">
-      <p class="center">【抬头看见了周围墙上有些古老的物件，联想到回忆中生产水牛奶的两个避忌之处，把他们去除之后，数了数剩下物品的数量。】</p>
+      <p class="center">【抬头看见了周围墙上有些古老的物件，联想到回忆中生产水牛奶的两个避忌之处，把他们去除之后，数了数剩下物品的数量。答案为四个数字】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
           <van-field v-model="answer" />
@@ -39,7 +39,6 @@
 
     <van-popover v-model:show="showPopover" :actions="actions" placement="top-start" :offset="[24, 10]" @select="onSelect">
       <template #reference>
-        <!--  -->
         <div class="floating-btn">提示</div>
       </template>
     </van-popover>

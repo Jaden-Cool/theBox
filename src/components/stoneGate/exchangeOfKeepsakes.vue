@@ -46,7 +46,18 @@
       </p>
     </div>
 
-    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <!-- <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+    <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
@@ -56,9 +67,11 @@ import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer } = toRefs(state)
+const { answer, showPopover, actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -80,11 +93,22 @@ const handleConfirmClick = () => {
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({
-    message:
-      '拿出未打开好的访客地图，按照诗词的内容操作，会到达一个比较高的建筑物。在那里拿出曾经用过的某样信物'
-  }).then(() => {})
+// const handleFloatingBtnClick = () => {
+//   showDialog({
+//     message:
+//       '拿出未打开好的访客地图，按照诗词的内容操作，会到达一个比较高的建筑物。在那里拿出曾经用过的某样信物'
+//   }).then(() => {})
+// }
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：【访客地图】在关闭的状态下，按照诗词的内容操作，注意颜色，最终会引导你到达一个比较高的建筑物。在那里拿出曾经用过的某样信物。'
+    }).then(() => {})
+  } else {
+    showDialog({
+      message: '提示2：拿出口信，在紫光灯的照耀下看到“生死”两个字。圈出所有生死，结合原本带口的字，形成一个新的数字。'
+    }).then(() => {})
+  }
 }
 </script>
 

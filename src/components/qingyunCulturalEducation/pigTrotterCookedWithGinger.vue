@@ -7,6 +7,12 @@
       <p class="normal">
         这是个清凉且安静的夜晚，日昳独自地坐在医院病房里，旁边的阅读灯给他提供了足够的灯光。他面前的小桌板上放着你手中的折扇，他喃喃自语，仿佛在和自己说话，又好像在和你说话。
       </p>
+      <p class="normal">
+        常午未的身影在灯光下显得无比坚定。他的食指凝在空中，所过之处都留下一道依稀的金光。他低声说着：“我后半生修行多年，所行之事皆对得起自己的良心，临终前稍有些贪心应该不过分吧？这阳寿也所剩无几了，没有所谓吧刘天师？”
+      </p>
+      <p class="center">
+        <van-image fit="contain" :src="elderlyPeople" @click="showImagePreview({ images: [elderlyPeople], showIndex: false })" />
+      </p>
       <p class="center">仿佛在等待一个回复，老人停顿了一阵，终于松了一口气。</p>
       <p class="normal">
         “我希望可以把我的一些秘密告诉他人。我没有刘天师那么超然，也做不到我爹那般坚决。我对你有过很多期待，但是临到书写时，我才放下执念。当年生死相交之际，冥冥中我曾悟到些什么，但有生之年怕是难以见到那副模糊的场景。
@@ -36,8 +42,9 @@
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
+import { showToast, showDialog,showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
+import elderlyPeople from '@/assets/images/elderlyPeople.png'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({

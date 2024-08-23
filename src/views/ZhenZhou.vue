@@ -15,6 +15,8 @@
 <script setup>
 import { reactive, toRefs, computed, onMounted } from 'vue'
 import { useUserStore } from '@/store/userStore'
+import { useRoute } from 'vue-router'
+const route = useRoute()
 // 初遇周之贞
 import firstEncounter from '@/components/zhenZhou/firstEncounter.vue'
 // 回答周之贞
@@ -46,10 +48,13 @@ const currentComponent = computed(() => {
 const userStore = useUserStore()
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
+  if (route.query.active) {
+    state.active = +route.query.active
+  }
   userStore.updateDropdownMenuList([
     { text: '【一、曲水湾鹊桥】', value: 'QuShuiBay' },
     { text: '【二、食神之鼎】', value: 'RitualVessel?active=0' },
-    { text: '【三、三字经】', value: 'ThreeWordPrimer' }
+    { text: '【三、三字经】', value: 'ZhenZhou?active=0' }
   ])
 })
 </script>

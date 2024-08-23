@@ -18,6 +18,9 @@
       <p>
         【进入顺德美食博物馆，位于中华食鼎正对面，和姐弟俩一起体验中秋凉意（空调充足），和琳琅满目的美食】
       </p>
+      <p class="center">
+        <van-image fit="contain" :src="market" @click="showImagePreview({ images: [market], showIndex: false })" />
+      </p>
       <p class="normal">
         招娣最近几年一直跟着阿妈种甘蔗，难得出来一趟，还不忘叮嘱弟弟：“哇，好几年没有出来行街啦~
         阿妈叫我看紧你别乱花钱，不然兰姨又贴钱买给你。”
@@ -63,8 +66,9 @@
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
+import { showToast, showDialog,showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
+import market from '@/assets/images/market.png'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({

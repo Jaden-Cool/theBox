@@ -68,7 +68,7 @@ const state = reactive({
     { id: 12, title: '灰雕' },
     { id: 13, title: '红荔1' }
   ],
-  active: 0,
+  active: 5,
   iconName: 'music-o',
   audioSrc: gupowu ? gupowu : ''
 })

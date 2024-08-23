@@ -22,7 +22,6 @@
 
     <van-popover v-model:show="showPopover" :actions="actions" placement="top-start" :offset="[24, 10]" @select="onSelect">
       <template #reference>
-        <!--  -->
         <div class="floating-btn">提示</div>
       </template>
     </van-popover>

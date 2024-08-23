@@ -62,7 +62,7 @@ const handleAutoPlay = () => {
 
 const handleFloatingBtnClick = () => {
   showDialog({
-    message: '将写有提示的方卡浸入水中（请注意安全），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】'
+    message: '将写有提示的方卡浸入水中（请注意安全，用自来水也可以的），背后便会出现四个字。前往指示之地。【用完以后，卡不要丢掉哦】'
   }).then(() => {})
 }
 </script>

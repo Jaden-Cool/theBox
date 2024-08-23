@@ -20,7 +20,18 @@
       </p>
     </div>
   </div>
-  <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+  <!-- <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+  <van-popover
+      v-model:show="showPopover"
+      :actions="actions"
+      placement="top-start"
+      :offset="[24, 10]"
+      @select="onSelect"
+    >
+      <template #reference>
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
 </template>
 
 <script setup>
@@ -31,9 +42,11 @@ const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
   valueOne: '',
-  valueTwo: ''
+  valueTwo: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { valueOne, valueTwo } = toRefs(state)
+const { valueOne, valueTwo,showPopover,actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.valueOne || !state.valueTwo) {
     return
@@ -52,8 +65,19 @@ const handleConfirmClick = () => {
     })
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({ message: '数一下墙上有多少个黄字和金字' }).then(() => {})
+// const handleFloatingBtnClick = () => {
+//   showDialog({ message: '数一下墙上有多少个黄字和金字' }).then(() => {})
+// }
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：数一下墙上有多少个黄字和金字'
+    }).then(() => {})
+  } else {
+    showDialog({
+      message: '提示2：黄和金两字的总数加起来为10'
+    }).then(() => {})
+  }
 }
 </script>
 

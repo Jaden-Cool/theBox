@@ -42,7 +42,6 @@
       @select="onSelect"
     >
       <template #reference>
-        <!--  -->
         <div class="floating-btn">提示</div>
       </template>
     </van-popover>

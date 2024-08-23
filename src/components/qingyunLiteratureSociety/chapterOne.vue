@@ -18,7 +18,8 @@
 
     <p class="normal">“既然这件事情非你不可，我最后再嘱咐你一句，注意安全，但求问心无愧。”</p>
 
-    <p class="normal"><strong>她终于揭示了这个简单的秘密：“你太爷说，秘密在盒底。”</strong></p>
+    <p class="center" style="margin: 0;"><strong>她终于揭示了这个简单的秘密：</strong></p>
+    <p class="center" style="margin: 0;"><strong>“你太爷说，秘密在盒底。”</strong></p>
 
     <!-- <div class="center subtleFade" style="margin-bottom: 26px" @click="handleContinueClick">
       【前往仁信，然后点击此处自动跳转】
