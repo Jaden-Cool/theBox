@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-box">
     <!-- <h1 class="center">起单脚</h1> -->
 
     <div class="paragraph">
@@ -129,7 +129,7 @@
       <p style="margin: 0; padding: 0">记录完毕后点击此处继续</p>
     </div>
 
-    <Vue3DraggableResizable v-if="isShowTimer" :initW="135" :initH="100" v-model:x="x" v-model:y="y" v-model:w="w" v-model:h="h" :parent="true" :draggable="true" :resizable="false">
+    <!-- <Vue3DraggableResizable v-if="isShowTimer"  :initW="135" :initH="100" v-model:x="x" v-model:y="y" v-model:w="w" v-model:h="h" :parent="true" :draggable="false" :resizable="false">
       <div class="timer-box">
         <p class="time">计时器: {{ formattedTime }}</p>
         <div class="btn">
@@ -137,7 +137,14 @@
           <p @click="resetStopwatch">重置</p>
         </div>
       </div>
-    </Vue3DraggableResizable>
+    </Vue3DraggableResizable> -->
+    <div class="timer-box" v-if="isShowTimer">
+      <p class="time">计时器: {{ formattedTime }}</p>
+      <div class="btn">
+        <p @click="startStopwatch">{{ isRunning ? '停止' : '开始' }}</p>
+        <p @click="resetStopwatch">重置</p>
+      </div>
+    </div>
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -152,7 +159,7 @@ import { showImagePreview, showDialog } from 'vant'
 import { debounce } from '@/utils'
 import { useUserStore } from '@/store/userStore'
 const userStore = useUserStore()
-import Vue3DraggableResizable from 'vue3-draggable-resizable'
+// import Vue3DraggableResizable from 'vue3-draggable-resizable'
 import 'vue3-draggable-resizable/dist/Vue3DraggableResizable.css'
 import shuMingLuo from '@/assets/images/shuMingLuo.jpeg'
 import singleFoot from '@/assets/images/singleFoot.jpg'
@@ -160,11 +167,11 @@ import luochengxieshu from '@/assets/audio/0206luochengxieshu.mp3' // BGM
 
 const state = reactive({
   // 拖拽元素
-  x: 216,
-  y: 320,
-  originalY: 10,
-  w: 100,
-  h: 100,
+  // x: 216,
+  // y: 320,
+  // originalY: 10,
+  // w: 100,
+  // h: 100,
   // 计时器
   minutes: 0,
   seconds: 0,
@@ -177,7 +184,8 @@ const state = reactive({
   iconName: 'music-o',
   audioSrc: luochengxieshu ? luochengxieshu : '' // BGM的Src
 })
-const { x, y, w, h, isRunning, isNeedTimer, isShowTimer, isStart, iconName, audioSrc } = toRefs(state)
+// const { x, y, w, h, isRunning, isNeedTimer, isShowTimer, isStart, iconName, audioSrc } = toRefs(state)
+const { isRunning, isNeedTimer, isShowTimer, isStart, iconName, audioSrc } = toRefs(state)
 const handleIsStartClick = () => {
   state.isStart = true
   if (state.isNeedTimer) {
@@ -286,36 +294,41 @@ onUnmounted(() => {
 </script>
 
 <style lang="less" scoped>
+.main-box{
+  padding-bottom: 80px;
+}
 .draggable {
   background-color: white;
   border: 1px solid black;
 }
 .timer-box {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 80px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-top: 1px solid black;
   .time {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0;
+    width: 100%;
+    height: 40px;
     text-align: center;
-    height: 50%;
+    margin: 0;
+    line-height: 40px;
   }
   .btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 50px;
+    height: 40px;
+    line-height: 40px;
     width: 100%;
     border-top: 1px solid black;
     box-sizing: border-box;
     > p {
+      display: inline-block;
       margin: 0;
-      padding-top: 15px;
       box-sizing: border-box;
       width: 50%;
       height: 100%;
