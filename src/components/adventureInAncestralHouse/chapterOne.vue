@@ -69,7 +69,7 @@ const handleConfirmClick = () => {
     case '清晖园':
       showToast({
         message: '恭喜，回答正确',
-        icon: 'success'
+        icon: 'success',
       })
       emit('update:active', 1)
       break

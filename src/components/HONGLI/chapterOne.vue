@@ -52,7 +52,7 @@ const handleConfirmClick = () => {
     return
   }
   switch (state.answer) {
-    case '曲水湾鹊桥底':
+    case '曲水湾鹊桥下':
       // showToast({
       //   message: '恭喜，回答正确',
       //   icon: 'success'
