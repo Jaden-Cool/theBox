@@ -35,7 +35,12 @@
       </p>
     </div>
 
-    <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+    <!-- <div class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
+    <van-popover v-model:show="showPopover" :actions="actions" placement="top-start" :offset="[24, 10]" @select="onSelect">
+      <template #reference>
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
   </div>
 </template>
 
@@ -46,9 +51,11 @@ import yellowTalismanPaper from '@/assets/images/yellowTalismanPaper.png'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer } = toRefs(state)
+const { answer,showPopover,actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -61,7 +68,7 @@ const handleConfirmClick = () => {
       })
       setTimeout(() => {
         showDialog({
-          message: '前往③荷园并寻找半闲亭以继续',
+          message: '前往③荷园，找到半闲庭以后点击继续',
           confirmButtonText: '继续故事',
           showCancelButton: true
         }).then(() => {
@@ -78,9 +85,20 @@ const handleConfirmClick = () => {
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({ message: '三个中文字' }).then(() => {})
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：三字对称分左右，右左对调显三字'
+    }).then(() => {})
+  } if (index === 1) {
+    showDialog({
+      message: '提示2：从上往下看三个图形都是对称的，以中轴线切开再拼合，得三字'
+    }).then(() => {})
+  }
 }
+// const handleFloatingBtnClick = () => {
+//   showDialog({ message: '三个中文字' }).then(() => {})
+// }
 </script>
 
 <style lang="less" scoped>

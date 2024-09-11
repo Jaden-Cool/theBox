@@ -8,6 +8,9 @@
 
     <div class="paragraph">
       <p class="normal">终于，我们来到了繁华的广州城，来到了广东银行那气派的大门前。广州和我记忆中任何一处都不一样。这里有汽车，有番鬼佬（外国人），大部分人的衣服都没有缝补的痕迹。</p>
+      <p class="center">
+        <van-image fit="contain" :src="bankOfCanton" @click="showImagePreview({ images: [bankOfCanton], showIndex: false })" />
+      </p>
       <p class="normal">望着来来往往的人群，我深吸一口气，转头看向刘天师，他难得的笑了笑，抬了抬下巴，示意我进去。</p>
       <p class="normal">我在脑海中演练了无数遍这一刻会发生什么事。我在门口的大理石上蹭干净了我的鞋底，拍了拍身上的尘土，迈进了厚重的大门。看着大堂之内的金碧辉煌，我的内心更忐忑了。</p>
       <p class="normal">我郑重地将遗书与一系列的文件递与了柜员。上面有阿爹的签名和指纹，应该还能证明我与他的关系。柜员接过，脸上挂着甜美的假笑，仔细查验。那一刻，时间仿佛凝固，我内心开始胡思乱想了起来。</p>
@@ -35,8 +38,9 @@
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
+import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
+import bankOfCanton from '@/assets/images/bankOfCanton.jpeg'
 // import { reactive, toRefs, defineProps } from 'vue'
 // import { useRouter } from 'vue-router'
 // const router = useRouter()

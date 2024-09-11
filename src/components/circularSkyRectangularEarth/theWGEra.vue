@@ -23,8 +23,8 @@
       <p class="normal">接下来的每一年，午未都会偷偷地过来确保地契还在。同时，埋下一坛新酒来纪念又平安的渡过了一年。</p>
     </div>
     <div class="center subtleFade" style="margin-bottom: 26px">
-      <p style="margin: 0">前往【顺酒坊】寻找你太爷留下的宝藏</p>
-      <p style="margin: 0">一课一棵树的挖吧。</p>
+      <p style="margin: 0">前往【顺酒坊】寻找你太爷留下的宝藏，</p>
+      <p style="margin: 0">一棵一棵树的挖，一个酒埕一个酒埕的找吧。</p>
     </div>
   </div>
 </template>

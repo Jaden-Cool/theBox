@@ -15,7 +15,7 @@
         他笑笑说道，“你和刘天师帮我续上了这些因果，我再也可以不用再轮回，安安心心的在天庭做个食神了。”
         说着，他在空中用手指写下了两个字
       </p>
-      <p>
+      <p class="cneter">
         <van-image
           fit="contain"
           :src="daLiang"
@@ -61,6 +61,13 @@
     </p>
     <p style="margin: 0;" class="center subtleFade">恭喜通关，欢迎扫描进群</p>
     <p style="margin: 0 0 26px 0;" class="center subtleFade">我们给各位通关大神准备了些小礼物</p>
+    <p class="cneter">
+        <van-image
+          fit="contain"
+          :src="listOfParticipants"
+          @click="showImagePreview({ images: [listOfParticipants], showIndex: false })"
+        />
+      </p>
   </div>
 </template>
 
@@ -69,6 +76,7 @@ import { onMounted } from 'vue'
 import { showImagePreview } from 'vant'
 import daLiang from '@/assets/images/daLiang.png'
 import QRcode from '@/assets/images/QRcode.png'
+import listOfParticipants from '@/assets/images/listOfParticipants.png'
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 })

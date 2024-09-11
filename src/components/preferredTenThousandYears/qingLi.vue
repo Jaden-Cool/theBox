@@ -96,12 +96,18 @@
 
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
-          <van-field v-model="answer" />
+          <van-field maxlength="8" show-word-limit v-model="answer" />
         </van-cell-group>
         <van-button plain hairline @click="handleConfirmClick">确认</van-button>
       </p>
     </div>
-    <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div>
+
+    <van-popover v-model:show="showPopover" :actions="actions" placement="top-start" :offset="[24, 10]" @select="onSelect">
+      <template #reference>
+        <div class="floating-btn">提示</div>
+      </template>
+    </van-popover>
+    <!-- <div  class="floating-btn" @click="handleFloatingBtnClick">提示</div> -->
   </div>
 </template>
 
@@ -111,9 +117,11 @@ import { reactive, toRefs } from 'vue'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
 const state = reactive({
-  answer: ''
+  answer: '',
+  showPopover: false,
+  actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer } = toRefs(state)
+const { answer,showPopover,actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return
@@ -136,14 +144,27 @@ const handleConfirmClick = () => {
     default:
       state.answer = ''
       showToast({
-        message: '不正确，请再试一次，或者考虑一下看提示哦~',
+        message: '在底盒的内侧有两道白色的花纹...',
         icon: 'cross'
       })
       break
   }
 }
-const handleFloatingBtnClick = () => {
-  showDialog({ message: '在底盒的内侧有两道白色的花纹...' }).then(() => {})
+// const handleFloatingBtnClick = () => {
+//   showDialog({ message: '在底盒的内侧有两道白色的花纹...' }).then(() => {})
+// }
+const onSelect = (action, index) => {
+  if (index === 0) {
+    showDialog({
+      message: '提示1：用盒子中的梳篦叠放到白色的条纹图案上，分别得出二字，再根据字变化前后推断出四字成语'
+    }).then(() => {})
+    return
+  }
+  if (index === 1) {
+    showDialog({
+      message: '提示2：两个词语的格式均为 同X共X'
+    }).then(() => {})
+  }
 }
 const handleMainBoxClick = () => {
   emit('handleAutoPlay')
