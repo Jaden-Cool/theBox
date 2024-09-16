@@ -42,11 +42,9 @@ const state = reactive({
     { id: 0, title: '青云文教所' },
     { id: 1, title: '口味苦' },
     { id: 2, title: '离开文教所' },
-    // { id: 3, title: '命运分岔' },
-    { id: 4, title: '读信毕' },
-    { id: 5, title: '猪脚姜' },
-    { id: 6, title: '口味辛' }
-    // { id: 7, title: '扇子' }
+    { id: 3, title: '读信毕' },
+    { id: 4, title: '猪脚姜' },
+    { id: 5, title: '口味辛' }
   ],
   active: 0,
   iconName: 'music-o',
@@ -73,13 +71,13 @@ const currentComponent = computed(() => {
   // if (+state.active === 3) {
   //   return aBifurcationOfFate
   // }
-  if (+state.active === 4) {
+  if (+state.active === 3) {
     return afterReadingTheLetter
   }
-  if (+state.active === 5) {
+  if (+state.active === 4) {
     return pigTrotterCookedWithGinger
   }
-  if (+state.active === 6) {
+  if (+state.active === 5) {
     return spicyTaste
   }
   // if (+state.active === 7) {

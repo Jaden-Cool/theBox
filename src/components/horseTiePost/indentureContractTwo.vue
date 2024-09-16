@@ -73,11 +73,16 @@ const handleConfirmClick = () => {
 const onSelect = (action, index) => {
   if (index === 0) {
     showDialog({
-      message: '提示1：刘恭可说的是卖身契，上面应该有指引.....'
+      message: '提示1：卖身契上的九个字是：三币围困古龙仙地现，以能阅读这句话这一侧为正面'
     }).then(() => {})
-  } else {
+  } if (index === 1) {
     showDialog({
-      message: '提示2：蓝色彩色玻璃上寻找九枚钱币，其中钱币会圈出九个字'
+      message: '提示2：其中三，币，龙 三个字皆被圈住了。而你要寻找【仙】'
+    }).then(() => {})
+  }
+  if (index === 2) {
+    showDialog({
+      message: '提示3：寻找地图中包含龍字的三个地点，用三 币 龙 覆盖，最终金色的【仙】字下面的地点就是答案'
     }).then(() => {})
   }
 }
