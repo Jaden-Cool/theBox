@@ -35,7 +35,7 @@
 import { onMounted } from 'vue'
 import { showDialog } from 'vant'
 const handleFloatingBtnClick = () => {
-  showDialog({ message: '取出地图，使用珠绳，根据诗词里面链接对应的两个建筑物，操作绳子寻找旧桥。旧桥处会有一个二维码......' }).then(() => {})
+  showDialog({ message: '取出地图，使用珠绳，根据诗词里面链接对应的两个建筑物，操作绳子寻找旧桥。旧桥处会有一块木板，后面藏着二维码' }).then(() => {})
 }
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })

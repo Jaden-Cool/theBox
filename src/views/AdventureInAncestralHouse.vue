@@ -4,11 +4,7 @@
       <van-tab v-for="item of tabs" :key="item.id" :title="item.title" />
     </van-tabs>
 
-    <component
-      :is="currentComponent"
-      @update:active="handleActiveUpdate"
-      @handleAutoPlay="handleAutoPlay"
-    />
+    <component :is="currentComponent" @update:active="handleActiveUpdate" @handleAutoPlay="handleAutoPlay" />
 
     <div class="audio-box" v-if="audioSrc">
       <van-icon :name="iconName" size="22" @click="handlePlayAudio" />
@@ -60,7 +56,9 @@ const state = reactive({
 const { active, tabs, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, 500)
   state.active = active
   handleTabsChange()
 }

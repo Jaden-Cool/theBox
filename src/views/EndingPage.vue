@@ -51,14 +51,14 @@
     </div>
     <p class="center"><strong>【《寻味》解谜盒——完结】</strong></p>
     <p class="center"><strong>【祝各位 日日有食神。】</strong></p>
-    <p class="center">
+    <!-- <p class="center">
       <van-image
       class="QRcode"
         fit="contain"
         :src="QRcode"
         @click="showImagePreview({ images: [QRcode], showIndex: false })"
       />
-    </p>
+    </p> -->
     <p style="margin: 0;" class="center subtleFade">恭喜通关，欢迎扫描进群</p>
     <p style="margin: 0 0 26px 0;" class="center subtleFade">我们给各位通关大神准备了些小礼物</p>
     <p class="cneter">
@@ -75,7 +75,7 @@
 import { onMounted } from 'vue'
 import { showImagePreview } from 'vant'
 import daLiang from '@/assets/images/daLiang.png'
-import QRcode from '@/assets/images/QRcode.png'
+// import QRcode from '@/assets/images/QRcode.png'
 import listOfParticipants from '@/assets/images/listOfParticipants.png'
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: 'smooth' })

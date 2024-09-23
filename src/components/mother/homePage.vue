@@ -19,6 +19,10 @@
     </div>
 
     <div class="paragraph">
+      <p class="center">回答以下问题</p>
+      <p class="center">
+        <van-image fit="contain" :src="role" @click="showImagePreview({ images: [role90], showIndex: false })"> </van-image>
+      </p>
       <p class="center">【请从左到右排列：末，生，旦，丑，外，小，贴，夫 八个字】</p>
       <p class="center" style="margin-bottom: 0">可用这个网站作为排列的提示：</p>
       <div class="center" style="margin-top: 0">
@@ -42,8 +46,10 @@
 </template>
 
 <script setup>
-import { showToast, showDialog } from 'vant'
+import { showToast, showDialog, showImagePreview } from 'vant'
 import { reactive, toRefs } from 'vue'
+import role from '@/assets/images/role.png'
+import role90 from '@/assets/images/role90.png'
 import ClipboardJS from 'clipboard'
 const emit = defineEmits(['update:active', 'handleAutoPlay'])
 
@@ -52,7 +58,7 @@ const state = reactive({
   showPopover: false,
   actions: [{ text: '提示1' }, { text: '提示2' }]
 })
-const { answer,showPopover,actions } = toRefs(state)
+const { answer, showPopover, actions } = toRefs(state)
 const handleConfirmClick = () => {
   if (!state.answer) {
     return

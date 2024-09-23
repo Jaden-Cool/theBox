@@ -53,7 +53,9 @@ const state = reactive({
 const { active, tabs, iconName, audioSrc } = toRefs(state)
 
 const handleActiveUpdate = (active) => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, 500)
   handleTabsChange('', state.tabs[active].title)
   state.active = active
 }

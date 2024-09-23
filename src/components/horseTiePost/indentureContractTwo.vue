@@ -36,7 +36,7 @@ const emit = defineEmits(['update:active', 'handleAutoPlay'])
 const state = reactive({
   answer: '',
   showPopover: false,
-  actions: [{ text: '提示1' }, { text: '提示2' }]
+  actions: [{ text: '提示1' }, { text: '提示2' }, { text: '提示3' }]
 })
 const { answer, showPopover, actions } = toRefs(state)
 const handleConfirmClick = () => {

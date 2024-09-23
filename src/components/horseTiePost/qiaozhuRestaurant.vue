@@ -24,7 +24,7 @@
     </div>
 
     <div class="paragraph">
-      <p class="center">【找到玄武所指之处，在那边会找到五个字，不要扫描二维码（那是另外一条故事线）。输入找到的五个字继续】</p>
+      <p class="center">【找到玄武所指之处，在那边会找到五个字，<strong style="font-size: 28px;">不要扫描二维码（那是另外一条故事线）</strong>。输入找到的五个字继续】</p>
       <p style="display: flex; align-items: center; justify-content: center" class="center">
         <van-cell-group inset>
           <van-field v-model="answer" />
@@ -34,7 +34,8 @@
     </div>
 
     <div class="floating-btn" @click="handleFloatingBtnClick">提示</div>
-    <van-dialog v-model:show="show" title="蓝色指向的阵眼处寻找一块烧焦的木牌" show-cancel-button>
+    <van-dialog v-model:show="show" show-cancel-button>
+      <p class="center">【蓝色指向的阵眼处寻找一块烧焦的木牌】</p>
       <img :src="map" />
     </van-dialog>
   </div>
